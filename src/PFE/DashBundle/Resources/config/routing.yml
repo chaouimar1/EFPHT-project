@@ -1,0 +1,3 @@
+pfe_dash_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PFEDashBundle:Default:index }

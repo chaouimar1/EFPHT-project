@@ -1,4 +1,3 @@
-dashboard:
-    resource: "@HightechExtranetBundle/Resources/config/routing.yml"
-    prefix:   /absence/
-
+pfe_dash:
+    resource: "@PFEDashBundle/Resources/config/routing.yml"
+    prefix:   /dash

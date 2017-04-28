@@ -1,0 +1,22 @@
+
+{% extends "::base.html.twig" %}
+
+{% block title %}
+  Dash - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+<ul class="left hide-on-med-and-down">
+  <li class="active"><a href="sass.html"></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Présentation" class="tooltipped"><a href="badges.html"><i class="material-icons">info_outline</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Espaces Bibliothèque" class="tooltipped"><a href="badges.html"> <i class="material-icons">library_books</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Equipements" class="tooltipped"><a href="badges.html"> <i class="material-icons">work</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Fonds de documents" class="tooltipped"><a href="badges.html"> <i class="material-icons">description</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Catalogue" class="tooltipped"><a href="badges.html"> <i class="material-icons">class</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Prêt" class="tooltipped"><a href="badges.html"> <i class="material-icons">shopping_basket</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Internet" class="tooltipped"><a href="badges.html"> <i class="material-icons">swap_vert</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Utilisateurs" class="tooltipped"><a href="badges.html"> <i class="material-icons">person_pin</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Animation" class="tooltipped"><a href="badges.html"> <i class="material-icons">games</i></a></li>
+  <li data-position="bottom" data-delay="10" data-tooltip="Besoins et remarques" class="tooltipped"><a href="badges.html"> <i class="material-icons">announcement</i></a></li>
+</ul>
+{% endblock %}

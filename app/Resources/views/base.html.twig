@@ -1,13 +1,120 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>{% block title %}PFE SF2 Project{% endblock %}</title>
+
+  {% block stylesheets %}
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  {% endblock %}
+
+</head>
+
+<body class="blue-grey lighten-5">
+ <div class="navbar-fixed">
+        <nav class="grey darken-3">
+          <div class="nav-wrapper">
+            <a href="#!" class="left brand-logo">PFE SF</a>
+            {% block menu %}
+
+            {% endblock %}
+            <ul class="right hide-on-med-and-down">
+              <li class="right"><a href="sass.html"><i class="material-icons left">power_settings_new</i>Déconnexion</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+  <ul id="nav-mobile" class="side-nav fixed grey darken-3">
+        <li class="logo"><a class="brand-logo"><img src="{{ asset('img/mc.jpg') }}"></a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold grey darken-3 "><a class="collapsible-header waves-effect white-text active">PROVINCES</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class="grey darken-2"><a class="waves-effect grey lighten-5" href="#">Kénitra</a></li>
+                  <li class="grey darken-2"><a class="waves-effect grey lighten-5" href="#">Sidi Slimane</a></li>
+                  <li class="grey darken-2"><a class="waves-effect grey lighten-5" href="#">Sidi Kacem</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold grey darken-3 white-text"><a class="collapsible-header waves-effect white-text ">Bibliothèques régionales de SELECTED</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class="green lighten-4"><a class="waves-effect grey lighten-4" href="#"> Bib 1</a></li>
+                  <li class="green lighten-4"><a class="waves-effect grey lighten-4" href="#"> Bib 2</a></li>
+                  <li class="green lighten-4"><a class="waves-effect grey lighten-4" href="#"> Bib 3</a></li>
+                  <li class="green lighten-4"><a class="waves-effect grey lighten-4" href="#"> Bib 4</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+  </ul>
+     
+    <div class="container">
+
+    <br><br><br>
+        <div class="section">
+            <div class="row">
+                <div class="col s11 offset-s2">
+                {% block body %}
+
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col offset-l2 l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l2 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l2 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+        <div class="container">
+          <div class="row">
+            <div class="col offset-l2">
+          Made by <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  {% block javascripts %}
+  <!--  Scripts-->
+  <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+  <script src="{{ asset('js/materialize.js') }}"></script>
+  <script src="{{ asset('js/init.js') }}"></script>
+  {% endblock %}
+  </body>
 </html>
