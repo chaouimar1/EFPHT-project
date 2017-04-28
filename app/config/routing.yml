@@ -1,0 +1,4 @@
+dashboard:
+    resource: "@HightechExtranetBundle/Resources/config/routing.yml"
+    prefix:   /absence/
+
