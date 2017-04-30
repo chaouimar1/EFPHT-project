@@ -12,6 +12,16 @@
   <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
   {% endblock %}
 
+  
+  {% block javascripts %}
+  <!--  Scripts-->
+  <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+  <script src="{{ asset('js/materialize.js') }}"></script>
+  <script src="{{ asset('js/init.js') }}"></script>
+  <script src="http://code.highcharts.com/4.1.8/highcharts.js"></script>
+  <script src="http://code.highcharts.com/4.1.8/modules/exporting.js"></script>
+  {% endblock %}
+
 </head>
 
 <body class="blue-grey lighten-5">
@@ -109,12 +119,5 @@
     </div>
   </footer>
 
-
-  {% block javascripts %}
-  <!--  Scripts-->
-  <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
-  <script src="{{ asset('js/materialize.js') }}"></script>
-  <script src="{{ asset('js/init.js') }}"></script>
-  {% endblock %}
   </body>
 </html>
