@@ -30,6 +30,7 @@ class DefaultController extends Controller
     	//****************  Pie chart  ****************//
 		$chart2 = new Highchart();
 		$chart2->chart->renderTo('piechart');
+		$chart2->chart->type('pie'); // Column / Line (default)
 		$chart2->title->text('Browser market shares January, 2015 to May, 2015');
 		$chart2->plotOptions->pie(array(
 		    'allowPointSelect'  => true,
@@ -46,7 +47,7 @@ class DefaultController extends Controller
 		    array('Others', 0.7),
 		);
 		$chart2->series(array(array(
-			'type' => 'pie',
+			//'type' => 'pie',
 			'name' => 'Browser share', 
 			'data' => $data,
 			)));

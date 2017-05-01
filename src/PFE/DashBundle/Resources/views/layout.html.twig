@@ -20,3 +20,9 @@
   <li data-position="bottom" data-delay="10" data-tooltip="Besoins et remarques" class="tooltipped"><a href="badges.html"> <i class="material-icons">announcement</i></a></li>
 </ul>
 {% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+  <script src="{{ asset('js/highcharts.js') }}"></script>
+  <script src="{{ asset('js/exporting.js') }}"></script>
+{% endblock %}
