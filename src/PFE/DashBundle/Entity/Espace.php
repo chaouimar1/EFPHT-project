@@ -51,6 +51,7 @@ class Espace
     public function __construct()
     {
         $this->equipement = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     /**

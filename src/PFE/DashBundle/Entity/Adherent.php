@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Adherent
 {
+
+
     /**
      * @ORM\Id
      * @ORM\Column(type="guid")
@@ -49,6 +51,13 @@ class Adherent
      * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
      */
     private $bibliotheque;
+
+    /**
+     * Adherent constructor.
+     */
+    public function __construct()
+    {
+    }
 
     /**
      * Get id

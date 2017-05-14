@@ -30,10 +30,24 @@ class Remarque
     private $type;
 
     /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="remarque")
      * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id")
      */
     private $bibliotheque;
+
+    /**
+     * Remarque constructor.
+     * @param $date
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -135,5 +149,28 @@ class Remarque
     public function getBibliotheque()
     {
         return $this->bibliotheque;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Remarque
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

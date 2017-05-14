@@ -66,7 +66,7 @@ $currentKey .= $char;
 }
 }
 if (null !== $currentKey) {
-throw new \InvalidArgumentException(sprintf('Malformed path. Path must end with "]".'));
+throw new \InvalidArgumentException('Malformed path. Path must end with "]".');
 }
 return $value;
 }
@@ -1417,10 +1417,10 @@ public static $statusTexts = array(
 410 =>'Gone',
 411 =>'Length Required',
 412 =>'Precondition Failed',
-413 =>'Request Entity Too Large',
-414 =>'Request-URI Too Long',
+413 =>'Payload Too Large',
+414 =>'URI Too Long',
 415 =>'Unsupported Media Type',
-416 =>'Requested Range Not Satisfiable',
+416 =>'Range Not Satisfiable',
 417 =>'Expectation Failed',
 418 =>'I\'m a teapot', 421 =>'Misdirected Request', 422 =>'Unprocessable Entity', 423 =>'Locked', 424 =>'Failed Dependency', 425 =>'Reserved for WebDAV advanced collections expired proposal', 426 =>'Upgrade Required', 428 =>'Precondition Required', 429 =>'Too Many Requests', 431 =>'Request Header Fields Too Large', 451 =>'Unavailable For Legal Reasons', 500 =>'Internal Server Error',
 501 =>'Not Implemented',
@@ -1428,7 +1428,7 @@ public static $statusTexts = array(
 503 =>'Service Unavailable',
 504 =>'Gateway Timeout',
 505 =>'HTTP Version Not Supported',
-506 =>'Variant Also Negotiates (Experimental)', 507 =>'Insufficient Storage', 508 =>'Loop Detected', 510 =>'Not Extended', 511 =>'Network Authentication Required', );
+506 =>'Variant Also Negotiates', 507 =>'Insufficient Storage', 508 =>'Loop Detected', 510 =>'Not Extended', 511 =>'Network Authentication Required', );
 public function __construct($content ='', $status = 200, $headers = array())
 {
 $this->headers = new ResponseHeaderBag($headers);
@@ -2409,11 +2409,11 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.7.26';
-const VERSION_ID = 20726;
+const VERSION ='2.7.27';
+const VERSION_ID = 20727;
 const MAJOR_VERSION = 2;
 const MINOR_VERSION = 7;
-const RELEASE_VERSION = 26;
+const RELEASE_VERSION = 27;
 const EXTRA_VERSION ='';
 const END_OF_MAINTENANCE ='05/2018';
 const END_OF_LIFE ='05/2019';

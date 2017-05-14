@@ -42,6 +42,15 @@ class Pret
     private $typefondoc;
 
     /**
+     * Pret constructor.
+     * @param $date
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    /**
      * Get id
      *
      * @return integer 

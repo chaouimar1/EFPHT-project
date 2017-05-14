@@ -40,6 +40,11 @@ class Animation
     private $date;
 
     /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $dateanimation;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Typeanimation", inversedBy="animation")
      * @ORM\JoinColumn(name="typeanimation_id", referencedColumnName="id", nullable=false)
      */
@@ -50,6 +55,14 @@ class Animation
      * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
      */
     private $bibliotheque;
+
+    /**
+     * Animation constructor.
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -220,5 +233,28 @@ class Animation
     public function getBibliotheque()
     {
         return $this->bibliotheque;
+    }
+
+    /**
+     * Set dateanimation
+     *
+     * @param \DateTime $dateanimation
+     * @return Animation
+     */
+    public function setDateanimation($dateanimation)
+    {
+        $this->dateanimation = $dateanimation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateanimation
+     *
+     * @return \DateTime 
+     */
+    public function getDateanimation()
+    {
+        return $this->dateanimation;
     }
 }

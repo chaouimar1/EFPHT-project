@@ -123,6 +123,7 @@ class Bibliotheque
         $this->socialMedia = new \Doctrine\Common\Collections\ArrayCollection();
         $this->remarque = new \Doctrine\Common\Collections\ArrayCollection();
         $this->tutelle = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isFormation = false;
     }
 
     /**

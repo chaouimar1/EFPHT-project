@@ -31,6 +31,15 @@ class Internet
     private $bibliotheque;
 
     /**
+     * Internet constructor.
+     * @param $date
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    /**
      * Get id
      *
      * @return integer 
