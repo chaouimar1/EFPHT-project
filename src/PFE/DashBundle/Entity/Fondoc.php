@@ -9,8 +9,8 @@ class Fondoc
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -26,13 +26,115 @@ class Fondoc
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Typefondoc", inversedBy="fondoc")
-     * @ORM\JoinColumn(name="typefondoc_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="typefondoc_id", referencedColumnName="id", nullable=false)
      */
     private $typefondoc;
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="fondoc")
-     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
      */
     private $bibliotheque;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param integer $nombre
+     * @return Fondoc
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return integer 
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Fondoc
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set typefondoc
+     *
+     * @param \PFE\DashBundle\Entity\Typefondoc $typefondoc
+     * @return Fondoc
+     */
+    public function setTypefondoc(\PFE\DashBundle\Entity\Typefondoc $typefondoc)
+    {
+        $this->typefondoc = $typefondoc;
+
+        return $this;
+    }
+
+    /**
+     * Get typefondoc
+     *
+     * @return \PFE\DashBundle\Entity\Typefondoc 
+     */
+    public function getTypefondoc()
+    {
+        return $this->typefondoc;
+    }
+
+    /**
+     * Set bibliotheque
+     *
+     * @param \PFE\DashBundle\Entity\Bibliotheque $bibliotheque
+     * @return Fondoc
+     */
+    public function setBibliotheque(\PFE\DashBundle\Entity\Bibliotheque $bibliotheque)
+    {
+        $this->bibliotheque = $bibliotheque;
+
+        return $this;
+    }
+
+    /**
+     * Get bibliotheque
+     *
+     * @return \PFE\DashBundle\Entity\Bibliotheque 
+     */
+    public function getBibliotheque()
+    {
+        return $this->bibliotheque;
+    }
 }

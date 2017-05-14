@@ -9,8 +9,8 @@ class Tutelle
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -28,4 +28,77 @@ class Tutelle
      * )
      */
     private $bibliotheque;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->bibliotheque = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Tutelle
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Add bibliotheque
+     *
+     * @param \PFE\DashBundle\Entity\Bibliotheque $bibliotheque
+     * @return Tutelle
+     */
+    public function addBibliotheque(\PFE\DashBundle\Entity\Bibliotheque $bibliotheque)
+    {
+        $this->bibliotheque[] = $bibliotheque;
+
+        return $this;
+    }
+
+    /**
+     * Remove bibliotheque
+     *
+     * @param \PFE\DashBundle\Entity\Bibliotheque $bibliotheque
+     */
+    public function removeBibliotheque(\PFE\DashBundle\Entity\Bibliotheque $bibliotheque)
+    {
+        $this->bibliotheque->removeElement($bibliotheque);
+    }
+
+    /**
+     * Get bibliotheque
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBibliotheque()
+    {
+        return $this->bibliotheque;
+    }
 }

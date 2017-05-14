@@ -1,3 +1,35 @@
 pfe_dash_homepage:
     path:     /hello/{name}
     defaults: { _controller: PFEDashBundle:Default:index }
+
+presentation:
+    path:     /presentation
+    defaults: { _controller: PFEDashBundle:Bib:presentation }
+
+espaces:
+    path:     /espaces
+    defaults: { _controller: PFEDashBundle:Bib:espaces }
+
+equipements:
+    path:     /equipements
+    defaults: { _controller: PFEDashBundle:Bib:equipements }
+
+fonds:
+    path:     /fonds
+    defaults: { _controller: PFEDashBundle:Bib:fonds }
+
+catalogues:
+    path:     /catalogues
+    defaults: { _controller: PFEDashBundle:Bib:catalogues }
+
+prets:
+    path:     /prets
+    defaults: { _controller: PFEDashBundle:Bib:prets }
+
+animations:
+    path:     /animations
+    defaults: { _controller: PFEDashBundle:Bib:animations }
+
+remarques:
+    path:     /remarques
+    defaults: { _controller: PFEDashBundle:Bib:remarques }

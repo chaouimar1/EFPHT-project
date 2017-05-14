@@ -9,8 +9,8 @@ class SocialMedia
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -31,7 +31,109 @@ class SocialMedia
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="socialMedia")
-     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
      */
     private $bibliotheque;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return SocialMedia
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return SocialMedia
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return SocialMedia
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set bibliotheque
+     *
+     * @param \PFE\DashBundle\Entity\Bibliotheque $bibliotheque
+     * @return SocialMedia
+     */
+    public function setBibliotheque(\PFE\DashBundle\Entity\Bibliotheque $bibliotheque)
+    {
+        $this->bibliotheque = $bibliotheque;
+
+        return $this;
+    }
+
+    /**
+     * Get bibliotheque
+     *
+     * @return \PFE\DashBundle\Entity\Bibliotheque 
+     */
+    public function getBibliotheque()
+    {
+        return $this->bibliotheque;
+    }
 }
