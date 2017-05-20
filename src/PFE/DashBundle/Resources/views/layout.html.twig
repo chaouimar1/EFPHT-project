@@ -6,48 +6,48 @@
 {% endblock %}
 
 {% block menu %}
-<ul class="left hide-on-med-and-down">
-  <li class="{% if app.request.attributes.get('_route') == 'presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Présentation" class="tooltipped">
-    <a href="{{ path('presentation') }}">
-      <i class="material-icons">info_outline</i></a></li>
+  <ul class="left hide-on-med-and-down">
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Présentation" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_presentation') }}">
+        <i class="material-icons">info_outline</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'espaces' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Espaces Bibliothèque" class="tooltipped">
-    <a href="{{ path('espaces') }}">
-      <i class="material-icons">library_books</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_espaces' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Espaces Bibliothèque" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_espaces') }}">
+        <i class="material-icons">library_books</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'equipements' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Equipements" class="tooltipped">
-    <a href="{{ path('equipements') }}">
-      <i class="material-icons">work</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_equipements' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Equipements" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_equipements') }}">
+        <i class="material-icons">work</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'fonds' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Fonds de documents" class="tooltipped">
-    <a href="{{ path('fonds') }}">
-      <i class="material-icons">description</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_fonds' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Fonds de documents" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_fonds') }}">
+        <i class="material-icons">description</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'catalogues' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Catalogue" class="tooltipped">
-    <a href="{{ path('catalogues') }}">
-      <i class="material-icons">class</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_catalogues' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Catalogue" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_catalogues') }}">
+        <i class="material-icons">class</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'prets' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Prêt" class="tooltipped">
-    <a href="{{ path('prets') }}">
-      <i class="material-icons">shopping_basket</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_prets' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Prêt" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_prets') }}">
+        <i class="material-icons">shopping_basket</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs" class="tooltipped">
-    <a href="{{ path('presentation') }}">
-      <i class="material-icons">person_pin</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_presentation') }}">
+        <i class="material-icons">person_pin</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'animations' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Animation" class="tooltipped">
-    <a href="{{ path('animations') }}">
-      <i class="material-icons">games</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_animations' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Animation" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_animations') }}">
+        <i class="material-icons">games</i></a></li>
 
-  <li class="{% if app.request.attributes.get('_route') == 'remarques' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Besoins et remarques" class="tooltipped">
-    <a href="{{ path('remarques') }}">
-      <i class="material-icons">announcement</i></a></li>
+    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_remarques' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Besoins et remarques" class="tooltipped">
+      <a href="{{ path('pfe_dash_bib_remarques') }}">
+        <i class="material-icons">announcement</i></a></li>
 
-</ul>
+  </ul>
 {% endblock %}
 
 {% block javascripts %}
-{{ parent() }}
+    {{ parent() }}
   <script src="{{ asset('js/highcharts.js') }}"></script>
   <script src="{{ asset('js/exporting.js') }}"></script>
 {% endblock %}

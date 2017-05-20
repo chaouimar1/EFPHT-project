@@ -111,12 +111,12 @@ ul.side-nav.fixed {
 }}
 
 .container {
-  margin: 0 0 0 10%;
+  margin: 0 0 0 6%;
   padding-top: 10px;
 }
 
 #nav-mobile{
-  width: 20%;
+  width: 18%;
 }
 
 nav .brand-logo{
@@ -156,12 +156,19 @@ i.tiny {
 
 .card-title{
   margin: 0 0 20px;
-  padding: 20px;
+  padding: 15px;
   border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
-.card-panel.wtitle{
+.card.wtitle {
   padding: 0;
+}
+
+.card.wtitle h5 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #000;
 }
 
 .top-blue  {border-top: 3px solid #03a9f4}
@@ -176,4 +183,21 @@ ul.collapsible-accordion>li{
 
 nav ul li:hover, nav ul li.active {
     background-color: rgba(0, 0, 0, 0.3); !important
+}
+
+.container .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.cols2 {
+    margin-left: 3.5% !important;
+}
+
+.cols4 {
+    margin-left: 2% !important;
+}
+
+.cols6 {
+    margin-left: 3% !important;
 }
