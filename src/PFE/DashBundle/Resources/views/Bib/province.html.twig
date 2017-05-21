@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    {% for b in province.bibliotheque %}
+    {% for b in p.bibliotheque %}
         <div class="card wtitle col s5 {%  if loop.index is not odd %}offset-s1 {% endif %}">
             <h3 class="card-title bigtitle blue-grey">{{ b.nom }}</h3>
 
@@ -14,7 +14,7 @@
                 <p><i class="mdi-image-assistant-photo blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Adresse : </span>{{ b.adresse }}</p>
                 <p><i class="mdi-action-perm-phone-msg blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Téléphone/Fax : </span>{{ b.tel }} / {{ b.fax }}</p>
                 <p><i class="mdi-communication-email blue-grey-text text-darken-2"></i> <span class="blue-grey-text">E-mail : </span>{{ b.email }}</p>
-                <p><i class="mdi-action-verified-user blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Tutelle : </span>...</p>
+                <p><i class="mdi-action-account-balance blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Tutelle(s) : </span>...</p>
                 <p><i class="mdi-action-event blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Date installation internet : </span>{{ b.dateInstallationInternet|date("d/m/Y")  }}</p>
             </div>
             <div class="card-action">

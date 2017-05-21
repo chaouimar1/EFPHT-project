@@ -1,3 +1,23 @@
+pfe_dash_remarque:
+    resource: "@PFEDashBundle/Resources/config/routing/remarque.yml"
+    prefix:   /remarque
+
+pfe_dash_equipement:
+    resource: "@PFEDashBundle/Resources/config/routing/equipement.yml"
+    prefix:   /equipement
+
+pfe_dash_espace:
+    resource: "@PFEDashBundle/Resources/config/routing/espace.yml"
+    prefix:   /espace
+
+pfe_dash_internet:
+    resource: "@PFEDashBundle/Resources/config/routing/internet.yml"
+    prefix:   /internet
+
+pfe_dash_socialmedia:
+    resource: "@PFEDashBundle/Resources/config/routing/socialmedia.yml"
+    prefix:   /saisi/socialmedia
+
 # default controller
 pfe_dash_homepage:
     path:     /hello/{name}

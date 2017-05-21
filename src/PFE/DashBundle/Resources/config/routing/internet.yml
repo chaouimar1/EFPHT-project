@@ -1,0 +1,30 @@
+internet:
+    path:     /
+    defaults: { _controller: "PFEDashBundle:Internet:index" }
+
+internet_show:
+    path:     /{id}/show
+    defaults: { _controller: "PFEDashBundle:Internet:show" }
+
+internet_new:
+    path:     /new
+    defaults: { _controller: "PFEDashBundle:Internet:new" }
+
+internet_create:
+    path:     /create
+    defaults: { _controller: "PFEDashBundle:Internet:create" }
+    methods:  POST
+
+internet_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PFEDashBundle:Internet:edit" }
+
+internet_update:
+    path:     /{id}/update
+    defaults: { _controller: "PFEDashBundle:Internet:update" }
+    methods:  [POST, PUT]
+
+internet_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PFEDashBundle:Internet:delete" }
+    methods:  [POST, DELETE]

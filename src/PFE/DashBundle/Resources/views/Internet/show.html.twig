@@ -1,0 +1,36 @@
+{% extends "PFEDashBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Internet</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Isdispo</th>
+                <td>{{ entity.isDispo }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('internet') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('internet_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

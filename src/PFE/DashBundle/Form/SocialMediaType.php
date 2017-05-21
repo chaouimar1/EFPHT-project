@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class InternetType extends AbstractType
+class SocialMediaType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,9 @@ class InternetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isDispo')
-            //->add('created')
+            ->add('nom')
+            ->add('description')
+            ->add('url')
             ->add('bibliotheque','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Bibliotheque',
                 'property' => 'nom'
@@ -30,7 +31,7 @@ class InternetType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PFE\DashBundle\Entity\Internet'
+            'data_class' => 'PFE\DashBundle\Entity\SocialMedia'
         ));
     }
 
@@ -39,6 +40,6 @@ class InternetType extends AbstractType
      */
     public function getName()
     {
-        return 'pfe_dashbundle_internet';
+        return 'pfe_dashbundle_socialmedia';
     }
 }

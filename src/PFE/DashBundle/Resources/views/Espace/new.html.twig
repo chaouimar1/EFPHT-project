@@ -1,0 +1,15 @@
+{% extends "PFEDashBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Espace creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('espace') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

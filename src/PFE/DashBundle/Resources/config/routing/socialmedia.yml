@@ -1,0 +1,30 @@
+socialmedia:
+    path:     /
+    defaults: { _controller: "PFEDashBundle:SocialMedia:index" }
+
+socialmedia_show:
+    path:     /{id}/show
+    defaults: { _controller: "PFEDashBundle:SocialMedia:show" }
+
+socialmedia_new:
+    path:     /new
+    defaults: { _controller: "PFEDashBundle:SocialMedia:new" }
+
+socialmedia_create:
+    path:     /create
+    defaults: { _controller: "PFEDashBundle:SocialMedia:create" }
+    methods:  POST
+
+socialmedia_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PFEDashBundle:SocialMedia:edit" }
+
+socialmedia_update:
+    path:     /{id}/update
+    defaults: { _controller: "PFEDashBundle:SocialMedia:update" }
+    methods:  [POST, PUT]
+
+socialmedia_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PFEDashBundle:SocialMedia:delete" }
+    methods:  [POST, DELETE]

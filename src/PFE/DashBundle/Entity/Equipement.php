@@ -25,6 +25,16 @@ class Equipement
     private $nombre;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nombre_endommage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $nombre_nutilisable;
+
+    /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $created;
@@ -196,5 +206,51 @@ class Equipement
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Set nombre_endommage
+     *
+     * @param integer $nombreEndommage
+     * @return Equipement
+     */
+    public function setNombreEndommage($nombreEndommage)
+    {
+        $this->nombre_endommage = $nombreEndommage;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre_endommage
+     *
+     * @return integer 
+     */
+    public function getNombreEndommage()
+    {
+        return $this->nombre_endommage;
+    }
+
+    /**
+     * Set nombre_nutilisable
+     *
+     * @param integer $nombreNutilisable
+     * @return Equipement
+     */
+    public function setNombreNutilisable($nombreNutilisable)
+    {
+        $this->nombre_nutilisable = $nombreNutilisable;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre_nutilisable
+     *
+     * @return integer 
+     */
+    public function getNombreNutilisable()
+    {
+        return $this->nombre_nutilisable;
     }
 }

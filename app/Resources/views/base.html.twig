@@ -24,7 +24,7 @@
 
 <body class="blue-grey lighten-5">
 <div class="navbar-fixed">
-    <nav class="grey darken-3">
+    <nav class="blue-grey darken-3">
         <div class="nav-wrapper">
             <a href="#!" class="left brand-logo">PFE SF</a>
             {% block menu %}
@@ -36,13 +36,31 @@
         </div>
     </nav>
 </div>
-<ul id="nav-mobile" class="side-nav fixed grey darken-3">
+<ul id="nav-mobile" class="side-nav fixed blue-grey darken-3">
     <li class="logo"><a class="brand-logo"><img src="{{ asset('img/mc.jpg') }}"></a></li>
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
-            <li class="bold grey darken-3 "><a class="collapsible-header waves-effect white-text active">PROVINCES</a>
+            <li class="bold blue-grey darken-3 "><a class="collapsible-header waves-effect white-text active">PROVINCES</a>
                 <div class="collapsible-body">
                     {{ render(controller("PFEDashBundle:Bib:menu")) }}
+                </div>
+            </li>
+            <li class="bold blue-grey darken-3 "><a class="collapsible-header waves-effect white-text">FORMULAIRES DE SAISIS</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a class="waves-effect grey lighten-5" href="{{ path('espace') }}"><b>Espaces</b></a></li>
+                        <li><a class="waves-effect grey lighten-5" href="{{ path('equipement') }}"><b>Equipements</b></a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Fond Documentaire</a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Catalogues</a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Prêts</a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Animations</a></li>
+                        <li><a class="waves-effect grey lighten-5" href="{{ path('remarque') }}"><b>Remarques</b></a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Adherents</a></li>
+                        <li><a class="waves-effect grey lighten-5" href="{{ path('internet') }}"><b>Internet</b></a></li>
+                        <li><a class="waves-effect grey lighten-5" href="{{ path('socialmedia') }}"><b>Reseaux Sociaux</b></a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Bibliotheques</a></li>
+                        <li><a class="waves-effect grey lighten-5" href="#">Provinces</a></li>
+                    </ul>
                 </div>
             </li>
         </ul>
@@ -63,7 +81,7 @@
     </div>
 </div>
 
-<footer class="page-footer grey darken-3">
+<footer class="page-footer blue-grey darken-3">
     <div class="container">
         <div class="row">
             <div class="col offset-l2 l6 s12">
@@ -92,7 +110,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright grey darken-4">
+    <div class="footer-copyright blue-grey darken-4">
         <div class="container">
             <div class="row">
                 <div class="col offset-l2">

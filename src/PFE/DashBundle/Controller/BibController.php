@@ -60,26 +60,20 @@ class BibController extends Controller
 
     public function menuAction()
     {
-
-        // On récupère le repository
         $repository = $this->getDoctrine()
             ->getManager()
-            ->getRepository('PFEDashBundle:Province')
-        ;
+            ->getRepository('PFEDashBundle:Province');
 
-        // On récupère l'entité correspondante à l'id $id
         $provinces = $repository->findAll();
 
         return $this->render('PFEDashBundle:Bib:menu.html.twig', array(
             "provinces" => $provinces
         ));    }
 
-    public function provinceAction(Province $province ,Request $request)
+    public function provinceAction(Province $p)
     {
-        $request->getSession()->getFlashBag()->add('info', 'getting all provinces.');
-
         return $this->render('PFEDashBundle:Bib:province.html.twig', array(
-            "province" => $province,
+            "p" => $p,
         ));    }
 
 }
