@@ -22,7 +22,7 @@ class Internet
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date;
+    private $created;
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="internet")
@@ -36,7 +36,7 @@ class Internet
      */
     public function __construct()
     {
-        $this->date = new \DateTime();
+        $this->created = new \DateTime();
     }
 
     /**
@@ -116,5 +116,28 @@ class Internet
     public function getBibliotheque()
     {
         return $this->bibliotheque;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Internet
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

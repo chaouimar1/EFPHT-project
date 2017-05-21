@@ -20,6 +20,11 @@ class Espace
     private $isDisponible;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $etat;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $nombrePlaceAssises;
@@ -27,7 +32,7 @@ class Espace
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date;
+    private $created;
 
     /**
      * @ORM\OneToMany(targetEntity="PFE\DashBundle\Entity\Equipement", mappedBy="espace")
@@ -51,7 +56,7 @@ class Espace
     public function __construct()
     {
         $this->equipement = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->date = new \DateTime();
+        $this->created = new \DateTime();
     }
 
     /**
@@ -210,5 +215,51 @@ class Espace
     public function getBibliotheque()
     {
         return $this->bibliotheque;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param boolean $etat
+     * @return Espace
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return boolean 
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Espace
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

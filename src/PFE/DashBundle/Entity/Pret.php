@@ -27,7 +27,7 @@ class Pret
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date;
+    private $created;
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Typepret", inversedBy="pret")
@@ -47,7 +47,7 @@ class Pret
      */
     public function __construct()
     {
-        $this->date = new \DateTime();
+        $this->created = new \DateTime();
     }
 
     /**
@@ -173,5 +173,28 @@ class Pret
     public function getTypefondoc()
     {
         return $this->typefondoc;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Pret
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

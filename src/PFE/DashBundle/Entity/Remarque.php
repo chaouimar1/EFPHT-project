@@ -32,7 +32,7 @@ class Remarque
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date;
+    private $created;
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="remarque")
@@ -46,7 +46,7 @@ class Remarque
      */
     public function __construct()
     {
-        $this->date = new \DateTime();
+        $this->created = new \DateTime();
     }
 
     /**
@@ -172,5 +172,28 @@ class Remarque
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Remarque
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

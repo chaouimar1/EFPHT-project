@@ -22,7 +22,7 @@ class Fondoc
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date;
+    private $created;
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Typefondoc", inversedBy="fondoc")
@@ -42,7 +42,7 @@ class Fondoc
      */
     public function __construct()
     {
-        $this->date = new \DateTime();
+        $this->created = new \DateTime();
     }
 
     /**
@@ -145,5 +145,28 @@ class Fondoc
     public function getBibliotheque()
     {
         return $this->bibliotheque;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Fondoc
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

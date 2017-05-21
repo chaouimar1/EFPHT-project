@@ -15,6 +15,11 @@ class Animation
     private $id;
 
     /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $created;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $occamenheb;
@@ -256,5 +261,28 @@ class Animation
     public function getDateanimation()
     {
         return $this->dateanimation;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Animation
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

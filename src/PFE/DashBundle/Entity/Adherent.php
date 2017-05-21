@@ -17,6 +17,11 @@ class Adherent
     private $id;
 
     /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $created;
+
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $nom;
@@ -57,6 +62,7 @@ class Adherent
      */
     public function __construct()
     {
+        $this->created = new \DateTime();
     }
 
     /**
@@ -228,5 +234,28 @@ class Adherent
     public function getBibliotheque()
     {
         return $this->bibliotheque;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Adherent
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }
