@@ -206,8 +206,36 @@ nav ul li:hover, nav ul li.active {
     border-bottom: 0px !important;
 }
 
-.card-content p {
+.card .card-content p {
     font-size: 1.2rem;
-    margin: 10px 0 12px;
     padding-left: 20px;
+}
+
+.card .card-content {
+    padding-top: 0px;
+}
+
+.card p.bigalone{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+    padding-left: 0px;
+}
+
+.card p.smallalone{
+    font-size: 17px;
+}
+
+.card .card-content.smallbox {
+    padding-top: 0px;
+    height: 50px;
+}
+
+.bigtitle{
+    font-size: 28px !important;
+}
+
+.smalltitle{
+    font-size: 18px;
+    font-style: italic;
 }

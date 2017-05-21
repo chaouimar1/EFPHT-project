@@ -9,11 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BibController extends Controller
 {
-    public function presentationAction(/*Bibliotheque $bibliotheque*/)
+    public function presentationAction(Bibliotheque $b)
     {
         return $this->render('PFEDashBundle:Bib:presentation.html.twig', array(
-            //"bibliotheque" => $bibliotheque,
-        ));    }
+            "b" => $b,
+        ));
+    }
 
     public function espacesAction()
     {

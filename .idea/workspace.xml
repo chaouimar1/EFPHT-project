@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1931608a-a3be-4f01-bd13-e0b9b27e7137" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/phpunit-bridge/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/phpunit-bridge/LICENSE" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Adherent.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Adherent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Animation.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Animation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Equipement.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Equipement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Espace.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Espace.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Fondoc.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Fondoc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Internet.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Internet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Pret.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Pret.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Remarque.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Remarque.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Bibliotheque.php" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Bibliotheque.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="EFPHT-project.iws" />
@@ -67,21 +66,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <file leaf-file-name="BibController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="211" column="20" lean-forward="false" selection-start-line="211" selection-start-column="20" selection-end-line="211" selection-end-column="20" />
+            <state relative-caret-position="-1341">
+              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/config/routing.yml">
+      <file leaf-file-name="presentation.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            <state relative-caret-position="378">
+              <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="province.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basis.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+              <folding>
+                <element signature="e#464#826#0#PHP" expanded="false" />
+                <element signature="e#1235#1619#0#PHP" expanded="false" />
+                <element signature="e#1625#2556#0#PHP" expanded="false" />
+                <element signature="e#2562#3613#0#PHP" expanded="false" />
+                <element signature="e#3619#4440#0#PHP" expanded="false" />
+                <element signature="e#4446#5109#0#PHP" expanded="false" />
+                <element signature="e#5115#5501#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="34" column="56" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -102,6 +139,10 @@
       <find>etat</find>
       <find>@new</find>
       <find>new</find>
+      <find>title</find>
+      <find>card-content</find>
+      <find>id</find>
+      <find>offs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,21 +173,14 @@
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Typepret.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Catalogue.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Province.php" />
-        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Bibliotheque.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/Catalogue.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/Catalogues.php" />
         <option value="dbtable:/3329022e/25853199-6636-494e-978a-537a4d3c1b40/efphtdb.catalogue" />
-        <option value="$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php" />
-        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig" />
-        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Animation.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Adherent.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Equipement.php" />
@@ -156,7 +190,14 @@
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Pret.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Remarque.php" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Controller/InternetController.php" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Entity/Bibliotheque.php" />
+        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php" />
+        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php" />
+        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig" />
+        <option value="$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig" />
       </list>
     </option>
   </component>
@@ -705,12 +746,12 @@
       <workItem from="1494768447035" duration="12454000" />
       <workItem from="1494784966045" duration="102000" />
       <workItem from="1494970269025" duration="85000" />
-      <workItem from="1495322246014" duration="5978000" />
+      <workItem from="1495322246014" duration="19581000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25217000" />
+    <option name="totallyTimeSpent" value="38820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,14 +766,14 @@
     <frame x="0" y="28" width="1600" height="872" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1936937" sideWeight="0.47791165" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1936937" sideWeight="0.47978437" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.51287" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21621622" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26081082" sideWeight="0.497426" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1936937" sideWeight="0.52208835" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32884097" sideWeight="0.48713" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1936937" sideWeight="0.52021563" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.48713" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1936937" sideWeight="0.52208835" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -837,41 +878,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Typepret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Catalogue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Province.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1458">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Tutelle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="76" column="7" lean-forward="false" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/SocialMedia.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Typeanimation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1019,142 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-          <folding>
-            <element signature="e#50#100#0#PHP" expanded="false" />
-            <element signature="e#464#826#0#PHP" expanded="false" />
-            <element signature="e#832#1259#0#PHP" expanded="false" />
-            <element signature="e#1265#1649#0#PHP" expanded="false" />
-            <element signature="e#1655#2586#0#PHP" expanded="false" />
-            <element signature="e#2592#3643#0#PHP" expanded="false" />
-            <element signature="e#3649#4470#0#PHP" expanded="false" />
-            <element signature="e#4476#5139#0#PHP" expanded="false" />
-            <element signature="e#5145#5531#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="52" column="14" lean-forward="false" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-343">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Animation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Adherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Equipement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Espace.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Fondoc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Internet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Pret.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Remarque.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Bibliotheque.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="115" column="20" lean-forward="false" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#84#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="211" column="20" lean-forward="false" selection-start-line="211" selection-start-column="20" selection-end-line="211" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1199,10 +1073,178 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Adherent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="160" column="14" lean-forward="false" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Animation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Catalogue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Equipement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Bibliotheque.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="133" column="25" lean-forward="false" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Typeanimation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Tutelle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="76" column="7" lean-forward="false" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/SocialMedia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Remarque.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Province.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Pret.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Internet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Fondoc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Entity/Espace.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1593">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/DataFixtures/ORM/basis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="e#464#826#0#PHP" expanded="false" />
+            <element signature="e#1235#1619#0#PHP" expanded="false" />
+            <element signature="e#1625#2556#0#PHP" expanded="false" />
+            <element signature="e#2562#3613#0#PHP" expanded="false" />
+            <element signature="e#3619#4440#0#PHP" expanded="false" />
+            <element signature="e#4446#5109#0#PHP" expanded="false" />
+            <element signature="e#5115#5501#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Controller/BibController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1341">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/presentation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="34" column="56" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PFE/DashBundle/Resources/views/Bib/province.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
           <folding />
         </state>
       </provider>

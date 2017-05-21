@@ -4,21 +4,17 @@
 
 {% block body %}
     <div class="card wtitle col s6">
-        <h5 class="card-title">Infos generales</h5>
-        <form class="col s12">
-            <div class="row col">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
-                </div>
-            </div>
-        </form>
+        <h3 class="card-title bigtitle blue-grey">{{ b.nom }}</h3>
+
+        <div class="card-content">
+            <span class="card-title black-text noborder"><u>Infos générales</u></span>
+            <p><i class="mdi-action-schedule blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Date création : </span>{{ b.dateCreation|date("d/m/Y")  }}</p>
+            <p><i class="mdi-image-assistant-photo blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Adresse : </span>{{ b.adresse }}</p>
+            <p><i class="mdi-action-perm-phone-msg blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Téléphone/Fax : </span>{{ b.tel }} / {{ b.fax }}</p>
+            <p><i class="mdi-communication-email blue-grey-text text-darken-2"></i> <span class="blue-grey-text">E-mail : </span>{{ b.email }}</p>
+            <p><i class="mdi-action-verified-user blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Tutelle : </span>...</p>
+            <p><i class="mdi-action-event blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Date installation internet : </span>{{ b.dateInstallationInternet|date("d/m/Y")  }}</p>
+        </div>
     </div>
 
     <div class="card wtitle col s5 cols2">
@@ -26,81 +22,63 @@
             <img src="{{ asset('img/office.jpg') }}">
         </div>
         <div class="card-content">
-            <span class="card-title black-text noborder">Responsable de bibliotheque</span>
-            <p><i class="mdi-image-brightness-2 cyan-text text-darken-2"></i> info 1</p>
-            <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> info 2</p>
-            <p><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> info 3</p>
-        </div>
-        <div class="card-action">
-            <a href="#">This is a link</a>
+            <span class="card-title black-text noborder"><u>Responsable de bibliothèque</u></span>
+            <p><i class="mdi-action-perm-identity text-darken-2"></i> Nom & Prenom</p>
+            <p><i class="mdi-hardware-smartphone text-darken-2"></i> Téléphone</p>
+            <p><i class="mdi-communication-email text-darken-2"></i> E-mail</p>
+            <br>
         </div>
     </div>
 
     <div class="card wtitle light-blue lighten-1 col s2">
-        <h5 class="card-title white-text light-blue darken-1">Superficie</h5>
-        <div class="col s12">
-            <div class="row col">
-
-            </div>
+        <h5 class="card-title white-text light-blue darken-1"><i class="mdi-action-account-balance"></i> Superficie</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone">{{ b.superficie }} m² </p>
         </div>
     </div>
     <div class="card wtitle indigo lighten-1 col s2 cols6">
-        <h5 class="card-title white-text indigo darken-1">Places Assises</h5>
-        <div class="col s12">
-            <div class="row col">
-
-            </div>
+        <h5 class="card-title white-text indigo darken-1"><i class="mdi-image-tag-faces"></i> Places Assises</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone">...</p>
         </div>
     </div>
     <div class="card wtitle teal lighten-1 col s2 cols6">
-        <h5 class="card-title white-text teal darken-1">Fonctionnaire</h5>
-        <div class="col s12">
-            <div class="row col">
-
-            </div>
+        <h5 class="card-title white-text teal darken-1"><i class="mdi-action-account-box"></i> Fonctionnaires</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone">...</p>
         </div>
     </div>
     <div class="card wtitle orange lighten-1 col s2 cols6">
-        <h5 class="card-title white-text orange darken-1">Catalogue</h5>
-        <div class="col s12">
-            <div class="row col">
-
-            </div>
+        <h5 class="card-title white-text orange darken-1"><i class="mdi-action-book"></i> Catalogue</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone smallalone">{{ b.catalogue.nom }}</p>
         </div>
     </div>
-    <div class="card wtitle red lighten-1 col s2 cols6">
-        <h5 class="card-title white-text red darken-1">Catalogue</h5>
-        <div class="col s12">
-            <div class="row col">
-
-            </div>
+    <div class="card wtitle blue-grey lighten-1 col s2 cols6">
+        <h5 class="card-title white-text blue-grey darken-1">Formation</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone">{% if b.isFormation %}Oui{%  else %}Non{% endif %}</p>
         </div>
     </div>
 
     <div class="card wtitle purple lighten-1 col s4">
-        <h5 class="card-title white-text purple darken-1">Catalogue</h5>
+        <h5 class="card-title white-text purple darken-1"><i class="mdi-action-face-unlock"></i> Adherents</h5>
         <div class="col s12">
-            <div class="row col">
-
+            <div class="card-content smallbox">
+                <p class="white-text bigalone">{{ b.adherent|length }}</p>
             </div>
         </div>
     </div>
-    <div class="card wtitle brown lighten-1 col s3 cols4">
-        <h5 class="card-title white-text brown darken-1">Catalogue</h5>
-        <div class="col s12">
-            <div class="row col">
-
-            </div>
+    <div class="card wtitle brown lighten-1 col s4 cols4">
+        <h5 class="card-title white-text brown darken-1"><i class="mdi-action-note-add"></i> Fond Documentaire</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone">{{ b.fondoc|length }}</p>
         </div>
     </div>
-    <div class="card wtitle blue-grey lighten-1 col s4 cols4">
-        <h5 class="card-title white-text blue-grey darken-1">Catalogue</h5>
-        <div class="col s12 ">
-            <div class="row col">
-
-            </div>
+    <div class="card wtitle red lighten-1 col s3 cols4">
+        <h5 class="card-title white-text red darken-1"><i class="mdi-action-announcement"></i> Remarques & Besoins</h5>
+        <div class="card-content smallbox">
+            <p class="white-text bigalone">{{ b.remarque|length }}</p>
         </div>
     </div>
-
-
 {% endblock %}

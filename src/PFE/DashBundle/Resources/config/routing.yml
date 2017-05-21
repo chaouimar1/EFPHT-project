@@ -5,11 +5,10 @@ pfe_dash_homepage:
 
 # bib controller
 pfe_dash_bib_presentation:
-    path:     /presentation
-    #/{id}
+    path:     /presentation/{id}
     defaults: { _controller: PFEDashBundle:Bib:presentation }
-    #requirements:
-    #    id: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+    requirements:
+        id: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 
 pfe_dash_bib_espaces:
     path:     /espaces

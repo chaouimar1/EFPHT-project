@@ -7,9 +7,9 @@
 
 {% block menu %}
   <ul class="left hide-on-med-and-down">
-    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Présentation" class="tooltipped">
-      <a href="{{ path('pfe_dash_bib_presentation') }}">
-        <i class="material-icons">info_outline</i></a></li>
+    {#<li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Présentation" class="tooltipped">#}
+      {#<a href="{ path('pfe_dash_bib_presentation') }}">#}
+        {#<i class="material-icons">info_outline</i></a></li>#}
 
     <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_espaces' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Espaces Bibliothèque" class="tooltipped">
       <a href="{{ path('pfe_dash_bib_espaces') }}">
@@ -31,9 +31,9 @@
       <a href="{{ path('pfe_dash_bib_prets') }}">
         <i class="material-icons">shopping_basket</i></a></li>
 
-    <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs" class="tooltipped">
-      <a href="{{ path('pfe_dash_bib_presentation') }}">
-        <i class="material-icons">person_pin</i></a></li>
+    {#<li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs" class="tooltipped">#}
+      {#<a href="{{ path('pfe_dash_bib_presentation') }}">#}
+        {#<i class="material-icons">person_pin</i></a></li>#}
 
     <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_animations' %}active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Animation" class="tooltipped">
       <a href="{{ path('pfe_dash_bib_animations') }}">

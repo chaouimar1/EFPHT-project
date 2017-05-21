@@ -29,13 +29,13 @@ class basis implements FixtureInterface
     public function insertCatalogues(ObjectManager $manager)
     {
         $c1 = new Catalogue();
-        $c1->setNom("Catalogue papier");
+        $c1->setNom("Papier");
         $manager->persist($c1);
         $c2 = new Catalogue();
-        $c2->setNom("Catalogue informatisé");
+        $c2->setNom("Informatisé");
         $manager->persist($c2);
         $c3 = new Catalogue();
-        $c3->setNom("Catalogue papier et informatisé");
+        $c3->setNom("Papier et informatisé");
         $manager->persist($c3);
         $manager->flush();
     }
