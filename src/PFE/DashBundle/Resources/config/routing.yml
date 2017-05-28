@@ -1,69 +1,44 @@
+pfe_dash_bibliotheque:
+    resource: "@PFEDashBundle/Resources/config/routing/bibliotheque.yml"
+    prefix:   /saisi/bibliotheque
+
+pfe_dash_fondoc:
+    resource: "@PFEDashBundle/Resources/config/routing/fondoc.yml"
+    prefix:   /saisi/fondoc
+
+pfe_dash_pret:
+    resource: "@PFEDashBundle/Resources/config/routing/pret.yml"
+    prefix:   /saisi/pret
+
+pfe_dash_adherent:
+    resource: "@PFEDashBundle/Resources/config/routing/adherent.yml"
+    prefix:   /saisi/adherent
+
+pfe_dash_animation:
+    resource: "@PFEDashBundle/Resources/config/routing/animation.yml"
+    prefix:   /saisi/animation
+
 pfe_dash_remarque:
     resource: "@PFEDashBundle/Resources/config/routing/remarque.yml"
-    prefix:   /remarque
+    prefix:   /saisi/remarque
 
 pfe_dash_equipement:
     resource: "@PFEDashBundle/Resources/config/routing/equipement.yml"
-    prefix:   /equipement
+    prefix:   /saisi/equipement
 
 pfe_dash_espace:
     resource: "@PFEDashBundle/Resources/config/routing/espace.yml"
-    prefix:   /espace
+    prefix:   /saisi/espace
 
 pfe_dash_internet:
     resource: "@PFEDashBundle/Resources/config/routing/internet.yml"
-    prefix:   /internet
+    prefix:   /saisi/internet
 
 pfe_dash_socialmedia:
     resource: "@PFEDashBundle/Resources/config/routing/socialmedia.yml"
     prefix:   /saisi/socialmedia
 
-# default controller
-pfe_dash_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: PFEDashBundle:Default:index }
+pfe_dash_dashboard:
+    resource: "@PFEDashBundle/Resources/config/routing/dash.yml"
+    prefix:   /dash
 
-# bib controller
-pfe_dash_bib_presentation:
-    path:     /presentation/{id}
-    defaults: { _controller: PFEDashBundle:Bib:presentation }
-    requirements:
-        id: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-
-pfe_dash_bib_espaces:
-    path:     /espaces
-    defaults: { _controller: PFEDashBundle:Bib:espaces }
-
-pfe_dash_bib_equipements:
-    path:     /equipements
-    defaults: { _controller: PFEDashBundle:Bib:equipements }
-
-pfe_dash_bib_fonds:
-    path:     /fonds
-    defaults: { _controller: PFEDashBundle:Bib:fonds }
-
-pfe_dash_bib_catalogues:
-    path:     /catalogues
-    defaults: { _controller: PFEDashBundle:Bib:catalogues }
-
-pfe_dash_bib_prets:
-    path:     /prets
-    defaults: { _controller: PFEDashBundle:Bib:prets }
-
-pfe_dash_bib_animations:
-    path:     /animations
-    defaults: { _controller: PFEDashBundle:Bib:animations }
-
-pfe_dash_bib_remarques:
-    path:     /remarques
-    defaults: { _controller: PFEDashBundle:Bib:remarques }
-
-pfe_dash_bib_menu:
-    path:     /menu
-    defaults: { _controller: PFEDashBundle:Bib:menu }
-
-pfe_dash_bib_province:
-    path:     /province/{id}
-    defaults: { _controller: PFEDashBundle:Bib:province }
-    requirements:
-        id: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"

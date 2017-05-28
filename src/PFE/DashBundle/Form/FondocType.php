@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EquipementType extends AbstractType
+class FondocType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,18 +15,15 @@ class EquipementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isDisponible')
             ->add('nombre')
-            ->add('nombre_endommage')
-            ->add('nombre_nutilisable')
             //->add('created')
-            ->add('typeequipement','entity', array(
-                'class' =>  'PFE\DashBundle\Entity\Typeequipement',
+            ->add('typefondoc','entity', array(
+                'class' =>  'PFE\DashBundle\Entity\Typefondoc',
                 'property' => 'nom'
             ))
-            ->add('espace','entity', array(
-                'class' =>  'PFE\DashBundle\Entity\Espace',
-                'property' => 'typeespace.nom'
+            ->add('bibliotheque','entity', array(
+                'class' =>  'PFE\DashBundle\Entity\Bibliotheque',
+                'property' => 'nom'
             ))
         ;
     }
@@ -37,7 +34,7 @@ class EquipementType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PFE\DashBundle\Entity\Equipement'
+            'data_class' => 'PFE\DashBundle\Entity\Fondoc'
         ));
     }
 
@@ -46,6 +43,6 @@ class EquipementType extends AbstractType
      */
     public function getName()
     {
-        return 'pfe_dashbundle_equipement';
+        return 'pfe_dashbundle_fondoc';
     }
 }

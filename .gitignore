@@ -22,4 +22,4 @@
 **/Entity/*~
 
 # vendors (get them by updating via composer)
-/vendor/
+#/vendor/

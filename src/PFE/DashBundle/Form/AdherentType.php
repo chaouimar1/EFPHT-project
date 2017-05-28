@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EquipementType extends AbstractType
+class AdherentType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,18 +15,23 @@ class EquipementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isDisponible')
-            ->add('nombre')
-            ->add('nombre_endommage')
-            ->add('nombre_nutilisable')
             //->add('created')
-            ->add('typeequipement','entity', array(
-                'class' =>  'PFE\DashBundle\Entity\Typeequipement',
-                'property' => 'nom'
+            ->add('nom')
+            ->add('prenom')
+            ->add('dateNaissance','date', array(
+                'years' => range(date("Y"),1930),
+                'format' => 'yMMMMd',))
+            //->add('age')
+            ->add('sexe','choice', array(
+                'choices'  => array(
+                    'Homme' => 1,
+                    'Femme' => 0),
+                    'choices_as_values' => true,
             ))
-            ->add('espace','entity', array(
-                'class' =>  'PFE\DashBundle\Entity\Espace',
-                'property' => 'typeespace.nom'
+            ->add('dateInscription')
+            ->add('bibliotheque','entity', array(
+                'class' =>  'PFEDashBundle:Bibliotheque',
+                'property' => 'nom'
             ))
         ;
     }
@@ -37,7 +42,7 @@ class EquipementType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'PFE\DashBundle\Entity\Equipement'
+            'data_class' => 'PFE\DashBundle\Entity\Adherent'
         ));
     }
 
@@ -46,6 +51,6 @@ class EquipementType extends AbstractType
      */
     public function getName()
     {
-        return 'pfe_dashbundle_equipement';
+        return 'pfe_dashbundle_adherent';
     }
 }

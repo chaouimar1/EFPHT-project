@@ -7,7 +7,7 @@
  */
 
 html{
-	font-size: 16px;
+	font-size: 14px;
 }
 
 th,td{
@@ -31,26 +31,26 @@ ul.side-nav:hover{
 }
 
 input[type="text"]:focus:not([readonly]), input[type="password"]:focus:not([readonly]), input[type="email"]:focus:not([readonly]), input[type="url"]:focus:not([readonly]), input[type="time"]:focus:not([readonly]), input[type="date"]:focus:not([readonly]), input[type="datetime-local"]:focus:not([readonly]), input[type="tel"]:focus:not([readonly]), input[type="number"]:focus:not([readonly]), input[type="search"]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid purple;
-    box-shadow: 0px 1px 0px 0px purple;
+    border-bottom: 1px solid inherit; /*orange;*/
+    box-shadow: 0px 1px 0px 0px; /* orange; */
 }
 
 input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
-    color: purple; 
+    /* color: orange; */
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
-    color: purple;
+    /* color: orange;  */
 }
 
 span.badge.new {
     color: #FFF;
-    background-color: purple;
+    background-color: orange;
 }
 
 ul.side-nav.fixed li.logo {
   text-align: center;
-  margin-top: 63px; 
+  margin-top: 50px;
   background: #ffffff;
 }
   ul.side-nav.fixed li.logo:hover {
@@ -108,6 +108,11 @@ ul.side-nav.fixed {
 
 @media only screen and (min-width: 993px){ .container{
     width: 80% !important;
+}}
+
+@media only screen and (min-width: 601px){ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 50px !important;
+    line-height: 50px !important;
 }}
 
 .container {
@@ -185,6 +190,10 @@ nav ul li:hover, nav ul li.active {
     background-color: rgba(0, 0, 0, 0.3); !important
 }
 
+nav ul li.activem {
+    border-bottom:2px solid #FFFFFF ; !important;
+}
+
 .container .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -238,4 +247,30 @@ nav ul li:hover, nav ul li.active {
 .smalltitle{
     font-size: 18px;
     font-style: italic;
+}
+
+.justbg:hover h3.bigtitle{
+    background-color: #607d8b !important;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+
+span.badge.new:after {
+    content: "" !important;
+}
+
+span.badge{
+    position: relative;
+    font-size: 14px !important;
+}
+
+table.hoverable {
+    box-shadow: none !important;
+}
+
+
+table.hoverable th{
+    background-color: white;
 }

@@ -1,7 +1,7 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Equipement</h1>
+    <h1>Fondoc</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,20 +10,8 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Isdisponible</th>
-                <td>{{ entity.isDisponible }}</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
                 <td>{{ entity.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Nombre_endommage</th>
-                <td>{{ entity.nombreendommage }}</td>
-            </tr>
-            <tr>
-                <th>Nombre_nutilisable</th>
-                <td>{{ entity.nombrenutilisable }}</td>
             </tr>
             <tr>
                 <th>Created</th>
@@ -34,12 +22,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('equipement') }}">
+        <a href="{{ path('fondoc') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('equipement_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('fondoc_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

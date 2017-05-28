@@ -42,11 +42,6 @@ class Animation
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $date;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
     private $dateanimation;
 
     /**

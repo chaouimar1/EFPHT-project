@@ -1,0 +1,51 @@
+{% extends "PFEDashBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Animation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Created</th>
+                <th>Occamenheb</th>
+                <th>Publicvise</th>
+                <th>Dateexposition</th>
+                <th>Publictotal</th>
+                <th>Dateanimation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('animation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.occamenheb }}</td>
+                <td>{{ entity.publicvise }}</td>
+                <td>{% if entity.dateExposition %}{{ entity.dateExposition|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.publicTotal }}</td>
+                <td>{% if entity.dateanimation %}{{ entity.dateanimation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('animation_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('animation_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('animation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

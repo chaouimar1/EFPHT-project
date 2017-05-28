@@ -1,9 +1,10 @@
 <?php
 namespace PFE\DashBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\EntityRepository;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="EspaceRepository")
  */
 class Espace
 {

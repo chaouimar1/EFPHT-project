@@ -1,0 +1,30 @@
+fondoc:
+    path:     /
+    defaults: { _controller: "PFEDashBundle:Fondoc:index" }
+
+fondoc_show:
+    path:     /{id}/show
+    defaults: { _controller: "PFEDashBundle:Fondoc:show" }
+
+fondoc_new:
+    path:     /new
+    defaults: { _controller: "PFEDashBundle:Fondoc:new" }
+
+fondoc_create:
+    path:     /create
+    defaults: { _controller: "PFEDashBundle:Fondoc:create" }
+    methods:  POST
+
+fondoc_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PFEDashBundle:Fondoc:edit" }
+
+fondoc_update:
+    path:     /{id}/update
+    defaults: { _controller: "PFEDashBundle:Fondoc:update" }
+    methods:  [POST, PUT]
+
+fondoc_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PFEDashBundle:Fondoc:delete" }
+    methods:  [POST, DELETE]

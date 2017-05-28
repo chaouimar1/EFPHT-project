@@ -1,0 +1,64 @@
+{% extends "PFEDashBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Bibliotheque</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ entity.dateCreation|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Superficie</th>
+                <td>{{ entity.superficie }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ entity.tel }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ entity.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Dateinstallationinternet</th>
+                <td>{{ entity.dateInstallationInternet|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Isformation</th>
+                <td>{{ entity.isFormation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('bibliotheque') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('bibliotheque_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

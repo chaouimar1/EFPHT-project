@@ -1,0 +1,30 @@
+adherent:
+    path:     /
+    defaults: { _controller: "PFEDashBundle:Adherent:index" }
+
+adherent_show:
+    path:     /{id}/show
+    defaults: { _controller: "PFEDashBundle:Adherent:show" }
+
+adherent_new:
+    path:     /new
+    defaults: { _controller: "PFEDashBundle:Adherent:new" }
+
+adherent_create:
+    path:     /create
+    defaults: { _controller: "PFEDashBundle:Adherent:create" }
+    methods:  POST
+
+adherent_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PFEDashBundle:Adherent:edit" }
+
+adherent_update:
+    path:     /{id}/update
+    defaults: { _controller: "PFEDashBundle:Adherent:update" }
+    methods:  [POST, PUT]
+
+adherent_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PFEDashBundle:Adherent:delete" }
+    methods:  [POST, DELETE]

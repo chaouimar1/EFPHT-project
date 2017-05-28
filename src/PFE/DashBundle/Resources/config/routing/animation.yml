@@ -1,0 +1,30 @@
+animation:
+    path:     /
+    defaults: { _controller: "PFEDashBundle:Animation:index" }
+
+animation_show:
+    path:     /{id}/show
+    defaults: { _controller: "PFEDashBundle:Animation:show" }
+
+animation_new:
+    path:     /new
+    defaults: { _controller: "PFEDashBundle:Animation:new" }
+
+animation_create:
+    path:     /create
+    defaults: { _controller: "PFEDashBundle:Animation:create" }
+    methods:  POST
+
+animation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PFEDashBundle:Animation:edit" }
+
+animation_update:
+    path:     /{id}/update
+    defaults: { _controller: "PFEDashBundle:Animation:update" }
+    methods:  [POST, PUT]
+
+animation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PFEDashBundle:Animation:delete" }
+    methods:  [POST, DELETE]

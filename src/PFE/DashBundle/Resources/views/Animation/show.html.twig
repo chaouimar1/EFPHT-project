@@ -1,0 +1,52 @@
+{% extends "PFEDashBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Animation</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Occamenheb</th>
+                <td>{{ entity.occamenheb }}</td>
+            </tr>
+            <tr>
+                <th>Publicvise</th>
+                <td>{{ entity.publicvise }}</td>
+            </tr>
+            <tr>
+                <th>Dateexposition</th>
+                <td>{{ entity.dateExposition|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Publictotal</th>
+                <td>{{ entity.publicTotal }}</td>
+            </tr>
+            <tr>
+                <th>Dateanimation</th>
+                <td>{{ entity.dateanimation|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('animation') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('animation_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

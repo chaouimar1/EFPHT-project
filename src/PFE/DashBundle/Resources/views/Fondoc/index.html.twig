@@ -1,16 +1,13 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Equipement list</h1>
+    <h1>Fondoc list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Isdisponible</th>
                 <th>Nombre</th>
-                <th>Nombre_endommage</th>
-                <th>Nombre_nutilisable</th>
                 <th>Created</th>
                 <th>Actions</th>
             </tr>
@@ -18,19 +15,16 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('equipement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.isDisponible }}</td>
+                <td><a href="{{ path('fondoc_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nombre }}</td>
-                <td>{{ entity.nombreendommage }}</td>
-                <td>{{ entity.nombrenutilisable }}</td>
                 <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('equipement_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('fondoc_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('equipement_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('fondoc_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -41,7 +35,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('equipement_new') }}">
+            <a href="{{ path('fondoc_new') }}">
                 Create a new entry
             </a>
         </li>
