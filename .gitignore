@@ -23,3 +23,6 @@
 
 # vendors (get them by updating via composer)
 #/vendor/
+
+#php storm workspace config
+.idea/workspace.xml
