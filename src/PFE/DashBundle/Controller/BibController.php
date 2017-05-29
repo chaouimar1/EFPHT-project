@@ -91,6 +91,50 @@ class BibController extends Controller
         $rayonnages = $repository->getEquipementsByBibliotheque(1,$b);
         $c_equ_ndispo = $repository->countetat(0,0,$b);
         $c_equ_dispo = $repository->countetat(0,1,$b);
+        $c_ray_ndispo = $repository->countetat(1,0,$b);
+        $c_ray_dispo = $repository->countetat(1,1,$b);
+
+        $qb1 = $this->getDoctrine()->getManager();
+        $qb1 = $qb1->createQueryBuilder();
+        $qb1->select('teq.nom')
+            ->from('PFEDashBundle:Typeequipement', 'teq')
+            ->where('teq.isRayonnage=:ray')
+            ->setParameter(':ray',0)
+            ->orderBy('teq.nom','ASC');
+        $teq_e = $qb1->getQuery()->getArrayResult();
+
+        $cats_e = array();
+        foreach ($teq_e as $item) {
+            $cats_e[]=$item['nom'];
+        }
+
+        $countcats_e = array();
+        foreach ($equipements as $e) {
+            $countcats_e['nombre'][] = $e['nombre'];
+            $countcats_e['nombre_endommage'][] = $e['nombre_endommage'];
+            $countcats_e['nombre_nutilisable'][] = $e['nombre_nutilisable'];
+        }
+
+        $qb2 = $this->getDoctrine()->getManager();
+        $qb2 = $qb2->createQueryBuilder();
+        $qb2->select('teq.nom')
+            ->from('PFEDashBundle:Typeequipement', 'teq')
+            ->where('teq.isRayonnage=:ray')
+            ->setParameter(':ray',1)
+            ->orderBy('teq.nom','ASC');
+        $teq_r = $qb2->getQuery()->getArrayResult();
+
+        $cats_r = array();
+        foreach ($teq_r as $item) {
+            $cats_r[]=$item['nom'];
+        }
+
+        $countcats_r = array();
+        foreach ($rayonnages as $r) {
+            $countcats_r['nombre'][] = $r['nombre'];
+            $countcats_r['nombre_endommage'][] = $r['nombre_endommage'];
+            $countcats_r['nombre_nutilisable'][] = $r['nombre_nutilisable'];
+        }
 
         $chart1 = new Highchart();
         $chart1->chart->renderTo('piechart1');
@@ -111,13 +155,92 @@ class BibController extends Controller
             'name' => 'isDispoooo',
             'data' => $data)));
 
+        $chart3 = new Highchart();
+        $chart3->chart->renderTo('barchart1');  // The #id of the div where to render the chart
+        $chart3->chart->type('column'); // bar / area / Column / Line (default)
+        $chart3->title->text('Historic World Population by Region');
+
+
+        $chart3->xAxis->categories($cats_e);
+
+        $chart3->colors('#2196F3', '#ff9800', '#616161');
+
+        $chart3->plotOptions->tooltip(array('valueSuffix'=>'millions'));
+        $chart3->plotOptions->series(array(
+//            'stacking'=> 'normal',
+            'dataLabels'=>array('enabled'=>true),
+        ));
+
+        $chart3->yAxis->title(array('text'  => " ", 'align' => 'high'));
+        $s = array(array(
+            'name' => 'Nombre',
+            'data' => $countcats_e['nombre'],
+        ),array(
+            'name' => 'endom',
+            'data' => $countcats_e['nombre_endommage'],
+        ),array(
+            'name' => 'non util',
+            'data' => $countcats_e['nombre_nutilisable'],
+        ));
+        $chart3->series($s);
+
+
+        $chart2 = new Highchart();
+        $chart2->chart->renderTo('piechart2');
+        $chart2->chart->type('pie'); // Column / Line (default)
+        $chart2->title->text('Disponibilités des équipements');
+        $chart2->colors('#4CAF50', '#F44336');
+        $chart2->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $data = array(
+            array('Disponible', (int)$c_ray_dispo),
+            array('Non Disponible', (int)$c_ray_ndispo));
+
+        $chart2->series(array(array(
+            'name' => 'isDispoooo',
+            'data' => $data)));
+
+        $chart4 = new Highchart();
+        $chart4->chart->renderTo('barchart2');  // The #id of the div where to render the chart
+        $chart4->chart->type('column'); // bar / area / Column / Line (default)
+        $chart4->title->text('Historic World Population by Region');
+
+
+        $chart4->xAxis->categories($cats_r);
+
+        $chart4->colors('#2196F3', '#ff9800', '#616161');
+
+        $chart4->plotOptions->tooltip(array('valueSuffix'=>'millions'));
+        $chart4->plotOptions->series(array(
+//            'stacking'=> 'normal',
+            'dataLabels'=>array('enabled'=>true),
+        ));
+
+        $chart4->yAxis->title(array('text'  => " ", 'align' => 'high'));
+        $s = array(array(
+            'name' => 'Nombre',
+            'data' => $countcats_r['nombre'],
+        ),array(
+            'name' => 'endom',
+            'data' => $countcats_r['nombre_endommage'],
+        ),array(
+            'name' => 'non util',
+            'data' => $countcats_r['nombre_nutilisable'],
+        ));
+        $chart4->series($s);
 
         return $this->render('PFEDashBundle:Bib:equipements.html.twig', array(
             "b" => $b,
             "equipements" => $equipements,
             "rayonnages" => $rayonnages,
             "chart1" => $chart1,
-//            "chart2" => $chart2,
+            "chart2" => $chart2,
+            "chart3" => $chart3,
+            "chart4" => $chart4,
         ));    }
 
     public function fondsAction(Bibliotheque $b)

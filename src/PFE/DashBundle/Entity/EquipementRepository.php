@@ -18,6 +18,7 @@ class EquipementRepository extends EntityRepository
             ->andWhere('teq.isRayonnage=:ray')
             ->setParameter(':b',$b)
             ->setParameter(':ray',$ray)
+            ->orderBy('teq.nom','ASC')
         ;
 
         return $qb->getQuery()->getArrayResult();
@@ -40,6 +41,4 @@ class EquipementRepository extends EntityRepository
 
         return $qb->getQuery()->getSingleScalarResult();
     }
-
-    // couuuunt eq rat a cote de title for columnchart
 }
