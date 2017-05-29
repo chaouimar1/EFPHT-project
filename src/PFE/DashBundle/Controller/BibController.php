@@ -83,9 +83,41 @@ class BibController extends Controller
 
     public function equipementsAction(Bibliotheque $b)
     {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Equipement');
+
+        $equipements = $repository->getEquipementsByBibliotheque(0,$b);
+        $rayonnages = $repository->getEquipementsByBibliotheque(1,$b);
+        $c_equ_ndispo = $repository->countetat(0,0,$b);
+        $c_equ_dispo = $repository->countetat(0,1,$b);
+
+        $chart1 = new Highchart();
+        $chart1->chart->renderTo('piechart1');
+        $chart1->chart->type('pie'); // Column / Line (default)
+        $chart1->title->text('Disponibilités des équipements');
+        $chart1->colors('#4CAF50', '#F44336');
+        $chart1->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $data = array(
+            array('Disponible', (int)$c_equ_dispo),
+            array('Non Disponible', (int)$c_equ_ndispo));
+
+        $chart1->series(array(array(
+            'name' => 'isDispoooo',
+            'data' => $data)));
+
+
         return $this->render('PFEDashBundle:Bib:equipements.html.twig', array(
             "b" => $b,
-
+            "equipements" => $equipements,
+            "rayonnages" => $rayonnages,
+            "chart1" => $chart1,
+//            "chart2" => $chart2,
         ));    }
 
     public function fondsAction(Bibliotheque $b)
