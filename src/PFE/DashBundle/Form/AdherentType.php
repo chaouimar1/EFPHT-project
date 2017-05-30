@@ -20,7 +20,9 @@ class AdherentType extends AbstractType
             ->add('prenom')
             ->add('dateNaissance','date', array(
                 'years' => range(date("Y"),1930),
-                'format' => 'yMMMMd',))
+                'format' => 'dd-MM-y',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'datepicker'],))
             //->add('age')
             ->add('sexe','choice', array(
                 'choices'  => array(
