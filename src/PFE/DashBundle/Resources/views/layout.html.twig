@@ -8,39 +8,39 @@
 {% block menu %}
     {% if b is defined %}
     <ul class="left hide-on-med-and-down">
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Présentation" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Présentation">
         <a href="{{  path('pfe_dash_bib_presentation', {'id':b.id}) }}">
           <i class="material-icons">info_outline</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_espaces' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Espaces Bibliothèque" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_espaces' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Espaces Bibliothèque">
         <a href="{{ path('pfe_dash_bib_espaces', {'id':b.id}) }}">
           <i class="material-icons">library_books</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_equipements' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Equipements" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_equipements' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Equipements">
         <a href="{{ path('pfe_dash_bib_equipements', {'id':b.id}) }}">
           <i class="material-icons">work</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_fonds' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Fonds de documents" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_fonds' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Fonds de documents">
         <a href="{{ path('pfe_dash_bib_fonds', {'id':b.id}) }}">
           <i class="material-icons">description</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_catalogues' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Catalogue" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_catalogues' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Catalogue">
         <a href="{{ path('pfe_dash_bib_catalogues', {'id':b.id}) }}">
           <i class="material-icons">class</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_prets' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Prêt" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_prets' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Prêt">
         <a href="{{ path('pfe_dash_bib_prets', {'id':b.id}) }}">
           <i class="material-icons">shopping_basket</i></a></li>
 
-      <li class="{# if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}activem{% endif #}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs" class="tooltipped">
+      <li class="tooltipped {# if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}activem{% endif #}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs">
         <a href="{# path('pfe_dash_bib_presentation') #}">
           <i class="material-icons">person_pin</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_animations' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Animation" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_animations' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Animation">
         <a href="{{ path('pfe_dash_bib_animations', {'id':b.id}) }}">
           <i class="material-icons">games</i></a></li>
 
-      <li class="{% if app.request.attributes.get('_route') == 'pfe_dash_bib_remarques' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Besoins et remarques" class="tooltipped">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_remarques' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Besoins et remarques">
         <a href="{{ path('pfe_dash_bib_remarques', {'id':b.id}) }}">
           <i class="material-icons">announcement</i></a></li>
 
