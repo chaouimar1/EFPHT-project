@@ -181,6 +181,8 @@ i.tiny {
 .top-green   {border-top: 3px solid #4caf50}
 .top-yellow  {border-top: 3px solid #ffeb3b}
 .top-black   {border-top: 3px solid #222}
+.top-grey   {border-top: 3px solid #607d8b}
+.top-teal   {border-top: 3px solid #26a69a}
 
 ul.collapsible-accordion>li{
   border-bottom: 1px solid #555;
@@ -277,4 +279,13 @@ table.hoverable th{
 
 .noshadow{
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0) !important;
+}
+
+div.record_actions,
+div.record_actions form{
+    display: inline-block;
+}
+
+.crudcard{
+  padding: 20px !important;
 }

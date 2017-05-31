@@ -25,7 +25,7 @@
 **/Entity/*~
 
 # vendors (get them by updating via composer)
-#/vendor/
+/vendor/*
 
 #php storm workspace config
-.idea/workspace.xml
+.idea/*
