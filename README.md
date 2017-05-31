@@ -1,12 +1,15 @@
 # EFPHT-project
 A Symfony2 project (currently in dev)
 
-update composer modules before running project : 
+before running project
+Update composer dependencies : 
 
     php composer.phar update
 
-load important tables data
+Set up the Database and load example data :
     
-    php app/console doctrine:fixtures:load
+    $ php app/console doctrine:fixtures:load
+    $ php app/console doctrine:database:create
+    $ php app/console doctrine:schema:create
 
 done !
