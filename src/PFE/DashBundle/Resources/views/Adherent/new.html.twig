@@ -1,15 +1,35 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+  CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Adherent creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('adherent') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<div class="row card-panel wtitle top-black col offset-s1 s10 crudcard">
+  <h5 class="card-title">Adherent creation</h5>
+  		<div class="row">
+	        <div class="input-field col s6">
+		        {{ form_row(form.nom) }}
+	        </div>
+	        <div class="input-field col s6">
+	          {{ form_row(form.prenom) }}
+	        </div>
+	      </div>
+	     <div class="row">
+	        <div class="input-field col s4">
+	        	{{ form_row(form.dateNaissance) }}
+	        </div>
+	        <div class="input-field col s4">
+	        	{{ form_row(form.sexe) }}
+	        </div>
+	        <div class="input-field col s4">
+	        	{{ form_row(form.dateInscription) }}
+	        </div>
+    	{{ form_start(form) }}
+    	{{ form_widget(form) }}
+    	    <a href="{{ path('adherent') }}" class="btn blue-grey">
+	            Retour à la liste
+	        </a>
+		{{ form_end(form) }}
+</div>
 {% endblock %}

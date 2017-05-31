@@ -67,7 +67,7 @@ class AdherentController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer'));
 
         return $form;
     }
@@ -147,7 +147,7 @@ class AdherentController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => '<i class="mdi-action-cached"></i> Mettre à jour'));
 
         return $form;
     }
@@ -217,7 +217,7 @@ class AdherentController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('adherent_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer','attr'=>array('class'=>'red')))
             ->getForm()
         ;
     }

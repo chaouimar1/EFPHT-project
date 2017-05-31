@@ -1,7 +1,12 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+  CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Adherent</h1>
+<div class="row card-panel wtitle top-black col offset-s1 s10 crudcard">
+  <h5 class="card-title">Adherent</h5>
 
     <table class="record_properties">
         <tbody>
@@ -40,17 +45,14 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('adherent') }}">
-            Back to the list
+    <div class="record_actions"> 
+        <a href="{{ path('adherent_edit', { 'id': entity.id }) }}" class="btn">
+            Modifier
+        </a>   
+        <a href="{{ path('adherent') }}" class="btn blue-grey">
+            Retour à la liste
         </a>
-    </li>
-    <li>
-        <a href="{{ path('adherent_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        {{ form(delete_form) }}
+    </div>
+</div>
 {% endblock %}

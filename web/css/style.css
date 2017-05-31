@@ -278,3 +278,12 @@ table.hoverable th{
 .noshadow{
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0) !important;
 }
+
+div.record_actions,
+div.record_actions form{
+    display: inline-block;
+}
+
+.crudcard{
+  padding: 20px !important;
+}
