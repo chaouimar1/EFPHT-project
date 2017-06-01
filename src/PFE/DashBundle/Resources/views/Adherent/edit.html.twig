@@ -8,7 +8,6 @@
 <div class="row card-panel wtitle top-teal col offset-s1 s10 crudcard">
   <h5 class="card-title">Adherent edit</h5>
 		{{ form_start(edit_form) }}
-
 	    <div class="row">
 	        <div class="input-field col s6">
 		        {{ form_row(edit_form.nom) }}
@@ -27,12 +26,12 @@
 	        <div class="input-field col s4">
 	        	{{ form_row(edit_form.dateInscription) }}
 	        </div>
-		{{ form_widget(edit_form) }}
-        <a href="{{ path('adherent') }}" class="btn blue-grey">
-			<i class="mdi-action-view-headline left"></i> Retour à la liste
-        </a>
-    {{ form_end(edit_form) }}
-    <div class="record_actions">{{ form(delete_form) }}</div>
+			{{ form_widget(edit_form) }}
+			<a href="{{ path('adherent') }}" class="btn blue-grey">
+				<i class="mdi-action-view-headline left"></i> Retour à la liste
+			</a>
+			{{ form_end(edit_form) }}
+			<div class="record_actions">{{ form(delete_form) }}</div>
 		 </div>
 </div>
 {% endblock %}

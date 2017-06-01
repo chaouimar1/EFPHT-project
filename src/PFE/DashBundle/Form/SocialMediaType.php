@@ -15,7 +15,15 @@ class SocialMediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
+            ->add('nom','choice', array(
+                'choices'  => array(
+                    'Facebook' => 'Facebook' ,
+                    'Twitter' => 'Twitter',
+                    'Instagram' => 'Instagram',
+                    'Google+' => 'Google+',
+                    'Site Web' => 'Site Web',
+                    'Autre' => 'Autre',
+            )))
             ->add('url')
             ->add('bibliotheque','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Bibliotheque',

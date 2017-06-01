@@ -7,7 +7,8 @@
 {% block body -%}
 <div class="row card-panel wtitle top-teal col offset-s1 s10 crudcard">
   <h5 class="card-title">Adherent creation</h5>
-  		<div class="row">
+    {{ form_start(form) }}
+		<div class="row">
 	        <div class="input-field col s6">
 		        {{ form_row(form.nom) }}
 	        </div>
@@ -25,7 +26,6 @@
 	        <div class="input-field col s4">
 	        	{{ form_row(form.dateInscription) }}
 	        </div>
-    	{{ form_start(form) }}
     	{{ form_widget(form) }}
     	    <a href="{{ path('adherent') }}" class="btn blue-grey">
 				<i class="mdi-action-view-headline left"></i> Retour à la liste

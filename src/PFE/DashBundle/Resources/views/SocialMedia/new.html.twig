@@ -1,15 +1,26 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>SocialMedia creation</h1>
+    <div class="row card-panel wtitle top-teal col offset-s1 s10 crudcard">
+        <h5 class="card-title">SocialMedia creation</h5>
+        {{ form_start(form) }}
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('socialmedia') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+        <div class="row">
+            <div class="input-field col s6">
+                {{ form_row(form.nom) }}
+            </div>
+            <div class="input-field col s6">
+                {{ form_row(form.url) }}
+            </div>
+            {{ form_widget(form) }}
+            <a href="{{ path('socialmedia') }}" class="btn blue-grey">
+                <i class="mdi-action-view-headline left"></i> Retour à la liste
+            </a>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
