@@ -1,16 +1,32 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Pret edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('pret') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row card-panel wtitle top-teal col offset-s1 s10 crudcard">
+        <h5 class="card-title">Pret edit</h5>
+        {{ form_start(edit_form) }}
+        <div class="row">
+            <div class="input-field col s6">
+                {{ form_row(edit_form.description) }}
+            </div>
+            <div class="input-field col s6">
+                {{ form_row(edit_form.nombre) }}
+            </div>
+            <div class="input-field col s6">
+                {{ form_row(edit_form.typepret) }}
+            </div>
+            <div class="input-field col s6">
+                {{ form_row(edit_form.typefondoc) }}
+            </div>
+            {{ form_widget(edit_form) }}
+            <a href="{{ path('pret') }}" class="btn blue-grey">
+                <i class="mdi-action-view-headline left"></i> Retour à la liste
+            </a>
+            {{ form_end(edit_form) }}
+            <div class="record_actions">{{ form(delete_form) }}</div>
+        </div>
+    </div>
 {% endblock %}
