@@ -15,7 +15,7 @@ class Remarque
     private $id;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $nom;
 

@@ -17,7 +17,11 @@ class RemarqueType extends AbstractType
         $builder
             ->add('nom')
             ->add('description')
-            ->add('type')
+            ->add('type','choice', array(
+                'choices'  => array(
+                    'Remarque' => 'Remarque' ,
+                    'Besoin' => 'Besoin',
+                )))
             //->add('created')
             ->add('bibliotheque','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Bibliotheque',

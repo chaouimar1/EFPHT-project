@@ -1,16 +1,25 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Remarque edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('remarque') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row card-panel wtitle top-teal col offset-s1 s10 crudcard">
+        <h5 class="card-title">Remarque edit</h5>
+        {{ form_start(edit_form) }}
+        <div class="row">
+            <div class="input-field col s8">
+                {{ form_row(edit_form.nom) }}
+            </div>
+            <div class="input-field col s4">
+                {{ form_row(edit_form.type) }}
+            </div>
+            <div class="input-field col s12">
+                {{ form_row(edit_form.description) }}
+            </div>
+            {{ form_widget(edit_form) }}
+            <a href="{{ path('remarque') }}" class="btn blue-grey">
+                <i class="mdi-action-view-headline left"></i> Retour à la liste
+            </a>
+            {{ form_end(edit_form) }}
+            <div class="record_actions">{{ form(delete_form) }}</div>
+        </div>
+    </div>
 {% endblock %}
