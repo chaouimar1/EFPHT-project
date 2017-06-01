@@ -16,7 +16,6 @@ class SocialMediaType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('description')
             ->add('url')
             ->add('bibliotheque','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Bibliotheque',

@@ -22,11 +22,6 @@ class SocialMedia
     /**
      * @ORM\Column(nullable=true)
      */
-    private $description;
-
-    /**
-     * @ORM\Column(nullable=true)
-     */
     private $url;
 
     /**
@@ -66,29 +61,6 @@ class SocialMedia
     public function getNom()
     {
         return $this->nom;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return SocialMedia
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**
