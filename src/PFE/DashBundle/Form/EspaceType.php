@@ -15,8 +15,18 @@ class EspaceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isDisponible')
-            ->add('etat')
+            ->add('isDisponible','choice', array(
+                'choices'  => array(
+                    'Disponible' => 1,
+                    'Non disponible' => 0),
+                'choices_as_values' => true,
+            ))
+            ->add('etat','choice', array(
+                'choices'  => array(
+                    'Bon' => 1,
+                    'Médiocre' => 0),
+                'choices_as_values' => true,
+            ))
             ->add('nombrePlaceAssises')
             //->add('created')
             ->add('typeespace','entity', array(

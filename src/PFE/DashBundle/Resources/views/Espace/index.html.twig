@@ -1,12 +1,16 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
-{% block body -%}
-    <h1>Espace list</h1>
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
 
-    <table class="records_list">
+{% block body -%}
+    <div class="row card-panel wtitle top-grey col offset-s1 s10 crudcard">
+        <h5 class="card-title">Espace list</h5>
+        <table class="records_list bordered hoverable">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>typeespace</th>
                 <th>Isdisponible</th>
                 <th>Etat</th>
                 <th>Nombreplaceassises</th>
@@ -17,31 +21,29 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('espace_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.isDisponible }}</td>
-                <td>{{ entity.etat }}</td>
+                <td>{# entity.typeespace.nom #}</td>
+                <td>{% if entity.isDisponible %}
+                        <span class="badge green new">Disponible</span>
+                    {% else %}
+                        <span class="badge red new">Non Disponible</span>
+                    {% endif %} </td>
+                <td>{% if entity.etat %}
+                        <span class="badge blue new">Bon</span>
+                    {% else %}
+                        <span class="badge blue-grey new">Médiocre</span>
+                    {% endif %} </td>
                 <td>{{ entity.nombrePlaceAssises }}</td>
-                <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('espace_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('espace_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <a href="{{ path('espace_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
+                        <i class="mdi-editor-mode-edit"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('espace_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    <br>
+    <a href="{{ path('espace_new') }}" class="btn blue-grey">
+        <i class="mdi-content-add left"></i> Créer nouveau</a>
+</div>
     {% endblock %}
