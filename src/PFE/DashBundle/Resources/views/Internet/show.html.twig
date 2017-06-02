@@ -1,7 +1,12 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Internet</h1>
+<div class="row card-panel wtitle top-black col offset-s1 s10 crudcard">
+    <h5 class="card-title">Internet</h5>
 
     <table class="record_properties">
         <tbody>
@@ -11,26 +16,23 @@
             </tr>
             <tr>
                 <th>Isdispo</th>
-                <td>{{ entity.isDispo }}</td>
+                <td>{% if entity.isDispo %}<span class="badge new green">Oui</span> {% else %} <span class="badge new red">Non</span> {% endif %} </td>
             </tr>
             <tr>
                 <th>Created</th>
-                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.created|date('Y-m-d') }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('internet') }}">
-            Back to the list
+    <div class="record_actions">
+        <a href="{{ path('internet_edit', { 'id': entity.id }) }}" class="btn">
+            <i class="mdi-editor-mode-edit left"></i> Modifier
         </a>
-    </li>
-    <li>
-        <a href="{{ path('internet_edit', { 'id': entity.id }) }}">
-            Edit
+        <a href="{{ path('internet') }}" class="btn blue-grey">
+            <i class="mdi-action-view-headline left"></i> Retour à la liste
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        {{ form(delete_form) }}
+    </div>
+</div>
 {% endblock %}

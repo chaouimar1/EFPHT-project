@@ -15,7 +15,12 @@ class InternetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isDispo')
+            ->add('isDispo','choice', array(
+                'choices'  => array(
+                    'OUI' => 1,
+                    'NON' => 0),
+                'choices_as_values' => true,
+            ))
             //->add('created')
             ->add('bibliotheque','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Bibliotheque',
