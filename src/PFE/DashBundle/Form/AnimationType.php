@@ -23,9 +23,17 @@ class AnimationType extends AbstractType
                     'Occasionnel' => 3),'choices_as_values' => true,
             ))
             ->add('publicvise')
-            ->add('dateExposition')
+            ->add('dateExposition','date', array(
+                'years' => range(date("Y"),2010),
+                'format' => 'dd-MM-y',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'datepicker'],))
             ->add('publicTotal')
-            ->add('dateanimation')
+            ->add('dateanimation','date', array(
+                'years' => range(date("Y"),2010),
+                'format' => 'dd-MM-y',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'datepicker'],))
             ->add('typeanimation','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Typeanimation',
                 'property' => 'nom'

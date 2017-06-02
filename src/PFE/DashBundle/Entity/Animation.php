@@ -61,7 +61,7 @@ class Animation
      */
     public function __construct()
     {
-        $this->date = new \DateTime();
+        $this->created = new \DateTime();
     }
 
     /**
@@ -167,26 +167,26 @@ class Animation
     }
 
     /**
-     * Set date
+     * Set created
      *
-     * @param \DateTime $date
+     * @param \DateTime $created
      * @return Animation
      */
-    public function setDate($date)
+    public function setCreated($created)
     {
-        $this->date = $date;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get date
+     * Get created
      *
      * @return \DateTime 
      */
-    public function getDate()
+    public function getCreated()
     {
-        return $this->date;
+        return $this->created;
     }
 
     /**
@@ -258,26 +258,4 @@ class Animation
         return $this->dateanimation;
     }
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Animation
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
 }
