@@ -1,7 +1,12 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Fondoc</h1>
+<div class="row card-panel wtitle top-black col offset-s1 s10 crudcard">
+    <h5 class="card-title">Fondoc</h5>
 
     <table class="record_properties">
         <tbody>
@@ -15,22 +20,19 @@
             </tr>
             <tr>
                 <th>Created</th>
-                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.created|date('Y-m-d') }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('fondoc') }}">
-            Back to the list
+    <div class="record_actions">
+        <a href="{{ path('fondoc_edit', { 'id': entity.id }) }}" class="btn">
+            <i class="mdi-editor-mode-edit left"></i> Modifier
         </a>
-    </li>
-    <li>
-        <a href="{{ path('fondoc_edit', { 'id': entity.id }) }}">
-            Edit
+        <a href="{{ path('fondoc') }}" class="btn blue-grey">
+            <i class="mdi-action-view-headline left"></i> Retour à la liste
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        {{ form(delete_form) }}
+    </div>
+</div>
 {% endblock %}
