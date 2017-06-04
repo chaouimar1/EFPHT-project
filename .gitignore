@@ -10,14 +10,6 @@
 # Database configuration
 /app/config/parameters.yml
 
-# Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
-
 # Build data
 /build/
 
