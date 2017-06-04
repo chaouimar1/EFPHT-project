@@ -1,20 +1,20 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
-{% block body -%}
-    <h1>Bibliotheque list</h1>
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
 
-    <table class="records_list">
+{% block body -%}
+<div class="row card-panel wtitle top-grey col offset-s1 s10 crudcard">
+    <h5 class="card-title">Bibliotheque list</h5>
+    <table class="records_list bordered hoverable">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Datecreation</th>
                 <th>Superficie</th>
-                <th>Adresse</th>
                 <th>Tel</th>
                 <th>Fax</th>
-                <th>Email</th>
-                <th>Dateinstallationinternet</th>
                 <th>Isformation</th>
                 <th>Actions</th>
             </tr>
@@ -22,36 +22,22 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('bibliotheque_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nom }}</td>
-                <td>{% if entity.dateCreation %}{{ entity.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateCreation %}{{ entity.dateCreation|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ entity.superficie }}</td>
-                <td>{{ entity.adresse }}</td>
                 <td>{{ entity.tel }}</td>
                 <td>{{ entity.fax }}</td>
-                <td>{{ entity.email }}</td>
-                <td>{% if entity.dateInstallationInternet %}{{ entity.dateInstallationInternet|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.isFormation }}</td>
+                <td>{% if entity.isFormation %}<span class="badge new green">Oui</span> {% else %} <span class="badge new red">Non</span> {% endif %} </td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('bibliotheque_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('bibliotheque_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <a href="{{ path('bibliotheque_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
+                        <i class="mdi-editor-mode-edit"></i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('bibliotheque_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+    <br>
+    <a href="{{ path('bibliotheque_new') }}" class="btn blue-grey">
+        <i class="mdi-content-add left"></i> Créer nouveau</a>
+</div>
+{% endblock %}

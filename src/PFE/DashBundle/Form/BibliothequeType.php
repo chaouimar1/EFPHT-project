@@ -16,14 +16,27 @@ class BibliothequeType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('dateCreation')
+            ->add('dateCreation','date', array(
+                'years' => range(date("Y"),1930),
+                'format' => 'dd-MM-y',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'datepicker'],))
             ->add('superficie')
             ->add('adresse')
             ->add('tel')
             ->add('fax')
             ->add('email')
-            ->add('dateInstallationInternet')
-            ->add('isFormation')
+            ->add('dateInstallationInternet','date', array(
+                'years' => range(date("Y"),1930),
+                'format' => 'dd-MM-y',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'datepicker'],))
+            ->add('isFormation','choice', array(
+                'choices'  => array(
+                    'OUI' => 1,
+                    'NON' => 0),
+                'choices_as_values' => true,
+            ))
             ->add('catalogue','entity', array(
                 'class' =>  'PFE\DashBundle\Entity\Catalogue',
                 'property' => 'nom'

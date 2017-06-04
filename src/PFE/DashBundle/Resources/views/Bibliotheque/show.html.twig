@@ -1,7 +1,12 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Bibliotheque</h1>
+<div class="row card-panel wtitle top-black col offset-s1 s10 crudcard">
+    <h5 class="card-title">Bibliotheque</h5>
 
     <table class="record_properties">
         <tbody>
@@ -15,7 +20,7 @@
             </tr>
             <tr>
                 <th>Datecreation</th>
-                <td>{{ entity.dateCreation|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.dateCreation|date('Y-m-d') }}</td>
             </tr>
             <tr>
                 <th>Superficie</th>
@@ -39,26 +44,23 @@
             </tr>
             <tr>
                 <th>Dateinstallationinternet</th>
-                <td>{{ entity.dateInstallationInternet|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.dateInstallationInternet|date('Y-m-d') }}</td>
             </tr>
             <tr>
                 <th>Isformation</th>
-                <td>{{ entity.isFormation }}</td>
+                <td>{% if entity.isFormation %}<span class="badge new green">Oui</span> {% else %} <span class="badge new red">Non</span> {% endif %} </td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('bibliotheque') }}">
-            Back to the list
+    <div class="record_actions">
+        <a href="{{ path('bibliotheque_edit', { 'id': entity.id }) }}" class="btn">
+            <i class="mdi-editor-mode-edit left"></i> Modifier
         </a>
-    </li>
-    <li>
-        <a href="{{ path('bibliotheque_edit', { 'id': entity.id }) }}">
-            Edit
+        <a href="{{ path('bibliotheque') }}" class="btn blue-grey">
+            <i class="mdi-action-view-headline left"></i> Retour à la liste
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        {{ form(delete_form) }}
+    </div>
+</div>
 {% endblock %}

@@ -1,16 +1,61 @@
 {% extends "PFEDashBundle::layout.html.twig" %}
 
+{% block title %}
+    CRUD - {{ parent() }}
+{% endblock %}
+
 {% block body -%}
-    <h1>Bibliotheque edit</h1>
+    <div class="row card-panel wtitle top-teal col offset-s1 s10 crudcard">
+        <h5 class="card-title">Bibliotheque edit</h5>
+        {{ form_start(edit_form) }}
+        <div class="row">
+            <div class="input-field col s8">
+                {{ form_row(edit_form.nom) }}
+            </div>
+            <div class="input-field col s4">
+                {{ form_row(edit_form.superficie) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                {{ form_row(edit_form.adresse) }}
+            </div>
+            <div class="input-field col s3">
+                {{ form_row(edit_form.tel) }}
+            </div>
+            <div class="input-field col s3">
+                {{ form_row(edit_form.fax) }}
+            </div>
+        </div>
 
-    {{ form(edit_form) }}
+        <div class="row">
+            <div class="input-field col s6">
+                {{ form_row(edit_form.email) }}
+            </div>
+            <div class="input-field col s3">
+                {{ form_row(edit_form.dateInstallationInternet) }}
+            </div>
+            <div class="input-field col s3">
+                {{ form_row(edit_form.dateCreation) }}
+            </div>
+        </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('bibliotheque') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <div class="row">
+            <div class="input-field col s4">
+                {{ form_row(edit_form.catalogue) }}
+            </div>
+            <div class="input-field col s4">
+                {{ form_row(edit_form.province) }}
+            </div>
+            <div class="input-field col s4">
+                {{ form_row(edit_form.isFormation) }}
+            </div>
+            {{ form_widget(edit_form) }}
+            <a href="{{ path('bibliotheque') }}" class="btn blue-grey">
+                <i class="mdi-action-view-headline left"></i> Retour à la liste
+            </a>
+            {{ form_end(edit_form) }}
+            <div class="record_actions">{{ form(delete_form) }}</div>
+        </div>
+    </div>
 {% endblock %}
