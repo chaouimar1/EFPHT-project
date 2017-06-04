@@ -15,7 +15,12 @@ class EquipementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isDisponible')
+            ->add('isDisponible','choice', array(
+                'choices'  => array(
+                    'Disponible' => 1,
+                    'Non disponible' => 0),
+                'choices_as_values' => true,
+            ))
             ->add('nombre')
             ->add('nombre_endommage')
             ->add('nombre_nutilisable')
