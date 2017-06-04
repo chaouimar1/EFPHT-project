@@ -17,7 +17,7 @@
             <p><i class="mdi-social-share blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Réseaux sociaux : </span>
                 {% if b.SocialMedia.count %}
                 {% for sm in b.socialmedia %}
-                    <a href="http://{{ sm.url }}" target="_blank">{{ sm.description }} - </a>
+                    <a href="http://{{ sm.url }}" target="_blank">{{ sm.url }} - </a>
                 {% endfor %}
                 {% else %}
                     Aucun
