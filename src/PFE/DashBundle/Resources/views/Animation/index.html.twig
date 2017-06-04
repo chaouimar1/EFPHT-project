@@ -12,10 +12,9 @@
             <tr>
                 <th>Created</th>
                 <th>Occamenheb</th>
-                <th>Publicvise</th>
-                <th>Dateexposition</th>
-                <th>Publictotal</th>
+                <th>Typeanimation</th>
                 <th>Dateanimation</th>
+                <th>Publictotal</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,11 +22,10 @@
         {% for entity in entities %}
             <tr>
                 <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.typeanimation.nom }}</td>
                 <td>{% if entity.occamenheb==1 %} Hebdomadaire {% elseif entity.occamenheb==2 %} Mensuel {% elseif entity.occamenheb==3 %} Occasionnel {% endif %}</td>
-                <td>{{ entity.publicvise }}</td>
-                <td>{% if entity.dateExposition %}{{ entity.dateExposition|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ entity.publicTotal }}</td>
                 <td>{% if entity.dateanimation %}{{ entity.dateanimation|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.publicTotal }}</td>
                 <td>
                     <a href="{{ path('animation_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>

@@ -10,20 +10,20 @@
     <table class="records_list bordered hoverable">
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Type</th>
                 <th>Created</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td>{{ entity.nom }}</td>
-                <td>{{ entity.description }}</td>
-                <td><span class="badge new {% if entity.type == "Remarque" %} orange {% else %} red {% endif %}">{{ entity.type }}</span>  </td>
                 <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.nom }}</td>
+                <td><span class="badge new {% if entity.type == "Remarque" %} orange {% else %} red {% endif %}">{{ entity.type }}</span>  </td>
+                <td>{{ entity.description }}</td>
                 <td>
                     <a href="{{ path('remarque_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>

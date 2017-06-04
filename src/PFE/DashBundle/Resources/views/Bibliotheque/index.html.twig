@@ -10,11 +10,10 @@
     <table class="records_list bordered hoverable">
         <thead>
             <tr>
-                <th>Nom</th>
                 <th>Datecreation</th>
+                <th>Nom</th>
                 <th>Superficie</th>
-                <th>Tel</th>
-                <th>Fax</th>
+                <th>Tel / Fax</th>
                 <th>Isformation</th>
                 <th>Actions</th>
             </tr>
@@ -22,11 +21,10 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td>{{ entity.nom }}</td>
                 <td>{% if entity.dateCreation %}{{ entity.dateCreation|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.nom }}</td>
                 <td>{{ entity.superficie }}</td>
-                <td>{{ entity.tel }}</td>
-                <td>{{ entity.fax }}</td>
+                <td>{{ entity.tel }} {% if entity.fax %} / {{ entity.fax }} {% endif %}</td>
                 <td>{% if entity.isFormation %}<span class="badge new green">Oui</span> {% else %} <span class="badge new red">Non</span> {% endif %} </td>
                 <td>
                     <a href="{{ path('bibliotheque_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">

@@ -17,12 +17,11 @@ class SocialMediaType extends AbstractType
         $builder
             ->add('nom','choice', array(
                 'choices'  => array(
-                    'Facebook' => 'Facebook' ,
-                    'Twitter' => 'Twitter',
-                    'Instagram' => 'Instagram',
-                    'Google+' => 'Google+',
-                    'Site Web' => 'Site Web',
-                    'Autre' => 'Autre',
+                    'fb' => 'Facebook',
+                    'tw' => 'Twitter',
+                    'ig' => 'Instagram',
+                    'gp' => 'Google+',
+                    'sw' => 'Site Web',
             )))
             ->add('url')
             ->add('bibliotheque','entity', array(

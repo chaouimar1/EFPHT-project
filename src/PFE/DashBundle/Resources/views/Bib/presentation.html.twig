@@ -14,15 +14,17 @@
             <p><i class="mdi-action-perm-phone-msg blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Téléphone/Fax : </span>{{ b.tel }} / {{ b.fax }}</p>
             <p><i class="mdi-communication-email blue-grey-text text-darken-2"></i> <span class="blue-grey-text">E-mail : </span>{{ b.email }}</p>
             <p><i class="mdi-action-event blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Date installation internet : </span>{{ b.dateInstallationInternet|date("d/m/Y")  }}</p>
-            <p><i class="mdi-social-share blue-grey-text text-darken-2"></i> <span class="blue-grey-text">Réseaux sociaux : </span>
+            <p style="float: right;">
                 {% if b.SocialMedia.count %}
                 {% for sm in b.socialmedia %}
-                    <a href="http://{{ sm.url }}" target="_blank">{{ sm.url }} - </a>
+                        <a href="http://{{ sm.url }}" target="_blank"><img style="padding: 0 2px;" src="{{ asset('img/socials/'~sm.nom~'.png') }}"/></a>
                 {% endfor %}
                 {% else %}
                     Aucun
                 {% endif %}
             </p>
+            <br>
+            <br>
         </div>
     </div>
 

@@ -10,7 +10,7 @@
     <table class="records_list bordered hoverable">
         <thead>
             <tr>
-                <th>Nom</th>
+                <th></th>
                 <th>Url</th>
                 <th>Actions</th>
             </tr>
@@ -18,7 +18,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td>{{ entity.nom }}</td>
+                <td><img style="padding: 0 2px;" src="{{ asset('img/socials/'~entity.nom~'.png') }}"/></td>
                 <td><a href="http://{{ entity.url }}" target="_blank">{{ entity.url }}</a></td>
                 <td>
                     <a href="{{ path('socialmedia_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
