@@ -36,10 +36,10 @@ class Pret
     private $typepret;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Typefondoc", inversedBy="pret")
-     * @ORM\JoinColumn(name="typefondoc_id", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Fondoc", inversedBy="pret")
+     * @ORM\JoinColumn(name="fondoc_id", referencedColumnName="id", nullable=false)
      */
-    private $typefondoc;
+    private $fondoc;
 
     /**
      * Pret constructor.
@@ -153,26 +153,26 @@ class Pret
     }
 
     /**
-     * Set typefondoc
+     * Set fondoc
      *
-     * @param \PFE\DashBundle\Entity\Typefondoc $typefondoc
+     * @param \PFE\DashBundle\Entity\Fondoc $fondoc
      * @return Pret
      */
-    public function setTypefondoc(\PFE\DashBundle\Entity\Typefondoc $typefondoc)
+    public function setFondoc(\PFE\DashBundle\Entity\Fondoc $fondoc)
     {
-        $this->typefondoc = $typefondoc;
+        $this->fondoc = $fondoc;
 
         return $this;
     }
 
     /**
-     * Get typefondoc
+     * Get fondoc
      *
-     * @return \PFE\DashBundle\Entity\Typefondoc 
+     * @return \PFE\DashBundle\Entity\Fondoc
      */
-    public function getTypefondoc()
+    public function getFondoc()
     {
-        return $this->typefondoc;
+        return $this->fondoc;
     }
 
     /**

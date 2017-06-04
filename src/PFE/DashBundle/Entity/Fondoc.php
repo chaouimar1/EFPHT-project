@@ -31,6 +31,11 @@ class Fondoc
     private $typefondoc;
 
     /**
+     * @ORM\OneToMany(targetEntity="PFE\DashBundle\Entity\Pret", mappedBy="fondoc")
+     */
+    private $pret;
+
+    /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="fondoc")
      * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
      */
@@ -43,6 +48,7 @@ class Fondoc
     public function __construct()
     {
         $this->created = new \DateTime();
+        $this->pret = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -168,5 +174,38 @@ class Fondoc
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Add pret
+     *
+     * @param \PFE\DashBundle\Entity\Pret $pret
+     * @return Fondoc
+     */
+    public function addPret(\PFE\DashBundle\Entity\Pret $pret)
+    {
+        $this->pret[] = $pret;
+
+        return $this;
+    }
+
+    /**
+     * Remove pret
+     *
+     * @param \PFE\DashBundle\Entity\Pret $pret
+     */
+    public function removePret(\PFE\DashBundle\Entity\Pret $pret)
+    {
+        $this->pret->removeElement($pret);
+    }
+
+    /**
+     * Get pret
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPret()
+    {
+        return $this->pret;
     }
 }

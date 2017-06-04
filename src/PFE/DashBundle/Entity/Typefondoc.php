@@ -30,16 +30,11 @@ class Typefondoc
     private $fondoc;
 
     /**
-     * @ORM\OneToMany(targetEntity="PFE\DashBundle\Entity\Pret", mappedBy="typefondoc")
-     */
-    private $pret;
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->fondoc = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pret = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -131,36 +126,4 @@ class Typefondoc
         return $this->fondoc;
     }
 
-    /**
-     * Add pret
-     *
-     * @param \PFE\DashBundle\Entity\Pret $pret
-     * @return Typefondoc
-     */
-    public function addPret(\PFE\DashBundle\Entity\Pret $pret)
-    {
-        $this->pret[] = $pret;
-
-        return $this;
-    }
-
-    /**
-     * Remove pret
-     *
-     * @param \PFE\DashBundle\Entity\Pret $pret
-     */
-    public function removePret(\PFE\DashBundle\Entity\Pret $pret)
-    {
-        $this->pret->removeElement($pret);
-    }
-
-    /**
-     * Get pret
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPret()
-    {
-        return $this->pret;
-    }
 }

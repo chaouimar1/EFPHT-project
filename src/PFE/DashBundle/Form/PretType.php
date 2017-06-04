@@ -22,9 +22,9 @@ class PretType extends AbstractType
                 'class' =>  'PFE\DashBundle\Entity\Typepret',
                 'property' => 'nom'
             ))
-            ->add('typefondoc','entity', array(
-                'class' =>  'PFE\DashBundle\Entity\Typefondoc',
-                'property' => 'nom'
+            ->add('fondoc','entity', array(
+                'class' =>  'PFE\DashBundle\Entity\Fondoc',
+                'property' => 'typefondoc.nom'
             ))
         ;
     }
