@@ -245,9 +245,61 @@ class BibController extends Controller
 
     public function fondsAction(Bibliotheque $b)
     {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Fondoc');
+
+        $fondocs = $repository->findByBibliotheque($b);
+        $c1 = $repository->count(0,$b);
+        $c2 = $repository->count(1,$b);
+        $count = $c1+$c2;
+
+        /////////////////////////////////////////////////
+
+        $chart1 = new Highchart();
+        $chart1->chart->renderTo('piechart');
+        $chart1->chart->type('pie'); // Column / Line (default)
+        $chart1->title->text('Fonds documentaires');
+        $chart1->colors('#26a69a', '#ec407a', '#5c6bc0', '#29b6f6', '#ef5350');
+        $chart1->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $data = array();
+        foreach ($fondocs as $fondoc) {
+            $data[] = array($fondoc->getTypefondoc()->getNom(),$fondoc->getNombre());
+        }
+
+        $chart1->series(array(array(
+            'name' => 'Nombre',
+            'data' => $data)));
+
+        //****************  Line chart  ****************//
+        $series = array(
+            array("name" => "Data Serie Name",    "data" => array(1,2,4,5,6,3,8,1,2,4,5,6,3,8,1,2,4,5,6,3,8)),
+            array("name" => "Data Serie Name",    "data" => array(2,4,6,8,10,13,18,2,4,6,8,10,13,18,2,4,6,8,10,13,18)),
+            array("name" => "Data Serie Name",    "data" => array(21,32,44,55,66,73,2,4,6,8,10,13,18,2,4,6,21,32,44,55,6)),
+            array("name" => "Data Serie Name",    "data" => array(21,32,44,55,66,73,88,21,32,44,55,66,73,88,21,32,4,5,6,3,8))
+        );
+
+        $chart3 = new Highchart();
+        $chart3->chart->renderTo('linechart');  // The #id of the div where to render the chart
+        $chart3->chart->type('line'); // Column / Line (default)
+        $chart3->title->text('Chart COLUMN/LINE Title');
+        $chart3->xAxis->title(array('text'  => "Horizontal axis title"));
+        $chart3->plotOptions->series(array( 'pointStart' => 3));
+        $chart3->yAxis->title(array('text'  => "Vertical axis title"));
+        $chart3->series($series);
+
         return $this->render('PFEDashBundle:Bib:fonds.html.twig', array(
             "b" => $b,
-
+            "fondocs" => $fondocs,
+            "count"  => $count,
+            "chart1" => $chart1,
+            "chart3" => $chart3,
+            "colors" => $chart1->colors
         ));    }
 
     public function cataloguesAction(Bibliotheque $b)

@@ -295,3 +295,8 @@ span.tw{background-image: url("../img/socials/tw.png"); }
 span.ig{background-image: url("../img/socials/ig.png"); }
 span.gp{background-image: url("../img/socials/gp.png"); }
 span.sw{background-image: url("../img/socials/sw.png"); }
+
+.fondoc th,
+.fondoc td {
+    padding: 22px 3px; !important;
+}
