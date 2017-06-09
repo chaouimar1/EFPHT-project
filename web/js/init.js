@@ -10,5 +10,6 @@
   		selectMonths: true, 
   		selectYears: 20 
   	});
+      $('.modal').leanModal();
   }); // end of document ready
 })(jQuery); // end of jQuery name space

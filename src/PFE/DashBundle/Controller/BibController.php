@@ -386,9 +386,16 @@ class BibController extends Controller
 
     public function remarquesAction(Bibliotheque $b)
     {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Remarque');
+
+        $remarques = $repository->findBy(array('bibliotheque' => $b,'type'=>'remarque'));
+        $besoins = $repository->findBy(array('bibliotheque' => $b,'type'=>'besoin'));
         return $this->render('PFEDashBundle:Bib:remarques.html.twig', array(
             "b" => $b,
-
+            "remarques" => $remarques,
+            "besoins" => $besoins,
         ));    }
 
     public function menuAction()
