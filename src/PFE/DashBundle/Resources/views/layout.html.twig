@@ -24,9 +24,9 @@
         <a href="{{ path('pfe_dash_bib_fonds', {'id':b.id}) }}">
           <i class="material-icons">description</i></a></li>
 
-      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_catalogues' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Catalogue">
-        <a href="{{ path('pfe_dash_bib_catalogues', {'id':b.id}) }}">
-          <i class="material-icons">class</i></a></li>
+      {#<li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_catalogues' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Catalogue">#}
+        {#<a href="{{ path('pfe_dash_bib_catalogues', {'id':b.id}) }}">#}
+          {#<i class="material-icons">class</i></a></li>#}
 
       <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_prets' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Prêt">
         <a href="{{ path('pfe_dash_bib_prets', {'id':b.id}) }}">

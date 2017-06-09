@@ -160,9 +160,6 @@ class basis implements FixtureInterface
         $c2 = new Typepret();
         $c2->setNom("Externe");
         $manager->persist($c2);
-        $c3 = new Typepret();
-        $c3->setNom("Interne et externe");
-        $manager->persist($c3);
         $manager->flush();
     }
 }

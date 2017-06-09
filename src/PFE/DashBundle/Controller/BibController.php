@@ -311,9 +311,70 @@ class BibController extends Controller
 
     public function pretsAction(Bibliotheque $b)
     {
+
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Pret');
+
+        $prets = $repository->getPretByBibliotheque($b);
+        $countdocs = $repository->countdocs($b);
+        $countdocs_interne = $repository->countdocs($b,'interne');
+        $countdocs_externe = $repository->countdocs($b,'externe');
+
+        $countprets = $repository->countdocs($b,'','pret');
+        $countprets_interne  = $repository->countdocs($b,'interne','pret');
+        $countprets_externe  = $repository->countdocs($b,'externe','pret');
+
+//        $chart1 = new Highchart();
+//        $chart1->chart->renderTo('piechart1');
+//        $chart1->chart->type('pie'); // Column / Line (default)
+//        $chart1->title->text('Count Docs');
+//        $chart1->colors('#5c6bc0', '#42A5F5');
+//        $chart1->plotOptions->pie(array(
+//            'allowPointSelect'  => true,
+//            'cursor'    => 'pointer',
+//            'dataLabels'    => array('enabled' => false),
+//            'showInLegend'  => true
+//        ));
+//        $data = array(
+//            array('docs pretés interne', (int)$countdocs_interne),
+//            array('docs pretés externe', (int)$countdocs_externe));
+//
+//        $chart1->series(array(array(
+//            'name' => 'type de pret',
+//            'data' => $data)));
+//
+//        $chart2 = new Highchart();
+//        $chart2->chart->renderTo('piechart2');
+//        $chart2->chart->type('pie'); // Column / Line (default)
+//        $chart2->title->text('Count Prets');
+//        $chart2->colors('#5c6bc0', '#42A5F5');
+//        $chart2->plotOptions->pie(array(
+//            'allowPointSelect'  => true,
+//            'cursor'    => 'pointer',
+//            'dataLabels'    => array('enabled' => false),
+//            'showInLegend'  => true
+//        ));
+//        $data = array(
+//            array('prets interne', (int)$countprets_interne),
+//            array('prets externe', (int)$countprets_externe),
+//        );
+//        $chart2->series(array(array(
+//            'name' => 'nombre de prets',
+//            'data' => $data,
+//        )));
+
         return $this->render('PFEDashBundle:Bib:prets.html.twig', array(
             "b" => $b,
-
+            "prets" => $prets,
+            "countdocs" => $countdocs,
+            "countprets" => $countprets,
+//            "chart1" => $chart1,
+//            "chart2" => $chart2,
+            "countdocs_interne" => $countdocs_interne,
+            "countdocs_externe" => $countdocs_externe,
+            "countprets_interne" => $countprets_interne,
+            "countprets_externe" => $countprets_externe,
         ));    }
 
     public function animationsAction(Bibliotheque $b)
