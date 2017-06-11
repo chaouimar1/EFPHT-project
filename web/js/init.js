@@ -5,6 +5,7 @@
     $('.tooltipped').tooltip({delay: 5});
     $('select').material_select();
     $('.indicator').addClass('blue-grey');
+    $('.anima .indicator').addClass('white');
   	$('.datepicker').pickadate({
   		format: 'dd-mm-yyyy',
   		selectMonths: true, 

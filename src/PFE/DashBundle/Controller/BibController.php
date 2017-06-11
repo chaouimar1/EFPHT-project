@@ -379,9 +379,39 @@ class BibController extends Controller
 
     public function animationsAction(Bibliotheque $b)
     {
+        $repository_type = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Typeanimation');
+        $types = $repository_type->findAll();
+
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Animation');
+
+        $animations = array();
+        $countAs = 0;
+        $countPVs = array();
+        $countPTs = array();
+        foreach ($types as $type) {
+            $as = $repository->findBy(array("bibliotheque"=>$b, "typeanimation"=>$type));
+            $countAs = $countAs + (int)count($as);
+            $animations[] = $as;
+            $countPVs[] = $repository->sumPublic($type,$b,'publicvise');
+            $countPTs[] = $repository->sumPublic($type,$b,'publicTotal');
+        }
+
+        $sumPVs = array_sum($countPVs);
+        $sumPTs = array_sum($countPTs);
+
         return $this->render('PFEDashBundle:Bib:animations.html.twig', array(
             "b" => $b,
-
+            "types" => $types,
+            "animations" => $animations,
+            "countPTs" => $countPTs,
+            "countPVs" => $countPVs,
+            "sumPVs" => $sumPVs,
+            "sumPTs" => $sumPTs,
+            "countAs" => $countAs,
         ));    }
 
     public function remarquesAction(Bibliotheque $b)

@@ -268,7 +268,7 @@ span.badge.new:after {
 }
 
 span.badge{
-    position: relative;
+    position: initial;
     font-size: 14px !important;
 }
 
