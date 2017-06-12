@@ -377,6 +377,75 @@ class BibController extends Controller
             "countprets_externe" => $countprets_externe,
         ));    }
 
+    public function adherentsAction(Bibliotheque $b)
+    {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Adherent');
+
+        $adherents = $repository->findAll();
+        $count = count($adherents);
+
+        $count_sexe_m = $repository->counbysexe(1,$b);
+        $count_sexe_f = $repository->counbysexe(0,$b);
+        $count_petits=0;
+        $count_moyens=0;
+        $count_grands=0;
+
+
+        foreach ($adherents as $adherent) {
+            if($adherent->getAge()<=12) { $count_petits+=1;}
+            if($adherent->getAge()>12 and $adherent->getAge()<=18) { $count_moyens+=1;}
+            if($adherent->getAge()>18) { $count_grands+=1;}
+        }
+
+        $chart1 = new Highchart();
+        $chart1->chart->renderTo('piechart1');
+        $chart1->chart->type('pie'); // Column / Line (default)
+        $chart1->title->text('Sexe');
+        $chart1->colors('#66bb6a', '#ec407a');
+        $chart1->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'showInLegend'  => true
+        ));
+        $data = array(
+            array('Masculin : '.$count_sexe_m, (int)$count_sexe_m),
+            array('Feminin : '.$count_sexe_f, (int)$count_sexe_f));
+
+        $chart1->series(array(array(
+            'name' => 'Sexe',
+            'data' => $data)));
+
+        $chart2 = new Highchart();
+        $chart2->chart->renderTo('piechart2');
+        $chart2->chart->type('pie'); // Column / Line (default)
+        $chart2->title->text('Age');
+        $chart2->colors('#ff7043', '#26a69a','#5c6bc0');
+        $chart2->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            //'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $data = array(
+            array('petits : '.$count_petits, $count_petits),
+            array('moyens : '.$count_moyens, $count_moyens),
+            array('grands : '.$count_grands, $count_grands),
+        );
+        $chart2->series(array(array(
+            'name' => 'Age',
+            'data' => $data,
+        )));
+
+        return $this->render('PFEDashBundle:Bib:adherents.html.twig', array(
+            "b" => $b,
+            "count" => $count,
+            "adherents" => $adherents,
+            "chart1" => $chart1,
+            "chart2" => $chart2,
+        ));    }
+
     public function animationsAction(Bibliotheque $b)
     {
         $repository_type = $this->getDoctrine()

@@ -32,8 +32,8 @@
         <a href="{{ path('pfe_dash_bib_prets', {'id':b.id}) }}">
           <i class="material-icons">shopping_basket</i></a></li>
 
-      <li class="tooltipped {# if app.request.attributes.get('_route') == 'pfe_dash_bib_presentation' %}activem{% endif #}" data-position="bottom" data-delay="10" data-tooltip="Utilisateurs">
-        <a href="{# path('pfe_dash_bib_presentation') #}">
+      <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_adherents' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Adherents">
+        <a href="{{ path('pfe_dash_bib_adherents', {'id':b.id}) }}">
           <i class="material-icons">person_pin</i></a></li>
 
       <li class="tooltipped {% if app.request.attributes.get('_route') == 'pfe_dash_bib_animations' %}activem active{% endif %}" data-position="bottom" data-delay="10" data-tooltip="Animation">

@@ -3,7 +3,7 @@ namespace PFE\DashBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AdherentRepository")
  */
 class Adherent
 {
@@ -130,6 +130,7 @@ class Adherent
     public function setDateNaissance($dateNaissance)
     {
         $this->dateNaissance = $dateNaissance;
+        $this->age = date_diff(new \DateTime(), $dateNaissance)->y;
 
         return $this;
     }
