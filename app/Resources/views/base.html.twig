@@ -28,14 +28,27 @@
         <div class="nav-wrapper">
             <a href="#!" class="left brand-logo">PFE SF</a>
             {% block menu %}
-
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <ul class="right hide-on-med-and-down">
+                        <li class="right"><a class="dropdown-button" data-activates='dropdownlogout' href=""><i class="material-icons small left">perm_identity</i>{{ app.user.username }}</a></li>
+                    </ul>
+                    <ul id='dropdownlogout' class='dropdown-content right'>
+                        <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="right hide-on-med-and-down">
+                        <li class="right"><a href="{{ path('fos_user_security_login') }}"><i class="material-icons small left">power_settings_new</i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                    </ul>
+                {% endif %}
             {% endblock %}
-            <ul class="right hide-on-med-and-down">
-                <li class="right"><a href="sass.html"><i class="material-icons left">power_settings_new</i>Déconnexion</a></li>
-            </ul>
         </div>
     </nav>
 </div>
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
 <ul id="nav-mobile" class="side-nav fixed blue-grey darken-3">
     <li class="logo"><a class="brand-logo"><img src="{{ asset('img/mc.jpg') }}"></a></li>
     <li class="no-padding">
@@ -71,59 +84,68 @@
     <div class="section">
         <div class="row">
             <div class="col s12 offset-s2">
-                {% block body %}
+                {% else %}
+                <div class="container">
 
-                {% endblock %}
-            </div>
-        </div>
-    </div>
-</div>
+                    <br><br><br>
+                    <div class="section">
+                        <div class="row">
+                            <div class="col offset-s3 s7">
+                                {% endif %}
 
-<footer class="page-footer blue-grey darken-3">
-    <div class="container">
-        <div class="row">
-            <div class="col offset-l2 l6 s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                                {% block body %}
 
-
-            </div>
-            <div class="col l2 s12">
-                <h5 class="white-text">Settings</h5>
-                <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
-                </ul>
-            </div>
-            <div class="col l2 s12">
-                <h5 class="white-text">Connect</h5>
-                <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright blue-grey darken-4">
-        <div class="container">
-            <div class="row">
-                <div class="col offset-l2">
-                    Made by <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
-<script type="text/javascript">
-    {% for message in app.session.flashbag.get('info') %}
-    Materialize.toast("{{ message }}", 4000);
-    {% endfor %}
-</script>
+                <footer class="page-footer blue-grey darken-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col offset-l2 l6 s12">
+                                <h5 class="white-text">Company Bio</h5>
+                                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+                            </div>
+                            <div class="col l2 s12">
+                                <h5 class="white-text">Settings</h5>
+                                <ul>
+                                    <li><a class="white-text" href="#!">Link 1</a></li>
+                                    <li><a class="white-text" href="#!">Link 2</a></li>
+                                    <li><a class="white-text" href="#!">Link 3</a></li>
+                                    <li><a class="white-text" href="#!">Link 4</a></li>
+                                </ul>
+                            </div>
+                            <div class="col l2 s12">
+                                <h5 class="white-text">Connect</h5>
+                                <ul>
+                                    <li><a class="white-text" href="#!">Link 1</a></li>
+                                    <li><a class="white-text" href="#!">Link 2</a></li>
+                                    <li><a class="white-text" href="#!">Link 3</a></li>
+                                    <li><a class="white-text" href="#!">Link 4</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright blue-grey darken-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col offset-l2">
+                                    Made by <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+                <script type="text/javascript">
+                    {% for message in app.session.flashbag.get('info') %}
+                    Materialize.toast("{{ message }}", 4000);
+                    {% endfor %}
+                </script>
 
 </body>
 </html>

@@ -1048,7 +1048,7 @@ return in_array($this->getMethod(), array('GET','HEAD'));
 public function getContent($asResource = false)
 {
 $currentContentIsResource = is_resource($this->content);
-if (PHP_VERSION_ID < 50600 && false === $this->content) {
+if (\PHP_VERSION_ID < 50600 && false === $this->content) {
 throw new \LogicException('getContent() can only be called once when using the resource return type and PHP below 5.6.');
 }
 if (true === $asResource) {
@@ -2409,11 +2409,11 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.7.28';
-const VERSION_ID = 20728;
+const VERSION ='2.7.31';
+const VERSION_ID = 20731;
 const MAJOR_VERSION = 2;
 const MINOR_VERSION = 7;
-const RELEASE_VERSION = 28;
+const RELEASE_VERSION = 31;
 const EXTRA_VERSION ='';
 const END_OF_MAINTENANCE ='05/2018';
 const END_OF_LIFE ='05/2019';
@@ -2818,7 +2818,7 @@ $ignoreSpace = true;
 }
 }
 $output .= $rawChunk;
-if (PHP_VERSION_ID >= 70000) {
+if (\PHP_VERSION_ID >= 70000) {
 unset($tokens, $rawChunk);
 gc_mem_caches();
 }
