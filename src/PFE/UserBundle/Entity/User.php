@@ -3,12 +3,11 @@
 namespace PFE\UserBundle\Entity;
 
 
-use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="PFE\UserBundle\Entity\UserRepository")
  * @ORM\Table(name="user")
  */
 class User extends BaseUser

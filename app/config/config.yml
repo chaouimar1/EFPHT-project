@@ -84,6 +84,3 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: PFE\UserBundle\Entity\User
-    from_email:
-        address: "chaoui.mar1@gmail.com"
-        sender_name: "chaoui.mar1@gmail.com"
