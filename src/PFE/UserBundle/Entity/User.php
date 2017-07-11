@@ -29,6 +29,17 @@ class User extends BaseUser
      */
     private $prenom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="user")
+     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
+     */
+    private $bibliotheque;
+
+    /**
+     * @ORM\OneToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", mappedBy="responsable")
+     */
+    private $bibrespo;
+
     public function __construct()
     {
         parent::__construct();
@@ -81,5 +92,51 @@ class User extends BaseUser
     public function getPrenom()
     {
         return $this->prenom;
+    }
+
+    /**
+     * Set bibliotheque
+     *
+     * @param \PFE\DashBundle\Entity\Bibliotheque $bibliotheque
+     * @return User
+     */
+    public function setBibliotheque(\PFE\DashBundle\Entity\Bibliotheque $bibliotheque)
+    {
+        $this->bibliotheque = $bibliotheque;
+
+        return $this;
+    }
+
+    /**
+     * Get bibliotheque
+     *
+     * @return \PFE\DashBundle\Entity\Bibliotheque 
+     */
+    public function getBibliotheque()
+    {
+        return $this->bibliotheque;
+    }
+
+    /**
+     * Set bibrespo
+     *
+     * @param \PFE\DashBundle\Entity\Bibliotheque $bibrespo
+     * @return User
+     */
+    public function setBibrespo(\PFE\DashBundle\Entity\Bibliotheque $bibrespo = null)
+    {
+        $this->bibrespo = $bibrespo;
+
+        return $this;
+    }
+
+    /**
+     * Get bibrespo
+     *
+     * @return \PFE\DashBundle\Entity\Bibliotheque 
+     */
+    public function getBibrespo()
+    {
+        return $this->bibrespo;
     }
 }

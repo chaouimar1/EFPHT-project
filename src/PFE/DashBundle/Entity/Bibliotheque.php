@@ -85,6 +85,16 @@ class Bibliotheque
     private $adherent;
 
     /**
+     * @ORM\OneToMany(targetEntity="PFE\UserBundle\Entity\User", mappedBy="bibliotheque")
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="PFE\UserBundle\Entity\User", inversedBy="bibrespo")
+     */
+    private $responsable;
+
+    /**
      * @ORM\OneToMany(targetEntity="PFE\DashBundle\Entity\SocialMedia", mappedBy="bibliotheque")
      */
     private $socialMedia;
@@ -651,5 +661,71 @@ class Bibliotheque
     public function getTutelle()
     {
         return $this->tutelle;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \PFE\UserBundle\Entity\User $user
+     * @return Bibliotheque
+     */
+    public function addUser(\PFE\UserBundle\Entity\User $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \PFE\UserBundle\Entity\User $user
+     */
+    public function removeUser(\PFE\UserBundle\Entity\User $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add responsable
+     *
+     * @param \PFE\UserBundle\Entity\User $responsable
+     * @return Bibliotheque
+     */
+    public function addResponsable(\PFE\UserBundle\Entity\User $responsable)
+    {
+        $this->responsable[] = $responsable;
+
+        return $this;
+    }
+
+    /**
+     * Remove responsable
+     *
+     * @param \PFE\UserBundle\Entity\User $responsable
+     */
+    public function removeResponsable(\PFE\UserBundle\Entity\User $responsable)
+    {
+        $this->responsable->removeElement($responsable);
+    }
+
+    /**
+     * Get responsable
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getResponsable()
+    {
+        return $this->responsable;
     }
 }
