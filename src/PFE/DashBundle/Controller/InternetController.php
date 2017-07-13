@@ -44,7 +44,11 @@ class InternetController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('internet_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouvelle Etat internet ajoutée !');
+
+            return $this->redirect($this->generateUrl('internet', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Internet:new.html.twig', array(
@@ -172,6 +176,10 @@ class InternetController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('internet_edit', array('id' => $id)));
         }
 
@@ -200,6 +208,10 @@ class InternetController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Etat internet supprimée.');
         }
 
         return $this->redirect($this->generateUrl('internet'));

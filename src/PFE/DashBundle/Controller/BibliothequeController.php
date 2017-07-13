@@ -44,7 +44,12 @@ class BibliothequeController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('bibliotheque_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouvelle Bibliothéque ajoutée !');
+
+
+            return $this->redirect($this->generateUrl('bibliotheque', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Bibliotheque:new.html.twig', array(
@@ -172,6 +177,10 @@ class BibliothequeController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('bibliotheque_edit', array('id' => $id)));
         }
 
@@ -200,6 +209,10 @@ class BibliothequeController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Bibliothéque supprimée.');
         }
 
         return $this->redirect($this->generateUrl('bibliotheque'));

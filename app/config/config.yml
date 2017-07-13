@@ -32,6 +32,8 @@ framework:
 
 # Twig Configuration
 twig:
+    globals:
+        color: 'blue-grey'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:

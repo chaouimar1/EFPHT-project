@@ -13,7 +13,7 @@
                 {{ form_row(form.nom) }}
             </div>
             <div class="input-field col s4">
-                {{ form_row(form.superficie) }}
+                {#{{ form_row(form.responsable) }}#}
             </div>
         </div>
         <div class="row">
@@ -41,13 +41,16 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s4">
+            <div class="input-field col s3">
+                {{ form_row(form.superficie) }}
+            </div>
+            <div class="input-field col s3">
                 {{ form_row(form.catalogue) }}
             </div>
-            <div class="input-field col s4">
+            <div class="input-field col s3">
                 {{ form_row(form.province) }}
             </div>
-            <div class="input-field col s4">
+            <div class="input-field col s3">
                 {{ form_row(form.isFormation) }}
             </div>
             {{ form_widget(form) }}

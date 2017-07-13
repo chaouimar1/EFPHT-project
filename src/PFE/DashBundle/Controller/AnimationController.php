@@ -44,7 +44,12 @@ class AnimationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('animation_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouvelle Animation ajoutée !');
+
+
+            return $this->redirect($this->generateUrl('animation', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Animation:new.html.twig', array(
@@ -172,6 +177,10 @@ class AnimationController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('animation_edit', array('id' => $id)));
         }
 
@@ -200,6 +209,10 @@ class AnimationController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Animation supprimée.');
         }
 
         return $this->redirect($this->generateUrl('animation'));

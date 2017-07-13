@@ -44,7 +44,11 @@ class RemarqueController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('remarque_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouvelle Remarque ajoutée !');
+
+            return $this->redirect($this->generateUrl('remarque', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Remarque:new.html.twig', array(
@@ -172,6 +176,10 @@ class RemarqueController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('remarque_edit', array('id' => $id)));
         }
 
@@ -200,6 +208,10 @@ class RemarqueController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Remarque supprimée.');
         }
 
         return $this->redirect($this->generateUrl('remarque'));

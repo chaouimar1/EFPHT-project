@@ -44,7 +44,11 @@ class FondocController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('fondoc_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouveaux Documents ajoutés !');
+
+            return $this->redirect($this->generateUrl('fondoc', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Fondoc:new.html.twig', array(
@@ -172,6 +176,10 @@ class FondocController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('fondoc_edit', array('id' => $id)));
         }
 
@@ -200,6 +208,10 @@ class FondocController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Documents supprimés.');
         }
 
         return $this->redirect($this->generateUrl('fondoc'));

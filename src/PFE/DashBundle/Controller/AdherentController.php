@@ -44,7 +44,11 @@ class AdherentController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('adherent_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouveau Adhérent ajouté !');
+
+            return $this->redirect($this->generateUrl('adherent', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Adherent:new.html.twig', array(
@@ -172,6 +176,10 @@ class AdherentController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('adherent_edit', array('id' => $id)));
         }
 
@@ -200,6 +208,10 @@ class AdherentController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Adhérent supprimé.');
         }
 
         return $this->redirect($this->generateUrl('adherent'));

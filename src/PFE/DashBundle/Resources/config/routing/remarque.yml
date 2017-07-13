@@ -1,5 +1,5 @@
 remarque:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Remarque:index" }
 
 remarque_show:

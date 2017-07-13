@@ -20,11 +20,16 @@
         <script src="{{ asset('js/init.js') }}"></script>
     {% endblock %}
 
+    {% if (is_granted('ROLE_ADMINISTRATEUR'))
+        and (is_granted('ROLE_RESPONSABLE')
+            and not is_granted('ROLE_DIRECTEUR')) %}
+        {% set color='grey' %}
+    {% endif %}
 </head>
 
-<body class="blue-grey lighten-5">
+<body class="{{ color }} lighten-5">
 <div class="navbar-fixed">
-    <nav class="blue-grey darken-3">
+    <nav class="{{ color }} darken-3">
         <div class="nav-wrapper">
             <a href="#!" class="left brand-logo">PFE SF</a>
             {% block menu %}
@@ -49,16 +54,31 @@
 
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-<ul id="nav-mobile" class="side-nav fixed blue-grey darken-3">
+<ul id="nav-mobile" class="side-nav fixed {{ color }} darken-3">
     <li class="logo"><a class="brand-logo"><img src="{{ asset('img/mc.jpg') }}"></a></li>
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
-            <li class="bold blue-grey darken-3 "><a class="collapsible-header waves-effect white-text active">PROVINCES</a>
+            {% if is_granted('ROLE_RESPONSABLE') %}
+            <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text active">PROVINCES</a>
                 <div class="collapsible-body">
                     {{ render(controller("PFEDashBundle:Bib:menu")) }}
                 </div>
             </li>
-            <li class="bold blue-grey darken-3 "><a class="collapsible-header waves-effect white-text">FORMULAIRES DE SAISIS</a>
+            {% endif %}
+            {% if is_granted('ROLE_ADMINISTRATEUR') %}
+            <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">GESTION DE L'APP</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer les Responsables</a></li>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer les Employés</a></li>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('bibliotheque') }}">Gérer Bibliothèques</a></li>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer Tutelles</a></li>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer Provinces</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">FORMULAIRES DE SAISIS</a>
                 <div class="collapsible-body">
                     <ul>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('espace') }}">Espaces</a></li>
@@ -70,10 +90,28 @@
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('adherent') }}">Adherents</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('internet') }}">Internet</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('socialmedia') }}">Reseaux Sociaux</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('bibliotheque') }}">Bibliotheques</a></li>
                     </ul>
                 </div>
             </li>
+            {% if is_granted('ROLE_RESPONSABLE') and not is_granted('ROLE_DIRECTEUR') %}
+            <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">ETATS DES MAJ (RESPO)</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">Mettre à jour</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            {% if is_granted('ROLE_DIRECTEUR') %}
+            <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">ETATS DES MAJ (DIR)</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">2017</a></li>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="">2016</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
         </ul>
     </li>
 </ul>
@@ -101,7 +139,7 @@
                     </div>
                 </div>
 
-                <footer class="page-footer blue-grey darken-3">
+                <footer class="page-footer {{ color }} darken-3">
                     <div class="container">
                         <div class="row">
                             <div class="col offset-l2 l6 s12">
@@ -130,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="footer-copyright blue-grey darken-4">
+                    <div class="footer-copyright {{ color }} darken-4">
                         <div class="container">
                             <div class="row">
                                 <div class="col offset-l2">
@@ -143,7 +181,19 @@
 
                 <script type="text/javascript">
                     {% for message in app.session.flashbag.get('info') %}
-                    Materialize.toast("{{ message }}", 4000);
+                    Materialize.toast("<i class='material-icons mdi-alert-error blue-text text-lighten-1'></i> &nbsp;<b>{{ message }}</b>", 4000);
+                    {% endfor %}
+
+                    {% for message in app.session.flashbag.get('add') %}
+                    Materialize.toast("<i class='material-icons mdi-action-check-circle teal-text text-lighten-1'></i> &nbsp;<b>{{ message }}</b>", 4000);
+                    {% endfor %}
+
+                    {% for message in app.session.flashbag.get('update') %}
+                    Materialize.toast("<i class='material-icons mdi-action-cached teal-text text-lighten-1'></i> &nbsp;<b>{{ message }}</b>", 4000);
+                    {% endfor %}
+
+                    {% for message in app.session.flashbag.get('delete') %}
+                    Materialize.toast("<i class='material-icons mdi-action-delete red-text text-lighten-1'></i> &nbsp;<b>{{ message }}</b>", 4000);
                     {% endfor %}
                 </script>
 

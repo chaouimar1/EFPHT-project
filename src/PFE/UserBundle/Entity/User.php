@@ -7,7 +7,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserRepository")
  * @ORM\Table(name="user")
  */
 class User extends BaseUser
@@ -31,7 +31,7 @@ class User extends BaseUser
 
     /**
      * @ORM\ManyToOne(targetEntity="PFE\DashBundle\Entity\Bibliotheque", inversedBy="user")
-     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="bibliotheque_id", referencedColumnName="id", nullable=true)
      */
     private $bibliotheque;
 

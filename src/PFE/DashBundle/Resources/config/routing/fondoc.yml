@@ -1,5 +1,5 @@
 fondoc:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Fondoc:index" }
 
 fondoc_show:

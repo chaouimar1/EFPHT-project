@@ -1,5 +1,5 @@
 socialmedia:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:SocialMedia:index" }
 
 socialmedia_show:

@@ -1,6 +1,6 @@
 pfe_dash_bibliotheque:
     resource: "@PFEDashBundle/Resources/config/routing/bibliotheque.yml"
-    prefix:   /saisi/bibliotheque
+    prefix:   /admin/bibliotheque
 
 pfe_dash_fondoc:
     resource: "@PFEDashBundle/Resources/config/routing/fondoc.yml"

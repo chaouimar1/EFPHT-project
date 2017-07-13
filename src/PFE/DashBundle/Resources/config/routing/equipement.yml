@@ -1,5 +1,5 @@
 equipement:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Equipement:index" }
 
 equipement_show:

@@ -45,6 +45,14 @@ class BibliothequeType extends AbstractType
                 'class' =>  'PFE\DashBundle\Entity\Province',
                 'property' => 'nom'
             ))
+//            ->add('responsable','entity', array(
+//                'class' =>  'PFE\UserBundle\Entity\User',
+//                'property' => 'username',
+//                'query_builder' => function (\PFE\UserBundle\Entity\UserRepository $repository)
+//                {
+//                    return $repository->findByRoleQuery('ROLE_RESPONSABLE');
+//                }
+//            ))
         ;
     }
     

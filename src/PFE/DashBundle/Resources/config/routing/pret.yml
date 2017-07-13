@@ -1,5 +1,5 @@
 pret:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Pret:index" }
 
 pret_show:

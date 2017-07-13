@@ -1,5 +1,5 @@
 adherent:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Adherent:index" }
 
 adherent_show:

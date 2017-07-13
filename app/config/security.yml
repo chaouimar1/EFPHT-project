@@ -29,4 +29,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/dash/, role: ROLE_RESPONSABLE }
-        - { path: ^/saisi/, role: ROLE_EMPLOYE }
+        - { path: ^/saisi/[^/]+/list, role: ROLE_EMPLOYE }
+        - { path: ^/saisi/[^/]+/new, role: ROLE_EMPLOYE }
+        - { path: ^/saisi/[^/]+/create, role: ROLE_EMPLOYE }
+        - { path: ^/saisi/, role: ROLE_ADMINISTRATEUR }

@@ -1,5 +1,5 @@
 espace:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Espace:index" }
 
 espace_show:

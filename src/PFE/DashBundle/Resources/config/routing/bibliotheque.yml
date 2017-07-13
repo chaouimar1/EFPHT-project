@@ -1,5 +1,5 @@
 bibliotheque:
-    path:     /
+    path:     /list
     defaults: { _controller: "PFEDashBundle:Bibliotheque:index" }
 
 bibliotheque_show:

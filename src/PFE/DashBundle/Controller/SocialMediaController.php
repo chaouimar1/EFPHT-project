@@ -44,7 +44,11 @@ class SocialMediaController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('socialmedia_show', array('id' => $entity->getId())));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('add', 'Nouveau Réseau ajouté !');
+
+            return $this->redirect($this->generateUrl('socialmedia', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:SocialMedia:new.html.twig', array(
@@ -172,6 +176,10 @@ class SocialMediaController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('update', 'Informations actualisées !');
+
             return $this->redirect($this->generateUrl('socialmedia_edit', array('id' => $id)));
         }
 
@@ -200,6 +208,10 @@ class SocialMediaController extends Controller
 
             $em->remove($entity);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('delete', 'Réseau supprimé.');
         }
 
         return $this->redirect($this->generateUrl('socialmedia'));
