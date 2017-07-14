@@ -7,23 +7,23 @@
  */
 
 html{
-	font-size: 14px;
+    font-size: 14px;
 }
 
 th,td{
-	padding: 10px 3px;
+    padding: 10px 3px;
 }
 
 ul.side-nav{
-	overflow: hidden;
+    overflow: hidden;
 }
 
 ul.side-nav:hover{
-	overflow: auto;
+    overflow: auto;
 }
 
 .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active{
-	background-color: #4CAF50;
+    background-color: #4CAF50;
 }
 
 .pagination li.active {
@@ -49,62 +49,62 @@ span.badge.new {
 }
 
 ul.side-nav.fixed li.logo {
-  text-align: center;
-  margin-top: 50px;
-  background: #ffffff;
+    text-align: center;
+    margin-top: 50px;
+    background: #ffffff;
 }
-  ul.side-nav.fixed li.logo:hover {
-      background-color: #ffffff;
-  }
+ul.side-nav.fixed li.logo:hover {
+    background-color: #ffffff;
+}
 
 ul.side-nav.fixed {
-  overflow: hidden; }
-  ul.side-nav.fixed li {
+    overflow: hidden; }
+ul.side-nav.fixed li {
     line-height: 44px; }
-    ul.side-nav.fixed li:hover, ul.side-nav.fixed li.active {
-      background-color: rgba(0, 0, 0, 0.5); }
-    ul.side-nav.fixed li.nohover:hover {
+ul.side-nav.fixed li:hover, ul.side-nav.fixed li.active {
+    background-color: rgba(0, 0, 0, 0.5); }
+ul.side-nav.fixed li.nohover:hover {
     background-color: transparent; }
-    ul.side-nav.fixed li a {
-      font-size: 14px;
-      line-height: 45px;
-      height: 45px;}
-    ul.side-nav.fixed li.no-padding a:hover {
-      padding-left: 30px;}
-  ul.side-nav.fixed ul.collapsible-accordion {
+ul.side-nav.fixed li a {
+    font-size: 14px;
+    line-height: 45px;
+    height: 45px;}
+ul.side-nav.fixed li.no-padding a:hover {
+    padding-left: 30px;}
+ul.side-nav.fixed ul.collapsible-accordion {
     background-color: #FFF; }
-  ul.side-nav.fixed:hover {
+ul.side-nav.fixed:hover {
     overflow-y: auto; }
 
 .bold > a {
-  font-weight: bold; }
+    font-weight: bold; }
 
-.side-nav .collapsible-body li a i.material-icons, 
+.side-nav .collapsible-body li a i.material-icons,
 .side-nav.fixed .collapsible-body li a i.material-icons {
     margin-top: 7px;
     margin-right: 0px;
     float: left;
 }
 
-.side-nav .collapsible-body li.active a, 
+.side-nav .collapsible-body li.active a,
 .side-nav.fixed .collapsible-body li.active a {
     color: black;
 }
 
-.side-nav p, 
-.side-nav input[type=text], 
-.side-nav input[type=password], 
-.side-nav input[type=email], 
-.side-nav input[type=url], 
-.side-nav input[type=time], 
-.side-nav input[type=date], 
-.side-nav input[type=datetime-local], 
-.side-nav input[type=tel], 
-.side-nav input[type=number], 
-.side-nav input[type=search], 
+.side-nav p,
+.side-nav input[type=text],
+.side-nav input[type=password],
+.side-nav input[type=email],
+.side-nav input[type=url],
+.side-nav input[type=time],
+.side-nav input[type=date],
+.side-nav input[type=datetime-local],
+.side-nav input[type=tel],
+.side-nav input[type=number],
+.side-nav input[type=search],
 .side-nav textarea.materialize-textarea {
     margin: 0px;
-  }
+}
 
 @media only screen and (min-width: 993px){ .container{
     width: 80% !important;
@@ -116,12 +116,12 @@ ul.side-nav.fixed {
 }}
 
 .container {
-  margin: 0 0 0 6%;
-  padding-top: 10px;
+    margin: 0 0 0 6%;
+    padding-top: 10px;
 }
 
 #nav-mobile{
-  width: 18%;
+    width: 18%;
 }
 
 nav .brand-logo{
@@ -136,23 +136,23 @@ nav .brand-logo{
 }
 
 .side-nav .collapsible-body li a{
-  margin:0px;
+    margin:0px;
 }
 
 .side-nav .collapsible-header{
-  margin:0px;
+    margin:0px;
 }
 
 .side-nav.fixed a{
-  padding: 0 20px;
+    padding: 0 20px;
 }
 
 li.logo{
-  height: 200px;
+    height: 200px;
 }
 
 .brand-logo img{
-  height: 190px;
+    height: 190px;
 }
 
 i.tiny {
@@ -160,14 +160,14 @@ i.tiny {
 }
 
 .card-title{
-  margin: 0 0 20px;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+    margin: 0 0 20px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 .card.wtitle {
-  padding: 0;
+    padding: 0;
 }
 
 .card.wtitle h5 {
@@ -185,15 +185,20 @@ i.tiny {
 .top-teal   {border-top: 3px solid #26a69a}
 
 ul.collapsible-accordion>li{
-  border-bottom: 1px solid #555;
+    border-bottom: 1px solid #555;
 }
 
-nav ul li:hover, nav ul li.active {
-    background-color: rgba(0, 0, 0, 0.3); !important
+.nopadmar nav ul li:hover,
+.nopadmar nav ul li.active {
+    background-color: #607d8b !important;
+}
+
+nav ul li:hover a i, nav ul li.active a i{
+    color: white !important;
 }
 
 nav ul li.activem {
-    border-bottom:2px solid #FFFFFF ; !important;
+    /*border-bottom:2px solid #FFFFFF ; !important;*/
 }
 
 .container .row {
@@ -291,7 +296,7 @@ div.record_actions form{
 }
 
 .crudcard{
-  padding: 20px !important;
+    padding: 20px !important;
 }
 
 span.fb{background-image: url("../img/socials/fb.png"); }
@@ -303,4 +308,20 @@ span.sw{background-image: url("../img/socials/sw.png"); }
 .fondoc th,
 .fondoc td {
     padding: 22px 3px; !important;
+}
+
+table.maj tr th,
+table.maj tr td{
+    text-align: center
+}
+
+.nopadmar,
+.nopadmar .row
+{
+    padding:0px;
+    margin: 0px;
+}
+
+.nopadmar .row input {
+    margin: 3px 0 0 0;
 }

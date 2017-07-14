@@ -515,4 +515,16 @@ class BibController extends Controller
         return $this->render('PFEDashBundle:Bib:province.html.twig', array("p" => $p));
     }
 
+    public function majAction()
+    {
+        $bibs = $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Bibliotheque')
+            ->findAll();
+
+        return $this->render('PFEDashBundle:Bib:maj.html.twig', array(
+            "bibs" => $bibs
+    ));
+    }
+
 }

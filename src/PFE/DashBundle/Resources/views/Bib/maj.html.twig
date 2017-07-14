@@ -1,0 +1,61 @@
+{% extends "PFEDashBundle::layout.html.twig" %}
+
+{% block title %}PFEDashBundle:Bib:maj{% endblock %}
+
+{% block body %}
+
+    <div class="row card-panel wtitle top-black col s11 cols2">
+        <h5 class="card-title">Etat des Mise à jours (à faire en AJAX !!!!!!!)</h5>
+        <div class="col s12">
+            <div class="row">
+
+                <table class="maj">
+                    <thead>
+                    <tr>
+                        <th style="width: 35%;"></th>
+                        <th>Jan</th>
+                        <th>Fev</th>
+                        <th>Mars</th>
+                        <th>Avr</th>
+                        <th>Mai</th>
+                        <th>Juin</th>
+                        <th>Juil</th>
+                        <th>Aout</th>
+                        <th>Sep</th>
+                        <th>Oct</th>
+                        <th>Nov</th>
+                        <th>Dec</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for bib in bibs %}
+                    <tr>
+                        <td style="text-align: left">{{ bib.nom }}</td>
+                        <!--1: dir + respo-->
+                        <td><a class=" btn-floating btn lighten-1 blue-grey z-depth-0"><i class="material-icons mdi-toggle-check-box "></i></a></td>
+                        <!--2: dir-->
+                        <td><a class=" btn-floating btn red lighten-1"><i class="material-icons mdi-alert-error "></i></a></td>
+                        <!--2: respo-->
+                        <td><a class=" btn-floating btn orange lighten-1"><i class="material-icons mdi-file-cloud-upload "></i></a></td>
+                        <!--1: NEW dir + respo-->
+                        <td><a class=" btn-floating btn teal lighten-1 z-depth-0"><i class="material-icons mdi-toggle-check-box "></i></a></td>
+                        <!--3 dir + respo-->
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                        <td><a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a></td>
+                    </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

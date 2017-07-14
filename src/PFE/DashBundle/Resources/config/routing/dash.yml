@@ -47,3 +47,7 @@ pfe_dash_bib_menu:
 pfe_dash_bib_province:
     path:     /province/{id}
     defaults: { _controller: PFEDashBundle:Bib:province }
+
+pfe_dash_bib_maj:
+    path:     /maj
+    defaults: { _controller: PFEDashBundle:Bib:maj }
