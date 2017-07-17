@@ -19,14 +19,19 @@ class RemarqueController extends Controller
      * Lists all Remarque entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $req = $request->request;
 
-        $entities = $em->getRepository('PFEDashBundle:Remarque')->findAll();
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
+        $entities = $em->getRepository('PFEDashBundle:Remarque')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Remarque:index.html.twig', array(
             'entities' => $entities,
+            'm' => $m, 'y' => $y,
         ));
     }
     /**

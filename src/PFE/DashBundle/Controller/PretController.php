@@ -19,14 +19,19 @@ class PretController extends Controller
      * Lists all Pret entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $req = $request->request;
 
-        $entities = $em->getRepository('PFEDashBundle:Pret')->findAll();
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
+        $entities = $em->getRepository('PFEDashBundle:Pret')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Pret:index.html.twig', array(
             'entities' => $entities,
+            'm' => $m, 'y' => $y,
         ));
     }
     /**

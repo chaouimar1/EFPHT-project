@@ -10,30 +10,30 @@
         <table class="records_list bordered hoverable">
         <thead>
             <tr>
+                <th>Created</th>
                 <th>typeespace</th>
                 <th>Isdisponible</th>
                 <th>Etat</th>
                 <th>Nombreplaceassises</th>
-                <th>Created</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td>{# entity.typeespace.nom #}</td>
-                <td>{% if entity.isDisponible %}
-                        <span class="badge green new">Disponible</span>
-                    {% else %}
-                        <span class="badge red new">Non Disponible</span>
-                    {% endif %} </td>
-                <td>{% if entity.etat %}
-                        <span class="badge blue new">Bon</span>
-                    {% else %}
-                        <span class="badge blue-grey new">Médiocre</span>
-                    {% endif %} </td>
-                <td>{{ entity.nombrePlaceAssises }}</td>
                 <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
+                <td>{{  entity.typeespace.nom }}</td>
+                <td>{% if entity.isDisponible %}
+                <span class="badge green new">Disponible</span>
+                {% else %}
+                <span class="badge red new">Non Disponible</span>
+                {% endif %} </td>
+                <td>{% if entity.etat %}
+                <span class="badge blue new">Bon</span>
+                {% else %}
+                <span class="badge blue-grey new">Médiocre</span>
+                {% endif %} </td>
+                <td>{{ entity.nombrePlaceAssises }}</td>
                 <td>
                     <a href="{{ path('espace_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>

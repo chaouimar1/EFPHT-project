@@ -36,7 +36,7 @@ pfe_dash_internet:
 
 pfe_dash_socialmedia:
     resource: "@PFEDashBundle/Resources/config/routing/socialmedia.yml"
-    prefix:   /saisi/socialmedia
+    prefix:   /admin/socialmedia
 
 pfe_dash_dashboard:
     resource: "@PFEDashBundle/Resources/config/routing/dash.yml"

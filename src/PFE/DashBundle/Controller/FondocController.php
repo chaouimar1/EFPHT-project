@@ -19,14 +19,19 @@ class FondocController extends Controller
      * Lists all Fondoc entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $req = $request->request;
 
-        $entities = $em->getRepository('PFEDashBundle:Fondoc')->findAll();
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
+        $entities = $em->getRepository('PFEDashBundle:Fondoc')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Fondoc:index.html.twig', array(
             'entities' => $entities,
+            'm' => $m, 'y' => $y,
         ));
     }
     /**

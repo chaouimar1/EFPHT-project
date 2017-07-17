@@ -19,14 +19,19 @@ class EspaceController extends Controller
      * Lists all Espace entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $req = $request->request;
 
-        $entities = $em->getRepository('PFEDashBundle:Espace')->findAll();
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
+        $entities = $em->getRepository('PFEDashBundle:Espace')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Espace:index.html.twig', array(
             'entities' => $entities,
+            'm' => $m, 'y' => $y,
         ));
     }
     /**

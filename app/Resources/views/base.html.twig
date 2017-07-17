@@ -66,7 +66,7 @@
             </li>
             {% endif %}
             {% if is_granted('ROLE_ADMINISTRATEUR') %}
-            <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">GESTION DE L'APP</a>
+                <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">GESTION DE L'APP</a>
                 <div class="collapsible-body">
                     <ul>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer les Responsables</a></li>
@@ -74,13 +74,14 @@
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('bibliotheque') }}">Gérer Bibliothèques</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer Tutelles</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="">Gérer Provinces</a></li>
+                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('socialmedia') }}">Reseaux Sociaux</a></li>
                     </ul>
                 </div>
-            </li>
+                </li>
             {% endif %}
             <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">FORMULAIRES DE SAISIS</a>
-                <div class="collapsible-body">
-                    <ul>
+            <div class="collapsible-body">
+            <ul>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('espace') }}">Espaces</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('equipement') }}">Equipements</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('fondoc') }}">Fond Documentaire</a></li>
@@ -89,7 +90,6 @@
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('remarque') }}">Remarques</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('adherent') }}">Adherents</a></li>
                         <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('internet') }}">Internet</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('socialmedia') }}">Reseaux Sociaux</a></li>
                     </ul>
                 </div>
             </li>
@@ -116,33 +116,27 @@
                     <div class="col s12">
                         <div class="row">
                             {% block actions %}
-                                <div class="col s1 right">
-                                    <a style="margin: 6px;" class="waves-effect waves-light btn-floating"><i class="material-icons right">send</i></a>
-                                </div>
-                                <div class="col s2 right">
-                                    <select>
-                                        <option value="" disabled selected>annee</option>
-                                        <option value="1">2017</option>
-                                        <option value="2">2016</option>
-                                    </select>
-                                </div>
-                                <div class="col s2 right">
-                                    <select>
-                                        <option value="" disabled selected>mois</option>
-                                        <option value="1">Janvier</option>
-                                        <option value="2">Février</option>
-                                        <option value="3">Mars</option>
-                                        <option value="4">Avril</option>
-                                        <option value="5">Mai</option>
-                                        <option value="6">Juin</option>
-                                        <option value="7">Juillet</option>
-                                        <option value="8">Août</option>
-                                        <option value="9">Septembre</option>
-                                        <option value="10">Octobre</option>
-                                        <option value="11">Novembre</option>
-                                        <option value="12">Décembre</option>
-                                    </select>
-                                </div>
+                                <form action="#" method="post">
+                                    {#<div class="col s1 right">#}
+                                        {#<button type="submit" style="margin: 6px;" class="waves-effect waves-light btn-floating"><i class="material-icons right">send</i></button>#}
+                                    {#</div>#}
+                                    <div class="col s2 right">
+                                        <select name="actionyear" onchange="this.form.submit()">
+                                            <option value="" disabled>annee</option>
+                                            {% for i in 2017..2020 %}
+                                            <option {%  if y is defined and y==i %} selected {% endif %}>{{ i }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col s2 right">
+                                        <select name="actionmonth" onchange="this.form.submit()">
+                                            <option value="" disabled>mois</option>
+                                            {% for j in range(1, 12) %}
+                                                <option value="{{ j }}" {%  if m is defined and m==j %} selected {% endif %}>{{ date('2017-' ~ j ~ '-01') |date('F') }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </form>
                             {% endblock %}
                         </div>
                     </div>

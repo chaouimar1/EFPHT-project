@@ -19,14 +19,19 @@ class AnimationController extends Controller
      * Lists all Animation entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $req = $request->request;
 
-        $entities = $em->getRepository('PFEDashBundle:Animation')->findAll();
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
+        $entities = $em->getRepository('PFEDashBundle:Animation')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Animation:index.html.twig', array(
             'entities' => $entities,
+            'm' => $m, 'y' => $y,
         ));
     }
     /**

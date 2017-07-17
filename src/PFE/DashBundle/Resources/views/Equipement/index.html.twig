@@ -10,26 +10,26 @@
     <table class="records_list bordered hoverable">
         <thead>
             <tr>
+                <th>Created</th>
                 <th>Isdisponible</th>
                 <th>Nombre</th>
                 <th>Nombre_endommage</th>
                 <th>Nombre_nutilisable</th>
-                <th>Created</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
+                <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if entity.isDisponible %}
-                        <span class="badge green new">Disponible</span>
-                    {% else %}
-                        <span class="badge red new">Non Disponible</span>
-                    {% endif %} </td>
+                <span class="badge green new">Disponible</span>
+                {% else %}
+                <span class="badge red new">Non Disponible</span>
+                {% endif %} </td>
                 <td>{{ entity.nombre }}</td>
                 <td>{{ entity.nombreendommage }}</td>
                 <td>{{ entity.nombrenutilisable }}</td>
-                <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
                 <td>
                     <a href="{{ path('equipement_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>
