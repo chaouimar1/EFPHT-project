@@ -46,8 +46,8 @@
                                     <span class="badge new black lighten-1">{{ as|length }}</span>
                                 </div>
                                 <div class="col s6">Total public :
-                                    <span class="badge new indigo lighten-1">{{ countPVs[loop.index0] }}</span>
-                                    / <span class="badge new teal lighten-1">{{ countPTs[loop.index0] }}</span>
+                                    <span class="badge new indigo lighten-1">{{ countPVs[loop.index0]|default('0') }}</span>
+                                    / <span class="badge new teal lighten-1">{{ countPTs[loop.index0]|default('0') }}</span>
                                 </div>
                             </div>
                         </div>

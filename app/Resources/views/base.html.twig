@@ -81,17 +81,17 @@
             {% endif %}
             <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">FORMULAIRES DE SAISIS</a>
             <div class="collapsible-body">
-            <ul>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('espace') }}">Espaces</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('equipement') }}">Equipements</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('fondoc') }}">Fond Documentaire</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('pret') }}">Prêts</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('animation') }}">Animations</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('remarque') }}">Remarques</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('adherent') }}">Adherents</a></li>
-                        <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('internet') }}">Internet</a></li>
-                    </ul>
-                </div>
+                <ul>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('espace') }}">Espaces</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('equipement') }}">Equipements</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('fondoc') }}">Fond Documentaire</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('pret') }}">Prêts</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('adherent') }}">Adherents</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('animation') }}">Animations</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('remarque') }}">Remarques</a></li>
+                    <li class="indigo"><a class="waves-effect grey lighten-5" href="{{ path('internet') }}">Internet</a></li>
+                </ul>
+            </div>
             </li>
             {% if is_granted('ROLE_RESPONSABLE') %}
             <li class="bold {{ color }} darken-3 "><a class="collapsible-header waves-effect white-text">ETATS DES MAJ</a>

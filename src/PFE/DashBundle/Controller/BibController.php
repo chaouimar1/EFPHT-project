@@ -10,30 +10,64 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BibController extends Controller
 {
-    public function presentationAction(Bibliotheque $b)
+    public function presentationAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Espace');
-        $cplaces = $repository->countplaces($b);
+        $cplaces = $repository->countplaces($b,$y,$m);
+
+        $repository_adh = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Adherent');
+        $countadherent = count($repository_adh->findByBibDate($b,$y,$m));
+
+        $repository_f = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Fondoc');
+        $c1 = $repository_f->count(0,$b,$y,$m);
+        $c2 = $repository_f->count(1,$b,$y,$m);
+        $countdocfonds = $c1+$c2;
+
+        $repository_r = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('PFEDashBundle:Remarque');
+        $countremarques = count($repository_r->findByBibDate($b,'remarque',$y,$m));
+        $countbesoins = count($repository_r->findByBibDate($b,'besoin',$y,$m));
+
         return $this->render('PFEDashBundle:Bib:presentation.html.twig', array(
             "b" => $b,
             "cplaces" => $cplaces,
+            'm' => $m, 'y' => $y,
+            'countadherent' => $countadherent,
+            'countdocfonds' => $countdocfonds,
+            'countremarques' => $countremarques,
+            'countbesoins' => $countbesoins,
         ));
     }
 
-    public function espacesAction(Bibliotheque $b)
+    public function espacesAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Espace');
 
-        $espaces = $repository->findByBibliotheque($b);
-        $c1 = $repository->counto('isDisponible',1,$b);
-        $c2 = $repository->counto('isDisponible',0,$b);
-        $c3 = $repository->counto('etat',1,$b);
-        $c4 = $repository->counto('etat',0,$b);
-        $cplaces = $repository->countplaces($b);
+        $espaces = $repository->findByBibDate($b,$y,$m);
+        $c1 = $repository->counto('isDisponible',1,$b,$y,$m);
+        $c2 = $repository->counto('isDisponible',0,$b,$y,$m);
+        $c3 = $repository->counto('etat',1,$b,$y,$m);
+        $c4 = $repository->counto('etat',0,$b,$y,$m);
+        $cplaces = $repository->countplaces($b,$y,$m);
 
         $chart1 = new Highchart();
         $chart1->chart->renderTo('piechart1');
@@ -79,20 +113,26 @@ class BibController extends Controller
             'chart2' => $chart2,
             'cplaces' => $cplaces,
             'b' => $b,
+            'm' => $m, 'y' => $y,
         ));    }
 
-    public function equipementsAction(Bibliotheque $b)
+    public function equipementsAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Equipement');
 
-        $equipements = $repository->getEquipementsByBibliotheque(0,$b);
-        $rayonnages = $repository->getEquipementsByBibliotheque(1,$b);
-        $c_equ_ndispo = $repository->countetat(0,0,$b);
-        $c_equ_dispo = $repository->countetat(0,1,$b);
-        $c_ray_ndispo = $repository->countetat(1,0,$b);
-        $c_ray_dispo = $repository->countetat(1,1,$b);
+        $equipements = $repository->getEquipementsByBibliotheque(0,$b,$y,$m);
+        $rayonnages = $repository->getEquipementsByBibliotheque(1,$b,$y,$m);
+        $c_equ_ndispo = $repository->countetat(0,0,$b,$y,$m);
+        $c_equ_dispo = $repository->countetat(0,1,$b,$y,$m);
+        $c_ray_ndispo = $repository->countetat(1,0,$b,$y,$m);
+        $c_ray_dispo = $repository->countetat(1,1,$b,$y,$m);
 
         $qb1 = $this->getDoctrine()->getManager();
         $qb1 = $qb1->createQueryBuilder();
@@ -219,17 +259,16 @@ class BibController extends Controller
 //            'stacking'=> 'normal',
             'dataLabels'=>array('enabled'=>true),
         ));
-
         $chart4->yAxis->title(array('text'  => " ", 'align' => 'high'));
         $s = array(array(
             'name' => 'Nombre',
-            'data' => $countcats_r['nombre'],
+            'data' => @$countcats_r['nombre'],
         ),array(
             'name' => 'endom',
-            'data' => $countcats_r['nombre_endommage'],
+            'data' => @$countcats_r['nombre_endommage'],
         ),array(
             'name' => 'non util',
-            'data' => $countcats_r['nombre_nutilisable'],
+            'data' => @$countcats_r['nombre_nutilisable'],
         ));
         $chart4->series($s);
 
@@ -241,17 +280,23 @@ class BibController extends Controller
             "chart2" => $chart2,
             "chart3" => $chart3,
             "chart4" => $chart4,
+            'm' => $m, 'y' => $y,
         ));    }
 
-    public function fondsAction(Bibliotheque $b)
+    public function fondsAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Fondoc');
 
-        $fondocs = $repository->findByBibliotheque($b);
-        $c1 = $repository->count(0,$b);
-        $c2 = $repository->count(1,$b);
+        $fondocs = $repository->findByBibDate($b,$y,$m);
+        $c1 = $repository->count(0,$b,$y,$m);
+        $c2 = $repository->count(1,$b,$y,$m);
         $count = $c1+$c2;
 
         /////////////////////////////////////////////////
@@ -277,29 +322,30 @@ class BibController extends Controller
             'data' => $data)));
 
         //****************  Line chart  ****************//
-        $series = array(
-            array("name" => "Data Serie Name",    "data" => array(1,2,4,5,6,3,8,1,2,4,5,6,3,8,1,2,4,5,6,3,8)),
-            array("name" => "Data Serie Name",    "data" => array(2,4,6,8,10,13,18,2,4,6,8,10,13,18,2,4,6,8,10,13,18)),
-            array("name" => "Data Serie Name",    "data" => array(21,32,44,55,66,73,2,4,6,8,10,13,18,2,4,6,21,32,44,55,6)),
-            array("name" => "Data Serie Name",    "data" => array(21,32,44,55,66,73,88,21,32,44,55,66,73,88,21,32,4,5,6,3,8))
-        );
-
-        $chart3 = new Highchart();
-        $chart3->chart->renderTo('linechart');  // The #id of the div where to render the chart
-        $chart3->chart->type('line'); // Column / Line (default)
-        $chart3->title->text('Chart COLUMN/LINE Title');
-        $chart3->xAxis->title(array('text'  => "Horizontal axis title"));
-        $chart3->plotOptions->series(array( 'pointStart' => 3));
-        $chart3->yAxis->title(array('text'  => "Vertical axis title"));
-        $chart3->series($series);
+//        $series = array(
+//            array("name" => "Data Serie Name",    "data" => array(1,2,4,5,6,3,8,1,2,4,5,6,3,8,1,2,4,5,6,3,8)),
+//            array("name" => "Data Serie Name",    "data" => array(2,4,6,8,10,13,18,2,4,6,8,10,13,18,2,4,6,8,10,13,18)),
+//            array("name" => "Data Serie Name",    "data" => array(21,32,44,55,66,73,2,4,6,8,10,13,18,2,4,6,21,32,44,55,6)),
+//            array("name" => "Data Serie Name",    "data" => array(21,32,44,55,66,73,88,21,32,44,55,66,73,88,21,32,4,5,6,3,8))
+//        );
+//
+//        $chart3 = new Highchart();
+//        $chart3->chart->renderTo('linechart');  // The #id of the div where to render the chart
+//        $chart3->chart->type('line'); // Column / Line (default)
+//        $chart3->title->text('Chart COLUMN/LINE Title');
+//        $chart3->xAxis->title(array('text'  => "Horizontal axis title"));
+//        $chart3->plotOptions->series(array( 'pointStart' => 3));
+//        $chart3->yAxis->title(array('text'  => "Vertical axis title"));
+//        $chart3->series($series);
 
         return $this->render('PFEDashBundle:Bib:fonds.html.twig', array(
             "b" => $b,
             "fondocs" => $fondocs,
             "count"  => $count,
             "chart1" => $chart1,
-            "chart3" => $chart3,
-            "colors" => $chart1->colors
+//            "chart3" => $chart3,
+            "colors" => $chart1->colors,
+            'm' => $m, 'y' => $y,
         ));    }
 
     public function cataloguesAction(Bibliotheque $b)
@@ -309,85 +355,95 @@ class BibController extends Controller
 
         ));    }
 
-    public function pretsAction(Bibliotheque $b)
+    public function pretsAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
 
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Pret');
 
-        $prets = $repository->getPretByBibliotheque($b);
-        $countdocs = $repository->countdocs($b);
-        $countdocs_interne = $repository->countdocs($b,'interne');
-        $countdocs_externe = $repository->countdocs($b,'externe');
+        $prets = $repository->getPretByBibliotheque($b, $y, $m);
+        $countdocs = $repository->countdocs($b,'','', $y, $m);
+        $countdocs_interne = $repository->countdocs($b,'interne','', $y, $m);
+        $countdocs_externe = $repository->countdocs($b,'externe','', $y, $m);
 
-        $countprets = $repository->countdocs($b,'','pret');
-        $countprets_interne  = $repository->countdocs($b,'interne','pret');
-        $countprets_externe  = $repository->countdocs($b,'externe','pret');
+        $countprets = $repository->countdocs($b,'','pret', $y, $m);
+        $countprets_interne  = $repository->countdocs($b,'interne','pret', $y, $m);
+        $countprets_externe  = $repository->countdocs($b,'externe','pret', $y, $m);
 
-//        $chart1 = new Highchart();
-//        $chart1->chart->renderTo('piechart1');
-//        $chart1->chart->type('pie'); // Column / Line (default)
-//        $chart1->title->text('Count Docs');
-//        $chart1->colors('#5c6bc0', '#42A5F5');
-//        $chart1->plotOptions->pie(array(
-//            'allowPointSelect'  => true,
-//            'cursor'    => 'pointer',
-//            'dataLabels'    => array('enabled' => false),
-//            'showInLegend'  => true
-//        ));
-//        $data = array(
-//            array('docs pretés interne', (int)$countdocs_interne),
-//            array('docs pretés externe', (int)$countdocs_externe));
-//
-//        $chart1->series(array(array(
-//            'name' => 'type de pret',
-//            'data' => $data)));
-//
-//        $chart2 = new Highchart();
-//        $chart2->chart->renderTo('piechart2');
-//        $chart2->chart->type('pie'); // Column / Line (default)
-//        $chart2->title->text('Count Prets');
-//        $chart2->colors('#5c6bc0', '#42A5F5');
-//        $chart2->plotOptions->pie(array(
-//            'allowPointSelect'  => true,
-//            'cursor'    => 'pointer',
-//            'dataLabels'    => array('enabled' => false),
-//            'showInLegend'  => true
-//        ));
-//        $data = array(
-//            array('prets interne', (int)$countprets_interne),
-//            array('prets externe', (int)$countprets_externe),
-//        );
-//        $chart2->series(array(array(
-//            'name' => 'nombre de prets',
-//            'data' => $data,
-//        )));
+        $chart1 = new Highchart();
+        $chart1->chart->renderTo('piechart1');
+        $chart1->chart->type('pie'); // Column / Line (default)
+        $chart1->title->text('Count Docs');
+        $chart1->colors('#5c6bc0', '#42A5F5');
+        $chart1->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $data = array(
+            array('docs pretés interne', (int)$countdocs_interne),
+            array('docs pretés externe', (int)$countdocs_externe));
+
+        $chart1->series(array(array(
+            'name' => 'type de pret',
+            'data' => $data)));
+
+        $chart2 = new Highchart();
+        $chart2->chart->renderTo('piechart2');
+        $chart2->chart->type('pie'); // Column / Line (default)
+        $chart2->title->text('Count Prets');
+        $chart2->colors('#5c6bc0', '#42A5F5');
+        $chart2->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $data = array(
+            array('prets interne', (int)$countprets_interne),
+            array('prets externe', (int)$countprets_externe),
+        );
+        $chart2->series(array(array(
+            'name' => 'nombre de prets',
+            'data' => $data,
+        )));
 
         return $this->render('PFEDashBundle:Bib:prets.html.twig', array(
             "b" => $b,
             "prets" => $prets,
             "countdocs" => $countdocs,
             "countprets" => $countprets,
-//            "chart1" => $chart1,
-//            "chart2" => $chart2,
+            "chart1" => $chart1,
+            "chart2" => $chart2,
             "countdocs_interne" => $countdocs_interne,
             "countdocs_externe" => $countdocs_externe,
             "countprets_interne" => $countprets_interne,
             "countprets_externe" => $countprets_externe,
+            'm' => $m, 'y' => $y,
         ));    }
 
-    public function adherentsAction(Bibliotheque $b)
+    public function adherentsAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Adherent');
 
-        $adherents = $repository->findAll();
+        $adherents = $repository->findByBibDate($b,$y,$m);
         $count = count($adherents);
 
-        $count_sexe_m = $repository->counbysexe(1,$b);
-        $count_sexe_f = $repository->counbysexe(0,$b);
+        $count_sexe_m = $repository->counbysexe(1,$b,$y,$m);
+        $count_sexe_f = $repository->counbysexe(0,$b,$y,$m);
         $count_petits=0;
         $count_moyens=0;
         $count_grands=0;
@@ -444,10 +500,16 @@ class BibController extends Controller
             "adherents" => $adherents,
             "chart1" => $chart1,
             "chart2" => $chart2,
+            'm' => $m, 'y' => $y,
         ));    }
 
-    public function animationsAction(Bibliotheque $b)
+    public function animationsAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository_type = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Typeanimation');
@@ -462,11 +524,11 @@ class BibController extends Controller
         $countPVs = array();
         $countPTs = array();
         foreach ($types as $type) {
-            $as = $repository->findBy(array("bibliotheque"=>$b, "typeanimation"=>$type));
+            $as = $repository->findByBibDate($b, $type, $y, $m);
             $countAs = $countAs + (int)count($as);
             $animations[] = $as;
-            $countPVs[] = $repository->sumPublic($type,$b,'publicvise');
-            $countPTs[] = $repository->sumPublic($type,$b,'publicTotal');
+            $countPVs[] = $repository->sumPublic($type,$b,'publicvise', $y, $m);
+            $countPTs[] = $repository->sumPublic($type,$b,'publicTotal', $y, $m);
         }
 
         $sumPVs = array_sum($countPVs);
@@ -481,20 +543,27 @@ class BibController extends Controller
             "sumPVs" => $sumPVs,
             "sumPTs" => $sumPTs,
             "countAs" => $countAs,
+            'm' => $m, 'y' => $y,
         ));    }
 
-    public function remarquesAction(Bibliotheque $b)
+    public function remarquesAction(Bibliotheque $b, Request $request)
     {
+        $req = $request->request;
+
+        $y = $req->get('actionyear');
+        $m = $req->get('actionmonth');
+
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository('PFEDashBundle:Remarque');
 
-        $remarques = $repository->findBy(array('bibliotheque' => $b,'type'=>'remarque'));
-        $besoins = $repository->findBy(array('bibliotheque' => $b,'type'=>'besoin'));
+        $remarques = $repository->findByBibDate($b,'remarque',$y,$m);
+        $besoins = $repository->findByBibDate($b,'besoin',$y,$m);
         return $this->render('PFEDashBundle:Bib:remarques.html.twig', array(
             "b" => $b,
             "remarques" => $remarques,
             "besoins" => $besoins,
+            'm' => $m, 'y' => $y,
         ));    }
 
     public function menuAction()

@@ -22,8 +22,12 @@ class PretRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getPretByBibliotheque(Bibliotheque $b)
+    public function getPretByBibliotheque(Bibliotheque $b, &$year = null, &$month = null)
     {
+        if ($month === null) { $month = (int) date('m'); }
+        if ($year === null) { $year = (int) date('Y'); }
+        $date = new \DateTime("{$year}-{$month}-01");
+
         $qb = $this->createQueryBuilder('p')
             ->leftJoin('p.fondoc','f')
             ->leftJoin('p.typepret','tp')
@@ -36,18 +40,28 @@ class PretRepository extends EntityRepository
             ->where('b=:b')
             ->setParameter(':b',$b)
             ->orderBy('tf.nom','ASC')
+            ->andwhere('p.created BETWEEN :start AND :end')
+            ->setParameter('start', $date->format('Y-m-d'))
+            ->setParameter('end', $date->format('Y-m-t'))
         ;
 
         return $qb->getQuery()->getArrayResult();
     }
 
-    public function countdocs(Bibliotheque $b, $type='',$select='')
+    public function countdocs(Bibliotheque $b, $type='',$select='', &$year = null, &$month = null)
     {
+        if ($month === null) { $month = (int) date('m'); }
+        if ($year === null) { $year = (int) date('Y'); }
+        $date = new \DateTime("{$year}-{$month}-01");
+
         $qb = $this->createQueryBuilder('p')
             ->leftJoin('p.fondoc','f')
             ->leftJoin('f.bibliotheque','b')
             ->where('b=:value')
             ->setParameter(':value',$b)
+            ->andwhere('p.created BETWEEN :start AND :end')
+            ->setParameter('start', $date->format('Y-m-d'))
+            ->setParameter('end', $date->format('Y-m-t'))
         ;
 
         if($type!=''){
