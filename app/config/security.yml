@@ -33,3 +33,4 @@ security:
         - { path: ^/saisi/[^/]+/new, role: ROLE_EMPLOYE }
         - { path: ^/saisi/[^/]+/create, role: ROLE_EMPLOYE }
         - { path: ^/saisi/, role: ROLE_ADMINISTRATEUR }
+        - { path: ^/admin/, role: ROLE_ADMINISTRATEUR }

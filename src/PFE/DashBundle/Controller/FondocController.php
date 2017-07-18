@@ -30,6 +30,7 @@ class FondocController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Fondoc')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Fondoc:index.html.twig', array(
+            'currt' => 'Fond documentaire',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -53,7 +54,7 @@ class FondocController extends Controller
                 ->getFlashBag()
                 ->add('add', 'Nouveaux Documents ajoutés !');
 
-            return $this->redirect($this->generateUrl('fondoc', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_fondoc', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Fondoc:new.html.twig', array(
@@ -72,7 +73,7 @@ class FondocController extends Controller
     private function createCreateForm(Fondoc $entity)
     {
         $form = $this->createForm(new FondocType(), $entity, array(
-            'action' => $this->generateUrl('fondoc_create'),
+            'action' => $this->generateUrl('pfe_saisi_fondoc_create'),
             'method' => 'POST',
         ));
 
@@ -91,6 +92,7 @@ class FondocController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Fondoc:new.html.twig', array(
+            'currt' => 'Fond documentaire',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -136,6 +138,7 @@ class FondocController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Fondoc:edit.html.twig', array(
+            'currt' => 'Fond documentaire',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +155,7 @@ class FondocController extends Controller
     private function createEditForm(Fondoc $entity)
     {
         $form = $this->createForm(new FondocType(), $entity, array(
-            'action' => $this->generateUrl('fondoc_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_fondoc_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -185,7 +188,7 @@ class FondocController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('fondoc_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_fondoc_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Fondoc:edit.html.twig', array(
@@ -219,7 +222,7 @@ class FondocController extends Controller
                 ->add('delete', 'Documents supprimés.');
         }
 
-        return $this->redirect($this->generateUrl('fondoc'));
+        return $this->redirect($this->generateUrl('pfe_saisi_fondoc'));
     }
 
     /**
@@ -232,7 +235,7 @@ class FondocController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('fondoc_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_fondoc_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

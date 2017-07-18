@@ -30,6 +30,7 @@ class RemarqueController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Remarque')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Remarque:index.html.twig', array(
+            'currt' => 'Remarque',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -53,7 +54,7 @@ class RemarqueController extends Controller
                 ->getFlashBag()
                 ->add('add', 'Nouvelle Remarque ajoutée !');
 
-            return $this->redirect($this->generateUrl('remarque', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_remarque', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Remarque:new.html.twig', array(
@@ -72,7 +73,7 @@ class RemarqueController extends Controller
     private function createCreateForm(Remarque $entity)
     {
         $form = $this->createForm(new RemarqueType(), $entity, array(
-            'action' => $this->generateUrl('remarque_create'),
+            'action' => $this->generateUrl('pfe_saisi_remarque_create'),
             'method' => 'POST',
         ));
 
@@ -91,6 +92,7 @@ class RemarqueController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Remarque:new.html.twig', array(
+            'currt' => 'Remarque',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -136,6 +138,7 @@ class RemarqueController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Remarque:edit.html.twig', array(
+            'currt' => 'Remarque',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +155,7 @@ class RemarqueController extends Controller
     private function createEditForm(Remarque $entity)
     {
         $form = $this->createForm(new RemarqueType(), $entity, array(
-            'action' => $this->generateUrl('remarque_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_remarque_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -185,7 +188,7 @@ class RemarqueController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('remarque_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_remarque_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Remarque:edit.html.twig', array(
@@ -219,7 +222,7 @@ class RemarqueController extends Controller
                 ->add('delete', 'Remarque supprimée.');
         }
 
-        return $this->redirect($this->generateUrl('remarque'));
+        return $this->redirect($this->generateUrl('pfe_saisi_remarque'));
     }
 
     /**
@@ -232,7 +235,7 @@ class RemarqueController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('remarque_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_remarque_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

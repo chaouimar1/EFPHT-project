@@ -35,10 +35,10 @@
 
     <div class="record_actions">
         </a>
-        <a href="{{ path('remarque_edit', { 'id': entity.id }) }}" class="btn">
+        <a href="{{ path('pfe_saisi_remarque_edit', { 'id': entity.id }) }}" class="btn">
             <i class="mdi-editor-mode-edit left"></i> Modifier
         </a>
-        <a href="{{ path('remarque') }}" class="btn blue-grey">
+        <a href="{{ path('pfe_saisi_remarque') }}" class="btn blue-grey">
             <i class="mdi-action-view-headline left"></i> Retour à la liste
         </a>
         {{ form(delete_form) }}

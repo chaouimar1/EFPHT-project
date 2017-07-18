@@ -21,7 +21,7 @@
                 <td>{% if entity.created %}{{ entity.created|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if entity.isDispo %}<span class="badge new green">Oui</span> {% else %} <span class="badge new red">Non</span> {% endif %} </td>
                 <td>
-                    <a href="{{ path('internet_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
+                    <a href="{{ path('pfe_saisi_internet_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>
                 </td>
             </tr>
@@ -29,7 +29,7 @@
         </tbody>
     </table>
     <br>
-    <a href="{{ path('internet_new') }}" class="btn blue-grey">
+    <a href="{{ path('pfe_saisi_internet_new') }}" class="btn blue-grey">
         <i class="mdi-content-add left"></i> Créer nouveau</a>
 </div>
     {% endblock %}

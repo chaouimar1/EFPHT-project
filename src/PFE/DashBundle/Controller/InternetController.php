@@ -30,6 +30,7 @@ class InternetController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Internet')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Internet:index.html.twig', array(
+            'currt' => 'Internet',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -51,9 +52,9 @@ class InternetController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('add', 'Nouvelle Etat internet ajoutée !');
+                ->add('add', 'Nouvelle Etat pfe_saisi_internet ajoutée !');
 
-            return $this->redirect($this->generateUrl('internet', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_internet', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Internet:new.html.twig', array(
@@ -72,7 +73,7 @@ class InternetController extends Controller
     private function createCreateForm(Internet $entity)
     {
         $form = $this->createForm(new InternetType(), $entity, array(
-            'action' => $this->generateUrl('internet_create'),
+            'action' => $this->generateUrl('pfe_saisi_internet_create'),
             'method' => 'POST',
         ));
 
@@ -91,6 +92,7 @@ class InternetController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Internet:new.html.twig', array(
+            'currt' => 'Internet',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -136,6 +138,7 @@ class InternetController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Internet:edit.html.twig', array(
+            'currt' => 'Internet',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +155,7 @@ class InternetController extends Controller
     private function createEditForm(Internet $entity)
     {
         $form = $this->createForm(new InternetType(), $entity, array(
-            'action' => $this->generateUrl('internet_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_internet_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -185,7 +188,7 @@ class InternetController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('internet_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_internet_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Internet:edit.html.twig', array(
@@ -216,10 +219,10 @@ class InternetController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('delete', 'Etat internet supprimée.');
+                ->add('delete', 'Etat pfe_saisi_internet supprimée.');
         }
 
-        return $this->redirect($this->generateUrl('internet'));
+        return $this->redirect($this->generateUrl('pfe_saisi_internet'));
     }
 
     /**
@@ -232,7 +235,7 @@ class InternetController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('internet_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_internet_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

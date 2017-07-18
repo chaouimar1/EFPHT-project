@@ -6,6 +6,58 @@
 {% endblock %}
 
 {% block menu %}
+
+    <ul class="hide-on-med-and-down">
+        <li><a href=""><i class="material-icons mdi-action-home left"></i></a></li>
+    {% if 'dash' in app.request.attributes.get('_route') %}
+        <li>/</li>
+        <li><a href="">Tableau de bord</a></li>
+
+        {% if b is defined %}
+            <li>/</li>
+            <li><a href="{{ path('pfe_dash_bib_province', {'id': b.province.id}) }}"> {{ b.province.nom }} </a></li>
+            <li>/</li>
+            <li><a href="{{  path('pfe_dash_bib_presentation', {'id':b.id}) }}">{{ b.nom }}</a></li>
+        {% endif %}
+
+        {% if p is defined %}
+            <li>/</li>
+            <li><a href="{{ path('pfe_dash_bib_province', {'id': p.id}) }}">{{ p.nom }}</a></li>
+        {% endif %}
+
+        {% if 'maj' in app.request.attributes.get('_route') %}
+            <li>/</li>
+            <li><a href="#">MAJ</a></li>
+        {% endif %}
+    {% else %}
+        {#<li>/</li>#}
+        {#<li><a href="#">{{ app.request.attributes.get('_route')|title }}</a></li>#}
+    {% endif  %}
+
+        {% if 'admin' in app.request.attributes.get('_route') %}
+            <li>/</li>
+            <li><a href="">Administration</a></li>
+        {% endif %}
+        {% if 'saisi' in app.request.attributes.get('_route') %}
+            <li>/</li>
+            <li><a href="">Formulaire de saisi</a></li>
+        {% endif %}
+
+        {% if currt is defined %}
+            <li>/</li>
+            <li><a href="#">{{ currt }}</a></li>
+        {% endif %}
+
+        {% if 'edit' in app.request.attributes.get('_route') %}
+            <li>/</li>
+            <li><a href="#">Modification</a></li>
+        {% endif %}
+        {% if 'new' in app.request.attributes.get('_route') %}
+            <li>/</li>
+            <li><a href="#">Nouveau</a></li>
+        {% endif %}
+    </ul>
+
     {{ parent() }}
 {% endblock %}
 

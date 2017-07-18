@@ -4,12 +4,12 @@
 
 {% block body %}
 
-    <div class="row card-panel wtitle top-black col s11 cols2">
+    <div class="row card-panel wtitle top-grey col s11 cols2">
         <h5 class="card-title">Etat des Mise à jours (à faire en AJAX !!!!!!!)</h5>
         <div class="col s12">
             <div class="row">
 
-                <table class="maj">
+                <table class="maj bordered hoverable">
                     <thead>
                     <tr>
                         <th style="width: 35%;"></th>
@@ -54,6 +54,31 @@
                     </tbody>
                 </table>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="row card-panel wtitle top-grey col s11 cols2">
+        <h5 class="card-title">Légende du tableau</h5>
+        <div class="col s12">
+            <div class="row">
+                <a class=" btn-floating btn lighten-1 blue-grey z-depth-0"><i class="material-icons mdi-toggle-check-box "></i></a>
+                <span class="badge new blue-grey">Déja à jour</span>
+
+                <a class=" btn-floating btn teal lighten-1 z-depth-0"><i class="material-icons mdi-toggle-check-box "></i></a>
+                <span class="badge new teal">Mis à jour aujourd'hui</span>
+
+                <a class=" btn-floating btn red lighten-1"><i class="material-icons mdi-alert-error "></i></a>
+                <span class="badge new red">Envoyer avertissement</span>
+
+                <a class=" btn-floating btn red lighten-1"><i class="material-icons mdi-action-check-circle "></i></a>
+                <span class="badge new red">Avertissement envoyé</span>
+
+                <a class=" btn-floating btn orange lighten-1"><i class="material-icons mdi-file-cloud-upload "></i></a>
+                <span class="badge new orange">Envoyer la mise à jour</span>
+
+                <a class="btn-floating btn-flat z-depth-0 "><i class="material-icons text-lighten-1 grey-text mdi-image-timelapse "></i></a>
+                <span class="badge new grey">Prochainement</span>
             </div>
         </div>
     </div>

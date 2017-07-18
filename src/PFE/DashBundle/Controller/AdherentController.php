@@ -30,6 +30,7 @@ class AdherentController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Adherent')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Adherent:index.html.twig', array(
+            'currt' => 'Adherent',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -53,7 +54,7 @@ class AdherentController extends Controller
                 ->getFlashBag()
                 ->add('add', 'Nouveau Adhérent ajouté !');
 
-            return $this->redirect($this->generateUrl('adherent', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_adherent', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Adherent:new.html.twig', array(
@@ -72,7 +73,7 @@ class AdherentController extends Controller
     private function createCreateForm(Adherent $entity)
     {
         $form = $this->createForm(new AdherentType(), $entity, array(
-            'action' => $this->generateUrl('adherent_create'),
+            'action' => $this->generateUrl('pfe_saisi_adherent_create'),
             'method' => 'POST',
         ));
 
@@ -91,6 +92,7 @@ class AdherentController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Adherent:new.html.twig', array(
+            'currt' => 'Adherent',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -134,8 +136,8 @@ class AdherentController extends Controller
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('PFEDashBundle:Adherent:edit.html.twig', array(
+            'currt' => 'Adherent',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +154,7 @@ class AdherentController extends Controller
     private function createEditForm(Adherent $entity)
     {
         $form = $this->createForm(new AdherentType(), $entity, array(
-            'action' => $this->generateUrl('adherent_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_adherent_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -185,7 +187,7 @@ class AdherentController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('adherent_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_adherent_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Adherent:edit.html.twig', array(
@@ -219,7 +221,7 @@ class AdherentController extends Controller
                 ->add('delete', 'Adhérent supprimé.');
         }
 
-        return $this->redirect($this->generateUrl('adherent'));
+        return $this->redirect($this->generateUrl('pfe_saisi_adherent'));
     }
 
     /**
@@ -232,7 +234,7 @@ class AdherentController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('adherent_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_adherent_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

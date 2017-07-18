@@ -30,6 +30,7 @@ class EspaceController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Espace')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Espace:index.html.twig', array(
+            'currt' => 'Espace',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -53,7 +54,7 @@ class EspaceController extends Controller
                 ->getFlashBag()
                 ->add('add', 'Nouvel Espace ajouté !');
 
-            return $this->redirect($this->generateUrl('espace', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_espace', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Espace:new.html.twig', array(
@@ -72,7 +73,7 @@ class EspaceController extends Controller
     private function createCreateForm(Espace $entity)
     {
         $form = $this->createForm(new EspaceType(), $entity, array(
-            'action' => $this->generateUrl('espace_create'),
+            'action' => $this->generateUrl('pfe_saisi_espace_create'),
             'method' => 'POST',
         ));
 
@@ -91,6 +92,7 @@ class EspaceController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Espace:new.html.twig', array(
+            'currt' => 'Espace',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -136,6 +138,7 @@ class EspaceController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Espace:edit.html.twig', array(
+            'currt' => 'Espace',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +155,7 @@ class EspaceController extends Controller
     private function createEditForm(Espace $entity)
     {
         $form = $this->createForm(new EspaceType(), $entity, array(
-            'action' => $this->generateUrl('espace_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_espace_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -185,7 +188,7 @@ class EspaceController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('espace_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_espace_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Espace:edit.html.twig', array(
@@ -219,7 +222,7 @@ class EspaceController extends Controller
                 ->add('delete', 'Espace supprimé.');
         }
 
-        return $this->redirect($this->generateUrl('espace'));
+        return $this->redirect($this->generateUrl('pfe_saisi_espace'));
     }
 
     /**
@@ -232,7 +235,7 @@ class EspaceController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('espace_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_espace_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

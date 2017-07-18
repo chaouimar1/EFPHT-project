@@ -30,6 +30,7 @@ class EquipementController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Equipement')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Equipement:index.html.twig', array(
+            'currt' => 'Equipement',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -54,7 +55,7 @@ class EquipementController extends Controller
                 ->add('add', 'Nouvel Equipement ajouté !');
 
 
-            return $this->redirect($this->generateUrl('equipement', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_equipement', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Equipement:new.html.twig', array(
@@ -73,7 +74,7 @@ class EquipementController extends Controller
     private function createCreateForm(Equipement $entity)
     {
         $form = $this->createForm(new EquipementType(), $entity, array(
-            'action' => $this->generateUrl('equipement_create'),
+            'action' => $this->generateUrl('pfe_saisi_equipement_create'),
             'method' => 'POST',
         ));
 
@@ -92,6 +93,7 @@ class EquipementController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Equipement:new.html.twig', array(
+            'currt' => 'Equipement',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -137,6 +139,7 @@ class EquipementController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Equipement:edit.html.twig', array(
+            'currt' => 'Equipement',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -153,7 +156,7 @@ class EquipementController extends Controller
     private function createEditForm(Equipement $entity)
     {
         $form = $this->createForm(new EquipementType(), $entity, array(
-            'action' => $this->generateUrl('equipement_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_equipement_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -186,7 +189,7 @@ class EquipementController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('equipement_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_equipement_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Equipement:edit.html.twig', array(
@@ -220,7 +223,7 @@ class EquipementController extends Controller
                 ->add('delete', 'Equipement supprimé.');
         }
 
-        return $this->redirect($this->generateUrl('equipement'));
+        return $this->redirect($this->generateUrl('pfe_saisi_equipement'));
     }
 
     /**
@@ -233,7 +236,7 @@ class EquipementController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('equipement_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_equipement_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

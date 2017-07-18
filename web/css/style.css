@@ -325,3 +325,7 @@ table.maj tr td{
 .nopadmar .row input {
     margin: 3px 0 0 0;
 }
+
+nav ul li:hover, nav ul li.active {
+    background-color: rgba(0, 0, 0, 0);
+}

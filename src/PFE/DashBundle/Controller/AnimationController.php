@@ -30,6 +30,7 @@ class AnimationController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Animation')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Animation:index.html.twig', array(
+            'currt' => 'Animation',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -54,7 +55,7 @@ class AnimationController extends Controller
                 ->add('add', 'Nouvelle Animation ajoutée !');
 
 
-            return $this->redirect($this->generateUrl('animation', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_animation', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Animation:new.html.twig', array(
@@ -73,7 +74,7 @@ class AnimationController extends Controller
     private function createCreateForm(Animation $entity)
     {
         $form = $this->createForm(new AnimationType(), $entity, array(
-            'action' => $this->generateUrl('animation_create'),
+            'action' => $this->generateUrl('pfe_saisi_animation_create'),
             'method' => 'POST',
         ));
 
@@ -92,6 +93,7 @@ class AnimationController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Animation:new.html.twig', array(
+            'currt' => 'Animation',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -137,6 +139,7 @@ class AnimationController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Animation:edit.html.twig', array(
+            'currt' => 'Animation',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -153,7 +156,7 @@ class AnimationController extends Controller
     private function createEditForm(Animation $entity)
     {
         $form = $this->createForm(new AnimationType(), $entity, array(
-            'action' => $this->generateUrl('animation_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_animation_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -186,7 +189,7 @@ class AnimationController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('animation_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_animation_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Animation:edit.html.twig', array(
@@ -220,7 +223,7 @@ class AnimationController extends Controller
                 ->add('delete', 'Animation supprimée.');
         }
 
-        return $this->redirect($this->generateUrl('animation'));
+        return $this->redirect($this->generateUrl('pfe_saisi_animation'));
     }
 
     /**
@@ -233,7 +236,7 @@ class AnimationController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('animation_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_animation_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

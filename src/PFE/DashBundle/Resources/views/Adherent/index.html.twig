@@ -30,7 +30,7 @@
                 <td>{{ entity.age }}</td>
                 <td>{% if entity.sexe %}<span class="badge new green">Homme</span> {% else %} <span class="badge new pink">Femme</span> {% endif %} </td>
                 <td>
-                    <a href="{{ path('adherent_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
+                    <a href="{{ path('pfe_saisi_adherent_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
         </tbody>
     </table>
     <br>
-    <a href="{{ path('adherent_new') }}" class="btn blue-grey">
+    <a href="{{ path('pfe_saisi_adherent_new') }}" class="btn blue-grey">
         <i class="mdi-content-add left"></i> Créer nouveau</a>
 </div>
 {% endblock %}

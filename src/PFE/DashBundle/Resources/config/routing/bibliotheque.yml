@@ -1,30 +1,30 @@
-bibliotheque:
+pfe_admin_bibliotheque:
     path:     /list
     defaults: { _controller: "PFEDashBundle:Bibliotheque:index" }
 
-bibliotheque_show:
+pfe_admin_bibliotheque_show:
     path:     /{id}/show
     defaults: { _controller: "PFEDashBundle:Bibliotheque:show" }
 
-bibliotheque_new:
+pfe_admin_bibliotheque_new:
     path:     /new
     defaults: { _controller: "PFEDashBundle:Bibliotheque:new" }
 
-bibliotheque_create:
+pfe_admin_bibliotheque_create:
     path:     /create
     defaults: { _controller: "PFEDashBundle:Bibliotheque:create" }
     methods:  POST
 
-bibliotheque_edit:
+pfe_admin_bibliotheque_edit:
     path:     /{id}/edit
     defaults: { _controller: "PFEDashBundle:Bibliotheque:edit" }
 
-bibliotheque_update:
+pfe_admin_bibliotheque_update:
     path:     /{id}/update
     defaults: { _controller: "PFEDashBundle:Bibliotheque:update" }
     methods:  [POST, PUT]
 
-bibliotheque_delete:
+pfe_admin_bibliotheque_delete:
     path:     /{id}/delete
     defaults: { _controller: "PFEDashBundle:Bibliotheque:delete" }
     methods:  [POST, DELETE]

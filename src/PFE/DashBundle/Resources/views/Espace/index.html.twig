@@ -35,7 +35,7 @@
                 {% endif %} </td>
                 <td>{{ entity.nombrePlaceAssises }}</td>
                 <td>
-                    <a href="{{ path('espace_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
+                    <a href="{{ path('pfe_saisi_espace_edit', { 'id': entity.id }) }}" class="btn-flat waves-effect waves-teal">
                         <i class="mdi-editor-mode-edit"></i></a>
                 </td>
             </tr>
@@ -43,7 +43,7 @@
         </tbody>
     </table>
     <br>
-    <a href="{{ path('espace_new') }}" class="btn blue-grey">
+    <a href="{{ path('pfe_saisi_espace_new') }}" class="btn blue-grey">
         <i class="mdi-content-add left"></i> Créer nouveau</a>
 </div>
     {% endblock %}

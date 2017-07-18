@@ -26,6 +26,7 @@ class BibliothequeController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Bibliotheque')->findAll();
 
         return $this->render('PFEDashBundle:Bibliotheque:index.html.twig', array(
+            'currt' => 'Bibliotheque',
             'entities' => $entities,
         ));
     }
@@ -49,7 +50,7 @@ class BibliothequeController extends Controller
                 ->add('add', 'Nouvelle Bibliothéque ajoutée !');
 
 
-            return $this->redirect($this->generateUrl('bibliotheque', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_admin_bibliotheque', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Bibliotheque:new.html.twig', array(
@@ -68,7 +69,7 @@ class BibliothequeController extends Controller
     private function createCreateForm(Bibliotheque $entity)
     {
         $form = $this->createForm(new BibliothequeType(), $entity, array(
-            'action' => $this->generateUrl('bibliotheque_create'),
+            'action' => $this->generateUrl('pfe_admin_bibliotheque_create'),
             'method' => 'POST',
         ));
 
@@ -87,6 +88,7 @@ class BibliothequeController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Bibliotheque:new.html.twig', array(
+            'currt' => 'Bibliotheque',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -132,6 +134,7 @@ class BibliothequeController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Bibliotheque:edit.html.twig', array(
+            'currt' => 'Bibliotheque',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -148,7 +151,7 @@ class BibliothequeController extends Controller
     private function createEditForm(Bibliotheque $entity)
     {
         $form = $this->createForm(new BibliothequeType(), $entity, array(
-            'action' => $this->generateUrl('bibliotheque_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_admin_bibliotheque_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -181,7 +184,7 @@ class BibliothequeController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('bibliotheque_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_admin_bibliotheque_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Bibliotheque:edit.html.twig', array(
@@ -215,7 +218,7 @@ class BibliothequeController extends Controller
                 ->add('delete', 'Bibliothéque supprimée.');
         }
 
-        return $this->redirect($this->generateUrl('bibliotheque'));
+        return $this->redirect($this->generateUrl('pfe_admin_bibliotheque'));
     }
 
     /**
@@ -228,7 +231,7 @@ class BibliothequeController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('bibliotheque_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_admin_bibliotheque_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))

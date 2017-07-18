@@ -26,6 +26,7 @@ class SocialMediaController extends Controller
         $entities = $em->getRepository('PFEDashBundle:SocialMedia')->findAll();
 
         return $this->render('PFEDashBundle:SocialMedia:index.html.twig', array(
+            'currt' => 'Réseaux Sociaux',
             'entities' => $entities,
         ));
     }
@@ -48,7 +49,7 @@ class SocialMediaController extends Controller
                 ->getFlashBag()
                 ->add('add', 'Nouveau Réseau ajouté !');
 
-            return $this->redirect($this->generateUrl('socialmedia', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_admin_socialmedia', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:SocialMedia:new.html.twig', array(
@@ -67,7 +68,7 @@ class SocialMediaController extends Controller
     private function createCreateForm(SocialMedia $entity)
     {
         $form = $this->createForm(new SocialMediaType(), $entity, array(
-            'action' => $this->generateUrl('socialmedia_create'),
+            'action' => $this->generateUrl('pfe_admin_socialmedia_create'),
             'method' => 'POST',
         ));
 
@@ -86,6 +87,7 @@ class SocialMediaController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:SocialMedia:new.html.twig', array(
+            'currt' => 'Réseaux Sociaux',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -131,6 +133,7 @@ class SocialMediaController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:SocialMedia:edit.html.twig', array(
+            'currt' => 'Réseaux Sociaux',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -147,7 +150,7 @@ class SocialMediaController extends Controller
     private function createEditForm(SocialMedia $entity)
     {
         $form = $this->createForm(new SocialMediaType(), $entity, array(
-            'action' => $this->generateUrl('socialmedia_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_admin_socialmedia_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -180,7 +183,7 @@ class SocialMediaController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('socialmedia_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_admin_socialmedia_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:SocialMedia:edit.html.twig', array(
@@ -214,7 +217,7 @@ class SocialMediaController extends Controller
                 ->add('delete', 'Réseau supprimé.');
         }
 
-        return $this->redirect($this->generateUrl('socialmedia'));
+        return $this->redirect($this->generateUrl('pfe_admin_socialmedia'));
     }
 
     /**
@@ -227,7 +230,7 @@ class SocialMediaController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('socialmedia_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_admin_socialmedia_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit',  array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                             'attr'=>array('class'=>'red')))

@@ -30,6 +30,7 @@ class PretController extends Controller
         $entities = $em->getRepository('PFEDashBundle:Pret')->findByDate($y,$m);
 
         return $this->render('PFEDashBundle:Pret:index.html.twig', array(
+            'currt' => 'Pret',
             'entities' => $entities,
             'm' => $m, 'y' => $y,
         ));
@@ -53,7 +54,7 @@ class PretController extends Controller
                 ->getFlashBag()
                 ->add('add', 'Nouveau Prêt ajouté !');
 
-            return $this->redirect($this->generateUrl('pret', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pfe_saisi_pret', array('id' => $entity->getId())));
         }
 
         return $this->render('PFEDashBundle:Pret:new.html.twig', array(
@@ -72,7 +73,7 @@ class PretController extends Controller
     private function createCreateForm(Pret $entity)
     {
         $form = $this->createForm(new PretType(), $entity, array(
-            'action' => $this->generateUrl('pret_create'),
+            'action' => $this->generateUrl('pfe_saisi_pret_create'),
             'method' => 'POST',
         ));
 
@@ -91,6 +92,7 @@ class PretController extends Controller
         $form   = $this->createCreateForm($entity);
 
         return $this->render('PFEDashBundle:Pret:new.html.twig', array(
+            'currt' => 'Pret',
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -136,6 +138,7 @@ class PretController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PFEDashBundle:Pret:edit.html.twig', array(
+            'currt' => 'Pret',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +155,7 @@ class PretController extends Controller
     private function createEditForm(Pret $entity)
     {
         $form = $this->createForm(new PretType(), $entity, array(
-            'action' => $this->generateUrl('pret_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pfe_saisi_pret_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -185,7 +188,7 @@ class PretController extends Controller
                 ->getFlashBag()
                 ->add('update', 'Informations actualisées !');
 
-            return $this->redirect($this->generateUrl('pret_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pfe_saisi_pret_edit', array('id' => $id)));
         }
 
         return $this->render('PFEDashBundle:Pret:edit.html.twig', array(
@@ -219,7 +222,7 @@ class PretController extends Controller
                 ->add('delete', 'Prêt supprimé.');
         }
 
-        return $this->redirect($this->generateUrl('pret'));
+        return $this->redirect($this->generateUrl('pfe_saisi_pret'));
     }
 
     /**
@@ -232,7 +235,7 @@ class PretController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('pret_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pfe_saisi_pret_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => '<i class="mdi-action-delete left"></i> Supprimer',
                                                         'attr'=>array('class'=>'red')))
